@@ -80,9 +80,20 @@ Rajkot, Gujarat, India</p>
 📧 Email: nationalsteel@gmail.com
 </p>
 
-<form>
-<label>Your Name</label>
-<input type="text" placeholder="Enter your name">
+<<<form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact">
+
+  <label>Your Name</label>
+  <input type="text" name="name" placeholder="Enter your name" required>
+
+  <label>Your Email</label>
+  <input type="email" name="email" placeholder="Enter your email" required>
+
+  <label>Your Message</label>
+  <textarea name="message" rows="5" placeholder="Enter your requirement" required></textarea>
+
+  <button type="submit">Send Enquiry</button>
+</form>
 
 <label>Your Email</label>
 <input type="email" placeholder="Enter your email">
