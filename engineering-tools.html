@@ -4,11 +4,183 @@
   <meta charset="UTF-8">
   <title>Engineering Tools | National Steel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:#0f172a;
+      color:#e5e7eb;
+      margin:0;
+      padding:0;
+    }
+    header{
+      text-align:center;
+      padding:40px 20px;
+      background:#020617;
+      border-bottom:1px solid #1e293b;
+    }
+    h1{margin:0;font-size:32px;}
+    p{color:#94a3b8}
+
+    section{
+      max-width:900px;
+      margin:40px auto;
+      background:#020617;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(0,0,0,.4);
+    }
+
+    h2{margin-top:0;color:#38bdf8}
+
+    input, select, button{
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+      background:#020617;
+      border:1px solid #334155;
+      color:#e5e7eb;
+      border-radius:6px;
+    }
+
+    button{
+      background:#0284c7;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    button:hover{background:#0369a1}
+
+    .result{
+      margin-top:15px;
+      padding:15px;
+      background:#020617;
+      border:1px dashed #38bdf8;
+      border-radius:6px;
+      font-weight:bold;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Engineering Tools</h1>
-<p>Advanced wire mesh calculation tools coming soon.</p>
+<header>
+  <h1>Engineering Tools</h1>
+  <p>Accurate industrial weight calculators for wire mesh & perforated sheets</p>
+</header>
+
+<!-- ================= PERFORATED SHEET ================= -->
+<section>
+<h2>Perforated Sheet Weight Calculator</h2>
+
+<input id="p_hole" placeholder="Hole Diameter (mm)">
+<input id="p_pitch" placeholder="Pitch (mm) – optional">
+<input id="p_length" placeholder="Length (m)">
+<input id="p_width" placeholder="Width (m)">
+<input id="p_thickness" placeholder="Sheet Thickness (mm)">
+
+<select id="p_density">
+  <option value="7850">MS / GI</option>
+  <option value="8000">SS 304</option>
+  <option value="8020">SS 316</option>
+</select>
+
+<button onclick="calcPerforated()">Calculate</button>
+<div id="p_result" class="result"></div>
+</section>
+
+<!-- ================= CHAIN LINK ================= -->
+<section>
+<h2>Chain Link Mesh Weight Calculator</h2>
+
+<input id="c_wire" placeholder="Wire Diameter (mm)">
+<input id="c_hole" placeholder="Hole Size (mm)">
+<input id="c_length" placeholder="Length (m)">
+<input id="c_height" placeholder="Height (m)">
+
+<select id="c_density">
+  <option value="7850">MS</option>
+  <option value="7850">GI</option>
+</select>
+
+<button onclick="calcChainlink()">Calculate</button>
+<div id="c_result" class="result"></div>
+</section>
+
+<!-- ================= WELD MESH ================= -->
+<section>
+<h2>Weld Mesh Weight Calculator</h2>
+
+<input id="w_wire" placeholder="Wire Diameter (mm)">
+<input id="w_pitch_x" placeholder="Pitch X (mm)">
+<input id="w_pitch_y" placeholder="Pitch Y (mm)">
+<input id="w_length" placeholder="Length (m)">
+<input id="w_width" placeholder="Width (m)">
+
+<select id="w_density">
+  <option value="7850">MS</option>
+  <option value="7850">GI</option>
+</select>
+
+<button onclick="calcWeldmesh()">Calculate</button>
+<div id="w_result" class="result"></div>
+</section>
+
+<script>
+// ------------------ PERFORATED ------------------
+function calcPerforated(){
+  let d = +p_hole.value/1000;
+  let t = +p_thickness.value/1000;
+  let L = +p_length.value;
+  let W = +p_width.value;
+  let density = +p_density.value;
+
+  let pitch = p_pitch.value ? +p_pitch.value/1000 : d*1.5;
+  let holeArea = Math.PI * d * d / 4;
+  let holesPerM2 = 1 / (pitch * pitch);
+  let openArea = holeArea * holesPerM2;
+  let metalArea = 1 - openArea;
+
+  let weight = metalArea * L * W * t * density;
+  p_result.innerHTML = "Weight ≈ " + weight.toFixed(2) + " kg";
+}
+
+// ------------------ CHAIN LINK ------------------
+function calcChainlink(){
+  let d = +c_wire.value/1000;
+  let hole = +c_hole.value/1000;
+  let L = +c_length.value;
+  let H = +c_height.value;
+  let density = +c_density.value;
+
+  let wireArea = Math.PI * d * d / 4;
+  let diamondsPerM2 = 1 / (hole * hole * 2);
+  let wireLengthPerDiamond = 4 * hole * Math.SQRT2;
+
+  let totalWireLength = diamondsPerM2 * wireLengthPerDiamond * L * H;
+  let weight = totalWireLength * wireArea * density;
+
+  c_result.innerHTML = "Weight ≈ " + weight.toFixed(2) + " kg";
+}
+
+// ------------------ WELD MESH ------------------
+function calcWeldmesh(){
+  let d = +w_wire.value/1000;
+  let px = +w_pitch_x.value/1000;
+  let py = +w_pitch_y.value/1000;
+  let L = +w_length.value;
+  let W = +w_width.value;
+  let density = +w_density.value;
+
+  let wireArea = Math.PI * d * d / 4;
+  let wiresX = W / px;
+  let wiresY = L / py;
+
+  let totalLength = (wiresX * L) + (wiresY * W);
+  let weight = totalLength * wireArea * density;
+
+  w_result.innerHTML = "Weight ≈ " + weight.toFixed(2) + " kg";
+}
+</script>
 
 </body>
 </html>
