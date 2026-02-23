@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Perforated Sheet Weight Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  font-family:Arial;
+  background:#f4f7fb;
+  padding:30px;
+}
+.container{
+  max-width:600px;
+  background:white;
+  padding:25px;
+  margin:auto;
+  border-radius:10px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+h2{
+  color:#0f2a44;
+  margin-bottom:20px;
+}
+label{
+  font-weight:bold;
+}
+input, select{
+  width:100%;
+  padding:10px;
+  margin:8px 0 15px;
+}
+button{
+  width:100%;
+  padding:12px;
+  background:#0f2a44;
+  color:white;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+}
+.result{
+  margin-top:15px;
+  font-size:18px;
+  font-weight:bold;
+}
+.note{
+  font-size:13px;
+  color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Perforated Sheet Weight Calculator</h2>
+
+<label>Material</label>
+<select id="material">
+  <option value="7850">MS</option>
+  <option value="7850">GI</option>
+  <option value="7930">SS 304</option>
+  <option value="7980">SS 310</option>
+  <option value="8000">SS 316</option>
+</select>
+
+<label>Sheet Thickness (mm)</label>
+<input type="number" id="thickness">
+
+<label>Hole Diameter (mm)</label>
+<input type="number" id="hole">
+
+<label>Pitch (mm) – Optional</label>
+<input type="number" id="pitch" placeholder="Leave empty for auto calculation">
+
+<label>Length (m)</label>
+<input type="number" id="length">
+
+<label>Width (m)</label>
+<input type="number" id="width">
+
+<button onclick="calculate()">Calculate Weight</button>
+
+<div class="result" id="result"></div>
+<p class="note">* If pitch is not entered, system assumes Pitch = Hole × 1.5</p>
+</div>
+
+<script>
+function calculate(){
+  let density = parseFloat(document.getElementById("material").value);
+  let t = parseFloat(document.getElementById("thickness").value)/1000;
+  let d = parseFloat(document.getElementById("hole").value)/1000;
+  let pitchInput = document.getElementById("pitch").value;
+  let length = parseFloat(document.getElementById("length").value);
+  let width = parseFloat(document.getElementById("width").value);
+
+  if(!t || !d || !length || !width){
+    document.getElementById("result").innerHTML="Please enter all required values";
+    return;
+  }
+
+  let p = pitchInput ? parseFloat(pitchInput)/1000 : d * 1.5;
+
+  let holeArea = Math.PI * d*d / 4;
+  let holesPerSqm = 1 / (p*p);
+  let openArea = holeArea * holesPerSqm;
+  let metalArea = 1 - openArea;
+
+  let sheetArea = length * width;
+  let weight = metalArea * sheetArea * t * density;
+
+  document.getElementById("result").innerHTML =
+    "Approx Weight: " + weight.toFixed(2) + " kg";
+}
+</script>
+
+</body>
+</html>
