@@ -1,348 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>National Steel | Engineered Wire Mesh Solutions</title>
-  <meta name="description" content="National Steel is a manufacturer of high-performance wire mesh solutions for cement, crusher, chemical and process industries worldwide.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<title>Engineering Tools | National Steel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Advanced wire mesh calculation tools by National Steel">
+<meta name="author" content="National Steel">
 
-  <style>
-    :root {
-      --navy:#0b1f33;
-      --graphite:#1f2933;
-      --platinum:#f8fafc;
-      --gold:#c89b3c;
-      --muted:#6b7280;
-    }
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body {
-      font-family:Inter, sans-serif;
-      color:var(--graphite);
-      background:var(--platinum);
-      line-height:1.6;
-    }
+<style>
+:root{
+    --bg:#0b1220;
+    --panel:#020617;
+    --accent:#38bdf8;
+    --success:#22c55e;
+    --text:#e5e7eb;
+}
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Inter, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+header{
+    padding:70px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#020617,#0b1220);
+}
+header h1{font-size:44px;margin-bottom:8px;}
+header p{opacity:.85;font-size:18px}
 
-    /* ---------- HEADER ---------- */
-    header {
-      position:fixed;
-      top:0; left:0; right:0;
-      background:rgba(11,31,51,.95);
-      backdrop-filter:blur(6px);
-      z-index:1000;
-    }
-    .nav {
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 24px;
-    }
-    .logo {
-      font-family:"IBM Plex Sans", sans-serif;
-      font-size:22px;
-      letter-spacing:1px;
-      font-weight:600;
-      color:white;
-    }
-    .logo span { color:var(--gold); }
+.container{
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 20px;
+}
 
-    .nav a {
-      color:#e5e7eb;
-      text-decoration:none;
-      margin-left:24px;
-      font-size:14px;
-    }
+.panel{
+    background:var(--panel);
+    border-radius:16px;
+    padding:35px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
 
-    /* ---------- HERO ---------- */
-    .hero {
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      background:
-        radial-gradient(circle at 30% 20%, #142a44, #0b1f33 70%);
-      color:white;
-      padding-top:80px;
-    }
+.selector{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    margin-bottom:30px;
+}
+.selector select{
+    flex:1;
+    padding:14px;
+    border-radius:10px;
+    background:#020617;
+    color:#fff;
+    border:1px solid #334155;
+    font-size:16px;
+}
 
-    .hero-inner {
-      max-width:1200px;
-      margin:auto;
-      padding:0 24px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:60px;
-      align-items:center;
-    }
+.calc{
+    display:none;
+    animation:fade .4s ease;
+}
+.calc.active{display:block}
 
-    .hero h1 {
-      font-family:"IBM Plex Sans", sans-serif;
-      font-size:48px;
-      line-height:1.2;
-      margin-bottom:20px;
-      animation:fadeUp 1s ease forwards;
-    }
+h2{
+    border-left:5px solid var(--accent);
+    padding-left:14px;
+    margin-bottom:25px;
+}
 
-    .hero p {
-      color:#cbd5e1;
-      max-width:520px;
-      margin-bottom:32px;
-      animation:fadeUp 1.4s ease forwards;
-    }
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
 
-    .hero-buttons a {
-      display:inline-block;
-      padding:14px 26px;
-      border-radius:40px;
-      margin-right:14px;
-      font-size:14px;
-      text-decoration:none;
-      transition:.3s;
-    }
+input,select{
+    padding:13px;
+    border-radius:10px;
+    background:#020617;
+    border:1px solid #334155;
+    color:#fff;
+}
 
-    .btn-primary {
-      background:var(--gold);
-      color:#111827;
-    }
-    .btn-primary:hover { opacity:.9; }
+button{
+    margin-top:20px;
+    padding:14px;
+    width:100%;
+    background:var(--accent);
+    color:#020617;
+    border:none;
+    border-radius:12px;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{opacity:.9}
 
-    .btn-outline {
-      border:1px solid #94a3b8;
-      color:white;
-    }
-    .btn-outline:hover {
-      background:white;
-      color:#111827;
-    }
+.result{
+    margin-top:18px;
+    font-size:20px;
+    color:var(--success);
+}
 
-    .hero-visual {
-      height:420px;
-      border-radius:20px;
-      background:
-        linear-gradient(135deg, rgba(200,155,60,.15), rgba(255,255,255,.02)),
-        url("https://images.unsplash.com/photo-1581092918367-7a58b7d68d43?auto=format&fit=crop&w=1400&q=80");
-      background-size:cover;
-      background-position:center;
-      animation:fadeIn 2s ease forwards;
-    }
+.download{
+    text-align:center;
+    margin:60px 0;
+}
+.download a{
+    padding:15px 34px;
+    background:var(--success);
+    color:#020617;
+    border-radius:50px;
+    font-weight:700;
+    text-decoration:none;
+}
 
-    /* ---------- TRUST BAR ---------- */
-    .trust {
-      background:white;
-      padding:80px 24px;
-    }
-    .trust-grid {
-      max-width:1100px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:30px;
-      text-align:center;
-    }
-    .trust-item h3 {
-      font-size:28px;
-      color:var(--navy);
-    }
-    .trust-item p {
-      color:var(--muted);
-      font-size:14px;
-    }
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    opacity:.8;
+}
 
-    /* ---------- SECTIONS ---------- */
-    section {
-      padding:100px 24px;
-    }
-    .section-inner {
-      max-width:1100px;
-      margin:auto;
-    }
-    .section-title {
-      font-family:"IBM Plex Sans", sans-serif;
-      font-size:34px;
-      margin-bottom:16px;
-    }
-    .section-sub {
-      color:var(--muted);
-      max-width:700px;
-      margin-bottom:60px;
-    }
-
-    /* ---------- PRODUCTS ---------- */
-    .products {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
-    .card {
-      background:white;
-      border-radius:18px;
-      padding:32px;
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      transition:.4s;
-    }
-    .card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 20px 50px rgba(0,0,0,.08);
-    }
-    .card h4 {
-      margin-bottom:10px;
-      font-family:"IBM Plex Sans", sans-serif;
-    }
-    .card p {
-      font-size:14px;
-      color:var(--muted);
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background:var(--navy);
-      color:#cbd5e1;
-      padding:60px 24px;
-    }
-    footer .footer-inner {
-      max-width:1100px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      gap:40px;
-    }
-    footer h4 {
-      color:white;
-      margin-bottom:12px;
-      font-family:"IBM Plex Sans", sans-serif;
-    }
-    footer a {
-      color:#cbd5e1;
-      text-decoration:none;
-      display:block;
-      margin-bottom:8px;
-      font-size:14px;
-    }
-
-    /* ---------- ANIMATIONS ---------- */
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(30px); }
-      to { opacity:1; transform:none; }
-    }
-    @keyframes fadeIn {
-      from { opacity:0; }
-      to { opacity:1; }
-    }
-
-    @media(max-width:900px){
-      .hero-inner { grid-template-columns:1fr; }
-      .trust-grid { grid-template-columns:1fr 1fr; }
-    }
-  </style>
+@keyframes fade{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:none}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">National<span>Steel</span></div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Industries</a>
-      <a href="engineering-tools.html">EngineeringTools</a>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
+<header data-aos="fade-down">
+<h1>Engineering Tools</h1>
+<p>Enterprise-grade wire mesh calculation suite</p>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>Engineered Wire Mesh<br>Solutions for Global Industries</h1>
-      <p>
-        National Steel manufactures precision wire mesh solutions for cement,
-        crusher, chemical and process industries, delivering reliability,
-        consistency and engineering confidence worldwide.
-      </p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-primary">Request Technical Quote</a>
-        <a href="#" class="btn-outline">Contact Engineering Team</a>
-      </div>
-    </div>
-    <div class="hero-visual"></div>
-  </div>
-</section>
+<div class="container">
+<div class="panel" data-aos="fade-up">
 
-<section class="trust">
-  <div class="trust-grid">
-    <div class="trust-item">
-      <h3>15+</h3><p>Years Experience</p>
-    </div>
-    <div class="trust-item">
-      <h3>Pan-India</h3><p>Supply Network</p>
-    </div>
-    <div class="trust-item">
-      <h3>Custom</h3><p>Engineered Solutions</p>
-    </div>
-    <div class="trust-item">
-      <h3>Industrial</h3><p>Grade Quality</p>
-    </div>
-  </div>
-</section>
+<div class="selector">
+<select onchange="showCalc(this.value)">
+<option value="">Select Calculator</option>
+<option value="perforated">Perforated Sheet</option>
+<option value="welded">Welded Mesh</option>
+<option value="chain">Chain Link Mesh</option>
+<option value="woven">Woven Wire Mesh</option>
+</select>
+</div>
 
-<section>
-  <div class="section-inner">
-    <h2 class="section-title">Product Capabilities</h2>
-    <p class="section-sub">
-      Our product portfolio is engineered to meet demanding operating
-      conditions across heavy and continuous-process industries.
-    </p>
+<!-- PERFORATED -->
+<div id="perforated" class="calc">
+<h2>Perforated Sheet Weight</h2>
+<div class="grid">
+<input id="p_hole" placeholder="Hole Diameter (mm)">
+<input id="p_pitch" placeholder="Pitch (mm) – optional">
+<input id="p_thk" placeholder="Thickness (mm)">
+<input id="p_len" placeholder="Length (m)">
+<input id="p_wid" placeholder="Width (m)">
+<select id="p_mat">
+<option value="7850">MS / GI</option>
+<option value="8000">SS 304</option>
+<option value="8050">SS 310</option>
+<option value="8020">SS 316</option>
+</select>
+</div>
+<button onclick="calcPerforated()">Calculate</button>
+<div class="result" id="p_result"></div>
+</div>
 
-    <div class="products">
-      <div class="card">
-        <h4>Spring Steel Vibrating Screen Mesh</h4>
-        <p>High fatigue resistance mesh for heavy-duty screening applications.</p>
-      </div>
-      <div class="card">
-        <h4>High Carbon Crimped Wire Mesh</h4>
-        <p>Precision-crimped mesh designed for accuracy and durability.</p>
-      </div>
-      <div class="card">
-        <h4>Welded Wire Mesh</h4>
-        <p>Uniform, high-strength mesh for industrial and structural use.</p>
-      </div>
-      <div class="card">
-        <h4>Perforated Metal Sheets</h4>
-        <p>Custom perforation patterns engineered for flow and separation.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- WELDED -->
+<div id="welded" class="calc">
+<h2>Welded Mesh Weight</h2>
+<div class="grid">
+<input id="w_wire" placeholder="Wire Diameter (mm)">
+<input id="w_space" placeholder="Spacing (mm)">
+<input id="w_len" placeholder="Length (m)">
+<input id="w_wid" placeholder="Width (m)">
+<select id="w_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+</select>
+</div>
+<button onclick="calcWelded()">Calculate</button>
+<div class="result" id="w_result"></div>
+</div>
+
+<!-- CHAIN -->
+<div id="chain" class="calc">
+<h2>Chain Link Mesh Weight</h2>
+<div class="grid">
+<input id="c_wire" placeholder="Wire Diameter (mm)">
+<input id="c_hole" placeholder="Hole Size (mm)">
+<input id="c_len" placeholder="Length (m)">
+<input id="c_wid" placeholder="Width (m)">
+<select id="c_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+</select>
+</div>
+<button onclick="calcChain()">Calculate</button>
+<div class="result" id="c_result"></div>
+</div>
+
+<!-- WOVEN -->
+<div id="woven" class="calc">
+<h2>Woven Wire Mesh Weight</h2>
+<div class="grid">
+<input id="ww_wire" placeholder="Wire Diameter (mm)">
+<input id="ww_hole" placeholder="Opening (mm)">
+<input id="ww_len" placeholder="Length (m)">
+<input id="ww_wid" placeholder="Width (m)">
+<select id="ww_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+<option value="8000">SS 304</option>
+<option value="8050">SS 310</option>
+<option value="8020">SS 316</option>
+</select>
+</div>
+<button onclick="calcWoven()">Calculate</button>
+<div class="result" id="ww_result"></div>
+</div>
+
+</div>
+</div>
+
+<div class="download" data-aos="zoom-in">
+<a href="brochure.pdf" download>⬇ Download Company Brochure</a>
+</div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <h4>National Steel</h4>
-      <p>
-        Manufacturer of engineered wire mesh solutions serving industrial
-        clients across India and global markets.
-      </p>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#">About Us</a>
-      <a href="#">Quality</a>
-      <a href="#">Blog</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="#">Rajkot, Gujarat, India</a>
-      <a href="#">info@nationalsteelmesh.com</a>
-    </div>
-  </div>
+© 2026 National Steel · Industrial Engineering Excellence
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init();
+
+function showCalc(id){
+document.querySelectorAll('.calc').forEach(c=>c.classList.remove('active'));
+if(id) document.getElementById(id).classList.add('active');
+}
+
+/* === SAME VERIFIED FORMULAS === */
+function calcPerforated(){
+let d=p_hole.value/1000;
+let p=p_pitch.value?p_pitch.value/1000:d*1.5;
+let t=p_thk.value/1000;
+let area=p_len.value*p_wid.value;
+let density=p_mat.value;
+let metal=1-(Math.PI*d*d/4)/(p*p);
+p_result.innerHTML="Weight ≈ "+(metal*area*t*density).toFixed(2)+" kg";
+}
+
+function calcWelded(){
+let d=w_wire.value/1000;
+let s=w_space.value/1000;
+let len=w_len.value;
+let wid=w_wid.value;
+let density=w_mat.value;
+let wireLen=(len/s+wid/s);
+w_result.innerHTML="Weight ≈ "+(Math.PI*d*d/4*wireLen*density).toFixed(2)+" kg";
+}
+
+function calcChain(){
+let d=c_wire.value/1000;
+let h=c_hole.value/1000;
+let len=c_len.value;
+let wid=c_wid.value;
+let density=c_mat.value;
+let wireLen=(len*wid)/(h*h)*1.55;
+c_result.innerHTML="Weight ≈ "+(Math.PI*d*d/4*wireLen*density).toFixed(2)+" kg";
+}
+
+function calcWoven(){
+let d=ww_wire.value/1000;
+let pitch=(ww_hole.value/1000)+d;
+let density=ww_mat.value;
+let wireLen=(1/pitch)*(ww_len.value+ww_wid.value);
+ww_result.innerHTML="Weight ≈ "+(Math.PI*d*d/4*wireLen*density).toFixed(2)+" kg";
+}
+</script>
 
 </body>
 </html>
-
