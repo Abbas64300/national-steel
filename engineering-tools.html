@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>Engineering Tools | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Professional wire mesh engineering calculators by National Steel">
-<meta name="keywords" content="wire mesh calculator, welded mesh, chain link, woven mesh, perforated sheet">
+<meta name="description" content="Industrial wire mesh calculators by National Steel – welded mesh, chain link, woven mesh & perforated sheets">
 <meta name="author" content="National Steel">
-
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
-    background:#0f172a;
+    background:#0b1220;
     color:#e5e7eb;
 }
 header{
     text-align:center;
-    padding:60px 20px;
-    background:linear-gradient(135deg,#020617,#0f172a);
+    padding:70px 20px;
+    background:linear-gradient(135deg,#020617,#0b1220);
 }
-header h1{font-size:42px;margin-bottom:10px;}
-header p{font-size:18px;opacity:.9;}
+header h1{font-size:42px;margin-bottom:12px;}
+header p{font-size:18px;opacity:.9}
 
 section{
     max-width:1100px;
-    margin:40px auto;
+    margin:50px auto;
     padding:30px;
     background:#020617;
-    border-radius:14px;
-    box-shadow:0 0 40px rgba(0,0,0,.4);
+    border-radius:16px;
+    box-shadow:0 0 45px rgba(0,0,0,.45);
 }
-
 section h2{
-    border-left:5px solid #38bdf8;
-    padding-left:12px;
-    margin-bottom:20px;
+    border-left:6px solid #38bdf8;
+    padding-left:14px;
+    margin-bottom:25px;
 }
 
 .calc-grid{
@@ -51,47 +46,45 @@ section h2{
 input,select,button{
     padding:12px;
     border-radius:8px;
-    border:none;
     font-size:15px;
+    border:none;
 }
-
 input,select{
     background:#020617;
     color:#fff;
     border:1px solid #334155;
 }
-
 button{
     background:#38bdf8;
     color:#020617;
     font-weight:bold;
     cursor:pointer;
 }
-button:hover{opacity:.9;}
+button:hover{opacity:.9}
 
 .result{
-    margin-top:15px;
+    margin-top:18px;
     font-size:18px;
     color:#22c55e;
 }
 
 .download{
     text-align:center;
-    margin:60px 0;
+    margin:70px 0;
 }
-
 .download a{
     background:#22c55e;
     color:#020617;
-    padding:14px 26px;
+    padding:16px 34px;
     border-radius:40px;
     font-weight:bold;
     text-decoration:none;
+    display:inline-block;
 }
 
 footer{
     text-align:center;
-    padding:30px;
+    padding:35px;
     background:#020617;
     opacity:.8;
 }
@@ -100,20 +93,20 @@ footer{
 
 <body>
 
-<header data-aos="fade-down">
+<header>
 <h1>Engineering Tools</h1>
-<p>Precision industrial calculation tools</p>
+<p>Enterprise-grade wire mesh calculation suite</p>
 </header>
 
 <!-- PERFORATED -->
-<section data-aos="fade-up">
+<section>
 <h2>Perforated Sheet Weight Calculator</h2>
 <div class="calc-grid">
-<input id="p_hole" placeholder="Hole Diameter (mm)">
+<input id="p_d" placeholder="Hole Diameter (mm)">
 <input id="p_pitch" placeholder="Pitch (mm) – optional">
-<input id="p_thk" placeholder="Thickness (mm)">
-<input id="p_len" placeholder="Length (m)">
-<input id="p_wid" placeholder="Width (m)">
+<input id="p_t" placeholder="Thickness (mm)">
+<input id="p_l" placeholder="Length (m)">
+<input id="p_w" placeholder="Width (m)">
 <select id="p_mat">
 <option value="7850">MS / GI</option>
 <option value="8000">SS 304</option>
@@ -122,51 +115,51 @@ footer{
 </select>
 </div>
 <button onclick="calcPerforated()">Calculate</button>
-<div class="result" id="p_result"></div>
+<div class="result" id="p_r"></div>
 </section>
 
 <!-- WELDED -->
-<section data-aos="fade-up">
-<h2>Welded Mesh Weight Calculator</h2>
+<section>
+<h2>Welded Wire Mesh Weight Calculator</h2>
 <div class="calc-grid">
-<input id="w_wire" placeholder="Wire Diameter (mm)">
-<input id="w_space" placeholder="Spacing (mm)">
-<input id="w_len" placeholder="Length (m)">
-<input id="w_wid" placeholder="Width (m)">
+<input id="w_d" placeholder="Wire Diameter (mm)">
+<input id="w_s" placeholder="Spacing (mm)">
+<input id="w_l" placeholder="Length (m)">
+<input id="w_w" placeholder="Width (m)">
 <select id="w_mat">
 <option value="7850">MS</option>
 <option value="7850">GI</option>
 </select>
 </div>
 <button onclick="calcWelded()">Calculate</button>
-<div class="result" id="w_result"></div>
+<div class="result" id="w_r"></div>
 </section>
 
 <!-- CHAIN LINK -->
-<section data-aos="fade-up">
+<section>
 <h2>Chain Link Mesh Weight Calculator</h2>
 <div class="calc-grid">
-<input id="c_wire" placeholder="Wire Diameter (mm)">
-<input id="c_hole" placeholder="Hole Size (mm)">
-<input id="c_len" placeholder="Length (m)">
-<input id="c_wid" placeholder="Width (m)">
+<input id="c_d" placeholder="Wire Diameter (mm)">
+<input id="c_h" placeholder="Hole Size (mm)">
+<input id="c_l" placeholder="Length (m)">
+<input id="c_w" placeholder="Width (m)">
 <select id="c_mat">
 <option value="7850">MS</option>
 <option value="7850">GI</option>
 </select>
 </div>
 <button onclick="calcChain()">Calculate</button>
-<div class="result" id="c_result"></div>
+<div class="result" id="c_r"></div>
 </section>
 
-<!-- WOVEN WIRE MESH -->
-<section data-aos="fade-up">
+<!-- WOVEN -->
+<section>
 <h2>Woven Wire Mesh Weight Calculator</h2>
 <div class="calc-grid">
-<input id="ww_wire" placeholder="Wire Diameter (mm)">
-<input id="ww_hole" placeholder="Opening / Hole Size (mm)">
-<input id="ww_len" placeholder="Length (m)">
-<input id="ww_wid" placeholder="Width (m)">
+<input id="ww_d" placeholder="Wire Diameter (mm)">
+<input id="ww_h" placeholder="Opening (mm)">
+<input id="ww_l" placeholder="Length (m)">
+<input id="ww_w" placeholder="Width (m)">
 <select id="ww_mat">
 <option value="7850">MS</option>
 <option value="7850">GI</option>
@@ -176,73 +169,58 @@ footer{
 </select>
 </div>
 <button onclick="calcWoven()">Calculate</button>
-<div class="result" id="ww_result"></div>
+<div class="result" id="ww_r"></div>
 </section>
 
-<div class="download" data-aos="zoom-in">
-<a href="brochure.pdf" download>⬇ Download Company Brochure</a>
+<div class="download">
+<a href="NATIONAL-STEEL-CATALOGUE.pdf" download>⬇ Download Company Catalogue</a>
 </div>
 
 <footer>
-© 2026 National Steel | Precision Engineered Products
+© 2026 National Steel · Rajkot, Gujarat, India  
+<br>Manufacturer of Welded Mesh, Chain Link Mesh, Woven Mesh & Perforated Sheets
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
-
-/* PERFORATED */
 function calcPerforated(){
-let d=p_hole.value/1000;
+let d=p_d.value/1000;
 let p=p_pitch.value?p_pitch.value/1000:d*1.5;
-let t=p_thk.value/1000;
-let area=p_len.value*p_wid.value;
+let t=p_t.value/1000;
+let area=p_l.value*p_w.value;
 let density=p_mat.value;
-let holeArea=Math.PI*d*d/4;
-let metal=1-holeArea/(p*p);
-let weight=metal*area*t*density;
-p_result.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
+let open=Math.PI*d*d/4/(p*p);
+let weight=(1-open)*area*t*density;
+p_r.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
 }
 
-/* WELDED */
 function calcWelded(){
-let d=w_wire.value/1000;
-let s=w_space.value/1000;
-let len=w_len.value;
-let wid=w_wid.value;
+let d=w_d.value/1000;
+let s=w_s.value/1000;
+let len=w_l.value, wid=w_w.value;
 let density=w_mat.value;
-let wireLen=(len/s+wid/s);
-let vol=Math.PI*d*d/4*wireLen;
-let weight=vol*density;
-w_result.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
+let wire=(len/s+wid/s);
+let weight=Math.PI*d*d/4*wire*density;
+w_r.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
 }
 
-/* CHAIN LINK */
 function calcChain(){
-let d=c_wire.value/1000;
-let h=c_hole.value/1000;
-let len=c_len.value;
-let wid=c_wid.value;
+let d=c_d.value/1000;
+let h=c_h.value/1000;
+let area=c_l.value*c_w.value;
 let density=c_mat.value;
 let factor=1.55;
-let wireLen=(len*wid)/(h*h)*factor;
-let vol=Math.PI*d*d/4*wireLen;
-let weight=vol*density;
-c_result.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
+let wire=area/(h*h)*factor;
+let weight=Math.PI*d*d/4*wire*density;
+c_r.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
 }
 
-/* WOVEN */
 function calcWoven(){
-let d=ww_wire.value/1000;
-let h=ww_hole.value/1000;
-let len=ww_len.value;
-let wid=ww_wid.value;
-let density=ww_mat.value;
+let d=ww_d.value/1000;
+let h=ww_h.value/1000;
 let pitch=h+d;
-let wires=(1/pitch)*(len+wid);
-let vol=Math.PI*d*d/4*wires;
-let weight=vol*density;
-ww_result.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
+let wires=(ww_l.value+ww_w.value)/pitch;
+let weight=Math.PI*d*d/4*wires*ww_mat.value;
+ww_r.innerHTML="Weight ≈ "+weight.toFixed(2)+" kg";
 }
 </script>
 
