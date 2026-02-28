@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>National Steel | Engineered Wire Mesh Solutions</title>
-<meta name="description" content="National Steel is a manufacturer of high-performance wire mesh solutions for cement, crusher, chemical and process industries worldwide.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow">
+<meta name="description" content="National Steel – Manufacturer of welded wire mesh, chain link fencing, perforated sheets and industrial screening solutions.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== EXISTING VARIABLES ===== */
-:root {
+:root{
 --navy:#0b1f33;
---graphite:#1f2933;
---platinum:#f8fafc;
+--navy-dark:#081726;
 --gold:#c89b3c;
+--text:#1f2933;
 --muted:#6b7280;
+--bg:#f8fafc;
 }
 
-* { box-sizing:border-box; margin:0; padding:0; }
-body {
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
 font-family:Inter, sans-serif;
-color:var(--graphite);
-background:var(--platinum);
+background:var(--bg);
+color:var(--text);
 line-height:1.6;
 }
 
-/* ===== HEADER ===== */
-header {
+/* ================= HEADER ================= */
+header{
 position:fixed;
-top:0; left:0; right:0;
-background:rgba(11,31,51,.95);
+top:0;left:0;right:0;
+background:rgba(11,31,51,.97);
 backdrop-filter:blur(6px);
 z-index:1000;
 }
-.nav {
+
+.nav{
 max-width:1200px;
 margin:auto;
 display:flex;
@@ -43,85 +44,192 @@ justify-content:space-between;
 align-items:center;
 padding:16px 24px;
 }
-.logo {
-font-family:"IBM Plex Sans", sans-serif;
-font-size:22px;
-letter-spacing:1px;
-font-weight:600;
-color:white;
-}
-.logo span { color:var(--gold); }
 
-nav {
+.logo{
+font-family:"IBM Plex Sans",sans-serif;
+font-size:22px;
+font-weight:600;
+color:#fff;
+letter-spacing:.5px;
+}
+
+.logo span{color:var(--gold)}
+
+nav{
 display:flex;
 align-items:center;
 }
 
-.nav a {
+nav a{
 color:#e5e7eb;
 text-decoration:none;
-margin-left:24px;
+margin-left:26px;
 font-size:14px;
 }
 
-/* ===== DROPDOWN (NEW – ULTRA CLEAN) ===== */
-.dropdown {
-position:relative;
-}
+/* ================= DROPDOWN ================= */
+.dropdown{position:relative}
 
-.dropdown > a::after {
+.dropdown>a::after{
 content:"▾";
 margin-left:6px;
 font-size:11px;
 opacity:.8;
 }
 
-.dropdown-menu {
+.dropdown-menu{
 position:absolute;
 top:38px;
 left:0;
-background:white;
-min-width:220px;
+background:#fff;
+min-width:230px;
 border-radius:14px;
 padding:10px 0;
-box-shadow:0 20px 50px rgba(0,0,0,.12);
+box-shadow:0 20px 50px rgba(0,0,0,.15);
 opacity:0;
 visibility:hidden;
 transform:translateY(10px);
 transition:.25s ease;
 }
 
-.dropdown-menu a {
+.dropdown-menu a{
 display:block;
-padding:10px 20px;
+padding:10px 22px;
 margin:0;
 font-size:13px;
 color:#111827;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover{
 background:#f1f5f9;
 }
 
-/* Hover trigger */
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu{
 opacity:1;
 visibility:visible;
 transform:none;
 }
 
-/* ===== HERO (UNCHANGED) ===== */
-.hero {
+/* ================= HERO ================= */
+.hero{
 min-height:100vh;
+padding-top:110px;
+background:
+radial-gradient(circle at 30% 20%, #142a44, var(--navy) 70%);
+color:#fff;
 display:flex;
 align-items:center;
-background:
-radial-gradient(circle at 30% 20%, #142a44, #0b1f33 70%);
-color:white;
-padding-top:80px;
 }
 
-/* --- rest of your CSS remains EXACTLY SAME --- */
+.hero-inner{
+max-width:1200px;
+margin:auto;
+padding:0 24px;
+}
+
+.hero h1{
+font-size:48px;
+max-width:720px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+color:#cbd5e1;
+max-width:600px;
+margin-bottom:36px;
+}
+
+.hero-buttons a{
+display:inline-block;
+margin-right:14px;
+padding:14px 34px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+}
+
+.btn-primary{
+background:var(--gold);
+color:#081726;
+}
+
+.btn-outline{
+border:1px solid #cbd5e1;
+color:#fff;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+max-width:1200px;
+margin:100px auto;
+padding:0 24px;
+}
+
+.section h2{
+font-size:30px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+.card{
+background:#fff;
+padding:32px;
+border-radius:18px;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+background:var(--navy-dark);
+color:#cbd5e1;
+padding:60px 24px;
+margin-top:120px;
+}
+
+.footer-inner{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+}
+
+footer h4{
+color:#fff;
+margin-bottom:14px;
+}
+
+footer a{
+color:#cbd5e1;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
+font-size:14px;
+}
+
+footer a:hover{color:#fff}
+
+.copy{
+text-align:center;
+margin-top:40px;
+font-size:13px;
+opacity:.8;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+nav{display:none}
+}
 </style>
 </head>
 
@@ -132,27 +240,98 @@ padding-top:80px;
 <div class="logo">National<span>Steel</span></div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Industries</a>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="industries.html">Industries</a>
 
-<!-- ✅ DROPDOWN -->
 <div class="dropdown">
 <a href="#">Engineering Tools</a>
 <div class="dropdown-menu">
-<a href="engineering-tools.html">Screening Calculator</a>
-<a href="#">Mesh Weight Calculator</a>
-<a href="#">Open Area Calculator</a>
+<a href="engineering-tools.html">Wire Mesh Calculators</a>
+<a href="perforated-sheet-calculation.html">Perforated Sheet Calculator</a>
 </div>
 </div>
 
-<a href="#">Contact</a>
+<a href="contact.html">Contact</a>
 </nav>
-
 </div>
 </header>
 
-<!-- REST OF BODY CONTENT REMAINS UNCHANGED -->
+<!-- ================= HERO ================= -->
+<section class="hero">
+<div class="hero-inner">
+<h1>Engineered Wire Mesh Solutions for Global Industries</h1>
+<p>Manufacturer of precision welded mesh, chain link fencing, perforated sheets and industrial screening solutions.</p>
+
+<div class="hero-buttons">
+<a href="brochure.html" class="btn-primary">View Company Brochure</a>
+<a href="assets/brochure/National-Steel-Catalogue.pdf" class="btn-outline" download>Download Catalogue</a>
+</div>
+</div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="section">
+<h2>Our Products</h2>
+<div class="grid">
+<div class="card">
+<h3>Welded Wire Mesh</h3>
+<p>High strength industrial welded mesh for construction and screening.</p>
+</div>
+<div class="card">
+<h3>Chain Link Mesh</h3>
+<p>GI & MS chain link fencing for industrial and infrastructure use.</p>
+</div>
+<div class="card">
+<h3>Perforated Metal Sheets</h3>
+<p>Custom perforation patterns for separation and filtration.</p>
+</div>
+<div class="card">
+<h3>Stainless Steel Wire Mesh</h3>
+<p>SS 304 / 310 / 316 woven mesh for critical applications.</p>
+</div>
+</div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="section">
+<h2>Why National Steel</h2>
+<div class="grid">
+<div class="card"><h3>15+ Years Experience</h3><p>Trusted manufacturing expertise.</p></div>
+<div class="card"><h3>Pan-India & Export</h3><p>Serving domestic and global markets.</p></div>
+<div class="card"><h3>Precision Engineering</h3><p>Consistent quality and accuracy.</p></div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="footer-inner">
+<div>
+<h4>National Steel</h4>
+<p>Manufacturer of engineered wire mesh solutions for industrial clients worldwide.</p>
+</div>
+
+<div>
+<h4>Company</h4>
+<a href="about.html">About Us</a>
+<a href="products.html">Products</a>
+<a href="blog.html">Blog</a>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Rajkot, Gujarat, India</p>
+<p>📞 +91 7802021053</p>
+  <p>📞 +91 9904144986</p>
+<p>✉️ Business.nationalsteel@gmail.com</p>
+  <p>✉️ nswiremesh.official@gmail.com</p>
+</div>
+</div>
+
+<div class="copy">
+© 2026 National Steel · All Rights Reserved
+</div>
+</footer>
 
 </body>
 </html>
