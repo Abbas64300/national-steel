@@ -1,145 +1,89 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Company Brochure | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Download or view National Steel company brochure – Industrial Wire Mesh Manufacturer">
+<meta name="description" content="Download and view National Steel company catalogue – welded mesh, chain link mesh, perforated sheets & stainless steel wire mesh">
 <meta name="author" content="National Steel">
 
 <style>
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0f172a;
-    color:#e5e7eb;
-}
-
-header{
-    text-align:center;
-    padding:60px 20px;
+    font-family: Arial, Helvetica, sans-serif;
     background:#020617;
-}
-
-header h1{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-header p{
-    font-size:18px;
-    opacity:.85;
-}
-
-.container{
-    max-width:1200px;
-    margin:40px auto;
-    padding:20px;
-}
-
-.viewer{
-    width:100%;
-    h…
-[9:49 pm, 27/2/2026] Abbas Bharmal: <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Company Brochure | National Steel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Download and view National Steel wire mesh company catalogue. Industrial welded mesh, chain link mesh, perforated sheets and stainless steel wire mesh manufacturer in India.">
-<meta name="keywords" content="National Steel catalogue, wire mesh brochure, welded mesh manufacturer India, chain link mesh supplier">
-<meta name="author" content="National Steel">
-
-<style>
-body{
-    margin:0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background:#0f172a;
     color:#e5e7eb;
 }
 
 header{
-    text-align:center;
     padding:70px 20px;
+    text-align:center;
     background:linear-gradient(135deg,#020617,#0f172a);
 }
 
 header h1{
     font-size:42px;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 header p{
     font-size:18px;
-    opacity:.85;
+    opacity:0.9;
 }
 
 .container{
-    max-width:1300px;
+    max-width:1100px;
     margin:40px auto;
     padding:20px;
 }
 
-.pdf-viewer{
-    width:100%;
-    height:900px;
-    border:none;
+.viewer{
+    background:#000;
     border-radius:14px;
-    box-shadow:0 0 40px rgba(0,0,0,.4);
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,0,0,.6);
 }
 
-.buttons{
+iframe{
+    width:100%;
+    height:600px;
+    border:none;
+    background:#000;
+}
+
+.actions{
     text-align:center;
-    margin-top:35px;
+    margin:35px 0;
 }
 
-.btn{
+.actions a{
     display:inline-block;
     margin:10px;
     padding:14px 28px;
     border-radius:40px;
-    font-weight:bold;
     font-size:16px;
+    font-weight:bold;
     text-decoration:none;
-    transition:.3s ease;
 }
 
-.download-btn{
+.download{
     background:#22c55e;
     color:#020617;
 }
 
-.download-btn:hover{
-    background:#16a34a;
-}
-
-.whatsapp-btn{
+.whatsapp{
     background:#25D366;
-    color:white;
-}
-
-.whatsapp-btn:hover{
-    background:#1ebe5d;
+    color:#020617;
 }
 
 footer{
-    text-align:center;
-    padding:40px 20px;
-    background:#020617;
     margin-top:60px;
+    padding:30px 15px;
+    text-align:center;
+    background:#020617;
     font-size:14px;
-    opacity:.8;
-}
-
-@media(max-width:768px){
-    .pdf-viewer{
-        height:600px;
-    }
-    header h1{
-        font-size:30px;
-    }
+    opacity:0.85;
 }
 </style>
 </head>
@@ -147,30 +91,34 @@ footer{
 <body>
 
 <header>
-    <h1>National Steel Company Brochure</h1>
+    <h1>National Steel<br>Company Brochure</h1>
     <p>Precision Engineered Wire Mesh Solutions for Global Industries</p>
 </header>
 
 <div class="container">
 
     <!-- PDF VIEWER -->
-    <iframe 
-        class="pdf-viewer"
-        src="NATIONAL%20STEEL%20CATALOGUE%20(1).pdf">
-    </iframe>
+    <div class="viewer">
+        <iframe 
+            src="NATIONAL-STEEL-CATALOGUE.pdf#toolbar=0&navpanes=0"
+            title="National Steel Catalogue">
+        </iframe>
+    </div>
 
     <!-- ACTION BUTTONS -->
-    <div class="buttons">
-        <a href="NATIONAL%20STEEL%20CATALOGUE%20(1).pdf" 
-           download
-           class="btn download-btn">
-           ⬇ Download Full Catalogue (PDF)
+    <div class="actions">
+        <a 
+          href="NATIONAL-STEEL-CATALOGUE.pdf" 
+          download 
+          class="download">
+          ⬇ Download Full Catalogue (PDF)
         </a>
 
-        <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20National%20Steel,%20I%20reviewed%20your%20catalogue%20and%20need%20more%20details."
-           target="_blank"
-           class="btn whatsapp-btn">
-           💬 Enquire on WhatsApp
+        <a 
+          href="https://wa.me/917802021053?text=Hello%20National%20Steel,%20I%20have%20viewed%20your%20company%20catalogue%20and%20would%20like%20to%20enquire%20about%20your%20wire%20mesh%20products."
+          target="_blank"
+          class="whatsapp">
+          💬 Enquire on WhatsApp
         </a>
     </div>
 
