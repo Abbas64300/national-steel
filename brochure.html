@@ -1,89 +1,74 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Company Brochure | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Download and view National Steel company catalogue – welded mesh, chain link mesh, perforated sheets & stainless steel wire mesh">
-<meta name="author" content="National Steel">
+<meta name="description" content="Download National Steel company brochure – engineered wire mesh solutions for global industries.">
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#020617;
-    color:#e5e7eb;
+margin:0;
+font-family:Inter, Arial, sans-serif;
+background:#020617;
+color:#e5e7eb;
+text-align:center;
 }
 
 header{
-    padding:70px 20px;
-    text-align:center;
-    background:linear-gradient(135deg,#020617,#0f172a);
+padding:90px 20px 60px;
+background:radial-gradient(circle at top,#0f172a,#020617);
 }
 
 header h1{
-    font-size:42px;
-    margin-bottom:12px;
+font-size:42px;
+margin-bottom:10px;
 }
 
 header p{
-    font-size:18px;
-    opacity:0.9;
+opacity:.85;
+font-size:18px;
+max-width:800px;
+margin:auto;
 }
 
-.container{
-    max-width:1100px;
-    margin:40px auto;
-    padding:20px;
+.preview{
+margin:60px auto;
+max-width:900px;
+padding:0 20px;
 }
 
-.viewer{
-    background:#000;
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:0 0 40px rgba(0,0,0,.6);
-}
-
-iframe{
-    width:100%;
-    height:600px;
-    border:none;
-    background:#000;
+.preview img{
+width:100%;
+border-radius:16px;
+box-shadow:0 30px 80px rgba(0,0,0,.6);
 }
 
 .actions{
-    text-align:center;
-    margin:35px 0;
+margin:50px 0 80px;
 }
 
-.actions a{
-    display:inline-block;
-    margin:10px;
-    padding:14px 28px;
-    border-radius:40px;
-    font-size:16px;
-    font-weight:bold;
-    text-decoration:none;
+.download-btn{
+display:inline-block;
+padding:16px 36px;
+border-radius:40px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+font-weight:700;
+font-size:18px;
+margin:10px;
 }
 
-.download{
-    background:#22c55e;
-    color:#020617;
-}
-
-.whatsapp{
-    background:#25D366;
-    color:#020617;
+.download-btn:hover{
+background:#1d4ed8;
 }
 
 footer{
-    margin-top:60px;
-    padding:30px 15px;
-    text-align:center;
-    background:#020617;
-    font-size:14px;
-    opacity:0.85;
+padding:30px;
+opacity:.7;
+font-size:14px;
 }
 </style>
 </head>
@@ -91,45 +76,43 @@ footer{
 <body>
 
 <header>
-    <h1>National Steel<br>Company Brochure</h1>
-    <p>Precision Engineered Wire Mesh Solutions for Global Industries</p>
+<h1>National Steel Company Brochure</h1>
+<p>Precision Engineered Wire Mesh Solutions for Global Industries</p>
 </header>
 
-<div class="container">
+<div class="preview">
+<!-- OPTIONAL PREVIEW IMAGE -->
+<img src="brochure-preview.jpg" alt="National Steel Brochure Preview">
+</div>
 
-    <!-- PDF VIEWER -->
-    <div class="viewer">
-        <iframe 
-            src="NATIONAL-STEEL-CATALOGUE.pdf#toolbar=0&navpanes=0"
-            title="National Steel Catalogue">
-        </iframe>
-    </div>
-
-    <!-- ACTION BUTTONS -->
-    <div class="actions">
-        <a 
-  href="/national-steel-catalogue.pdf"
-  class="download"
-  download
-> 
+<div class="actions">
+<a href="/national-steel-catalogue.pdf" class="download-btn" download>
 ⬇ Download Full Catalogue (PDF)
 </a>
-
-        <a 
-          href="https://wa.me/917802021053?text=Hello%20National%20Steel,%20I%20have%20viewed%20your%20company%20catalogue%20and%20would%20like%20to%20enquire%20about%20your%20wire%20mesh%20products."
-          target="_blank"
-          class="whatsapp">
-          💬 Enquire on WhatsApp
-        </a>
-    </div>
-
 </div>
 
 <footer>
-© 2026 National Steel | Rajkot, Gujarat, India  
-<br>
-Manufacturer of Welded Mesh, Chain Link Mesh, Perforated Sheets & Stainless Steel Wire Mesh
+© 2026 National Steel · Rajkot, Gujarat, India
 </footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917802021053" target="_blank"
+style="
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+z-index:999;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+style="width:34px;height:34px;">
+</a>
 
 </body>
 </html>
