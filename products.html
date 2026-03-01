@@ -9,11 +9,12 @@
 
 <style>
 :root{
-  --primary:#0b1f33;
-  --accent:#2563eb;
-  --bg:#f4f6f8;
+  --navy:#0b1f33;
+  --blue:#2563eb;
+  --green:#22c55e;
+  --bg:#f3f5f7;
   --card:#ffffff;
-  --muted:#64748b;
+  --muted:#6b7280;
 }
 
 *{box-sizing:border-box}
@@ -26,113 +27,117 @@ body{
   color:#0f172a;
 }
 
-/* ================= HEADER ================= */
-header{
+/* ================= HERO ================= */
+.hero{
   background:linear-gradient(135deg,#071a2e,#0b1f33);
   color:#fff;
-  padding:48px 20px;
+  padding:70px 22px;
 }
-header h1{
+.hero h1{
   margin:0;
   font-size:36px;
   font-weight:800;
 }
-header p{
-  margin-top:10px;
-  font-size:16px;
-  opacity:.9;
+.hero p{
+  margin-top:12px;
+  font-size:17px;
+  max-width:820px;
+  opacity:.92;
 }
 
-/* ================= STICKY NAV ================= */
+/* ================= NAV ================= */
 .product-nav{
   position:sticky;
   top:0;
-  z-index:999;
+  z-index:1000;
   background:#fff;
   border-bottom:1px solid #e5e7eb;
-  padding:14px 10px;
+  padding:14px;
   display:flex;
-  gap:12px;
+  gap:14px;
   overflow-x:auto;
 }
 .product-nav a{
   text-decoration:none;
-  white-space:nowrap;
   font-size:13px;
   font-weight:600;
-  color:var(--primary);
   padding:10px 18px;
   border-radius:999px;
   background:#eef2f7;
+  color:#0b1f33;
 }
 .product-nav a:hover{
-  background:var(--primary);
+  background:#0b1f33;
   color:#fff;
 }
 
 /* ================= SECTIONS ================= */
 .section{
   max-width:1200px;
-  margin:70px auto;
-  padding:0 20px;
+  margin:80px auto;
+  padding:0 22px;
 }
 .section h2{
-  font-size:30px;
+  font-size:32px;
   font-weight:800;
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
-.section p.lead{
+.section p{
+  max-width:880px;
   color:var(--muted);
-  max-width:850px;
+  font-size:15px;
 }
 
 /* ================= CATALOGUE ================= */
 .catalogue{
   background:linear-gradient(135deg,#0b1f33,#102a44);
   color:#fff;
-  padding:50px;
-  border-radius:26px;
+  border-radius:28px;
+  padding:60px;
   display:grid;
   grid-template-columns:1fr auto;
-  gap:30px;
+  gap:40px;
   align-items:center;
-  box-shadow:0 30px 70px rgba(0,0,0,.35);
+  box-shadow:0 35px 90px rgba(0,0,0,.35);
 }
 .catalogue h3{
-  font-size:28px;
+  font-size:30px;
   margin:0;
 }
 .catalogue p{
-  margin-top:8px;
+  margin-top:10px;
   opacity:.9;
 }
-.catalogue a{
+.catalogue-actions{
+  display:flex;
+  gap:16px;
+}
+.catalogue-actions a{
   text-decoration:none;
   font-weight:700;
-  padding:14px 26px;
+  padding:14px 28px;
   border-radius:999px;
-  margin-left:10px;
 }
-.view{background:#2563eb;color:#fff}
-.download{background:#22c55e;color:#052e16}
+.view{background:var(--blue);color:#fff}
+.download{background:var(--green);color:#053b1a}
 
 /* ================= PRODUCTS ================= */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:34px;
-  margin-top:40px;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:44px;
+  margin-top:50px;
 }
 .card{
   background:var(--card);
   border-radius:26px;
   overflow:hidden;
-  box-shadow:0 25px 60px rgba(0,0,0,.08);
+  box-shadow:0 25px 70px rgba(0,0,0,.08);
   transition:.35s ease;
 }
 .card:hover{
   transform:translateY(-6px);
-  box-shadow:0 35px 80px rgba(0,0,0,.12);
+  box-shadow:0 40px 90px rgba(0,0,0,.12);
 }
 .card img{
   width:100%;
@@ -140,7 +145,7 @@ header p{
   object-fit:cover;
 }
 .card-body{
-  padding:26px;
+  padding:30px;
 }
 .card-body h3{
   margin:0;
@@ -148,7 +153,7 @@ header p{
   font-weight:700;
 }
 .card-body p{
-  margin:10px 0 18px;
+  margin:12px 0 22px;
   font-size:14px;
   color:var(--muted);
 }
@@ -188,10 +193,10 @@ td:first-child{
 
 <body>
 
-<header>
-  <h1>NationalSteel – Industrial Products</h1>
-  <p>Supplier & stockist of engineered wire mesh, fencing & screening solutions</p>
-</header>
+<section class="hero">
+  <h1>Industrial Products</h1>
+  <p>Supplier & stockist of engineered wire mesh, fencing and screening solutions for infrastructure, process industries and OEMs.</p>
+</section>
 
 <div class="product-nav">
   <a href="#ssmesh">SS Wire Mesh</a>
@@ -206,9 +211,9 @@ td:first-child{
   <div class="catalogue">
     <div>
       <h3>Company Catalogue</h3>
-      <p>Complete sizes, grades & verified technical specifications</p>
+      <p>Complete sizes, grades and verified technical specifications for procurement teams.</p>
     </div>
-    <div>
+    <div class="catalogue-actions">
       <a class="view" href="national-steel-catalogue.pdf" target="_blank">View Catalogue</a>
       <a class="download" href="national-steel-catalogue.pdf" download>Download PDF</a>
     </div>
@@ -217,10 +222,10 @@ td:first-child{
 
 <section class="section">
 <h2>About National Steel</h2>
-<p class="lead">
-National Steel is a trusted supplier and stockist supporting infrastructure,
-chemical, cement, mining and manufacturing industries with consistent quality,
-ready stock availability and accurate specifications.
+<p>
+National Steel is a trusted supplier and stockist supporting infrastructure, cement,
+chemical, mining and manufacturing industries with ready stock availability,
+consistent quality and accurate specifications.
 </p>
 </section>
 
@@ -247,10 +252,10 @@ ready stock availability and accurate specifications.
 <img src="assets/images/chainlink.jpg">
 <div class="card-body">
 <h3>Chain Link Fencing</h3>
-<p>GI & MS fencing for industrial, infrastructure and security applications.</p>
+<p>GI & MS fencing for industrial and infrastructure security.</p>
 <table>
 <tr><td>Mesh Size</td><td>25 – 100 mm</td></tr>
-<tr><td>Wire Diameter</td><td>2.5 – 4.0 mm</td></tr>
+<tr><td>Wire Dia</td><td>2.5 – 4.0 mm</td></tr>
 <tr><td>Finish</td><td>Hot Dip Galvanized</td></tr>
 </table>
 </div>
@@ -260,7 +265,7 @@ ready stock availability and accurate specifications.
 <img src="assets/images/barbed-wire.jpg">
 <div class="card-body">
 <h3>Barbed Wire</h3>
-<p>Heavy GI barbed wire for agricultural & industrial boundary fencing.</p>
+<p>Heavy GI barbed wire for agricultural and industrial fencing.</p>
 <table>
 <tr><td>Type</td><td>12×14 / 14×14</td></tr>
 <tr><td>Bundle Weight</td><td>30 – 35 kg</td></tr>
@@ -273,7 +278,7 @@ ready stock availability and accurate specifications.
 <img src="assets/images/extrusion-screen.jpg">
 <div class="card-body">
 <h3>SS Extrusion Screen</h3>
-<p>High precision screens for polymer & plastic extrusion lines.</p>
+<p>High precision screens for polymer & plastic extrusion.</p>
 <table>
 <tr><td>Diameter</td><td>50 – 450 mm</td></tr>
 <tr><td>Mesh</td><td>20 – 400</td></tr>
@@ -286,7 +291,7 @@ ready stock availability and accurate specifications.
 <img src="assets/images/spring-steel.jpg">
 <div class="card-body">
 <h3>Spring Steel Screen</h3>
-<p>High tensile vibrating screens for crushers and screening plants.</p>
+<p>High tensile vibrating screens for crushers.</p>
 <table>
 <tr><td>Tensile Strength</td><td>1500 – 1800 MPa</td></tr>
 <tr><td>Thickness</td><td>3 – 12 mm</td></tr>
@@ -298,9 +303,9 @@ ready stock availability and accurate specifications.
 <img src="assets/images/weldmesh.jpg">
 <div class="card-body">
 <h3>Welded Wire Mesh</h3>
-<p>Rigid welded mesh for construction reinforcement & fencing.</p>
+<p>Rigid welded mesh for construction reinforcement.</p>
 <table>
-<tr><td>Wire Diameter</td><td>1.2 – 6.0 mm</td></tr>
+<tr><td>Wire Dia</td><td>1.2 – 6.0 mm</td></tr>
 <tr><td>Aperture</td><td>25×25 – 100×100 mm</td></tr>
 </table>
 </div>
