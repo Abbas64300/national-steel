@@ -5,202 +5,198 @@
 <title>Products | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{
---navy:#0b1f33;
---steel:#1f2933;
---muted:#6b7280;
---bg:#f4f6f8;
---gold:#c89b3c;
-}
-
-*{box-sizing:border-box}
 body{
-margin:0;
-font-family:Inter,Arial,sans-serif;
-background:var(--bg);
-color:var(--steel);
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#f4f6f8;
+  color:#1f2933;
 }
-
-/* HEADER */
 header{
-background:var(--navy);
-padding:22px 28px;
-font-size:22px;
-font-weight:600;
-color:#fff;
+  background:#0b1f33;
+  padding:16px 24px;
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
 }
-
-/* CONTAINER */
-.container{
-max-width:1200px;
-margin:auto;
-padding:50px 20px;
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 16px;
 }
-
-/* ABOUT SECTION */
-.about{
-background:linear-gradient(135deg,#0b1f33,#132f4c);
-color:#fff;
-border-radius:20px;
-padding:60px;
-margin-bottom:80px;
-box-shadow:0 30px 80px rgba(0,0,0,.35);
-}
-
-.about h1{
-font-size:38px;
-margin-bottom:20px;
-}
-
-.about p{
-font-size:18px;
-line-height:1.7;
-color:#d1d5db;
-max-width:900px;
-}
-
-.about strong{
-color:#fff;
-font-weight:600;
-}
-
-/* SECTION TITLE */
-.section-title{
-font-size:34px;
-margin-bottom:40px;
-color:var(--navy);
-}
-
-/* PRODUCT GRID */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
-}
-
-/* PRODUCT CARD */
 .product{
-background:#fff;
-border-radius:18px;
-padding:35px;
-box-shadow:0 20px 50px rgba(0,0,0,.12);
-transition:.3s ease;
+  background:#fff;
+  border-radius:16px;
+  margin-bottom:40px;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  overflow:hidden;
 }
-
-.product:hover{
-transform:translateY(-6px);
-box-shadow:0 30px 70px rgba(0,0,0,.18);
+.product img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  background:#e5e7eb;
 }
-
-.product h3{
-margin-top:0;
-color:var(--navy);
-font-size:22px;
+.product-content{
+  padding:26px;
 }
-
+.product h2{
+  margin:0 0 10px;
+}
 .product p{
-color:var(--muted);
-line-height:1.6;
+  color:#4b5563;
+  line-height:1.6;
 }
-
-/* FOOTER */
-footer{
-margin-top:100px;
-background:var(--navy);
-color:#cbd5e1;
-text-align:center;
-padding:30px;
-font-size:14px;
+details{
+  margin-top:18px;
+  background:#f9fafb;
+  border-radius:10px;
+  padding:16px;
+}
+summary{
+  font-weight:600;
+  cursor:pointer;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  font-size:14px;
+}
+td,th{
+  border:1px solid #d1d5db;
+  padding:10px;
+  text-align:left;
+}
+th{
+  background:#eef2f7;
 }
 </style>
 </head>
 
 <body>
 
-<header>National<span style="color:#c89b3c">Steel</span></header>
+<header>National Steel – Product Range</header>
 
-<div class="container">
+<section>
 
-<!-- ABOUT US -->
-<section class="about">
-<h1>Industrial Wire Mesh Manufacturer, Supplier & Stockist</h1>
+<!-- SS WIRE MESH -->
+<div class="product">
+<img src="assets/images/ss-wire-mesh.jpg" alt="Stainless Steel Wire Mesh">
+<div class="product-content">
+<h2>Stainless Steel Wire Mesh</h2>
+<p>Precision woven SS mesh supplied in SS 304, 316, 310 grades for filtration, screening and separation in chemical, food, pharma and process industries.</p>
 
-<p>
-<strong>National Steel</strong> is a trusted Indian manufacturer, supplier and stockist of industrial wire mesh, screening media and steel-based engineered products.
-With decades of combined industry experience, we serve EPC contractors, infrastructure companies, OEMs, exporters and global industrial buyers.
-</p>
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Mesh Range</th><td>1 to 400 mesh</td></tr>
+<tr><th>Wire Diameter</th><td>0.03 – 3.0 mm</td></tr>
+<tr><th>Opening %</th><td>25% – 70% (mesh dependent)</td></tr>
+<tr><th>Standard Width</th><td>1 m, 1.2 m, 1.5 m</td></tr>
+<tr><th>Finish</th><td>Plain / Electro-polished</td></tr>
+</table>
+</details>
+</div>
+</div>
 
-<p>
-Our strength lies in <strong>ready stock availability</strong>, <strong>precision manufacturing</strong> and <strong>strict quality control</strong>.
-We maintain a wide inventory of welded mesh, stainless steel wire mesh, chain link fencing, barbed wire, extrusion screens and spring steel screening media —
-ensuring fast dispatch and consistent quality across every order.
-</p>
+<!-- CHAIN LINK -->
+<div class="product">
+<img src="assets/images/chainlink.jpg" alt="Chain Link Fencing">
+<div class="product-content">
+<h2>Chain Link Fencing</h2>
+<p>GI and MS chain link fencing supplied in multiple mesh sizes and wire diameters for industrial perimeters, infrastructure and security fencing.</p>
 
-<p>
-National Steel products are widely used across <strong>cement plants, crusher units, chemical industries, power plants, infrastructure projects and export markets</strong>.
-</p>
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Wire Dia</th><td>2.5 – 4.0 mm</td></tr>
+<tr><th>Mesh Size</th><td>40, 50, 60 mm</td></tr>
+<tr><th>Height</th><td>1 m – 3 m</td></tr>
+<tr><th>Finish</th><td>Hot Dip Galvanized</td></tr>
+</table>
+</details>
+</div>
+</div>
+
+<!-- BARBED WIRE -->
+<div class="product">
+<img src="assets/images/barbed-wire.jpg" alt="Barbed Wire">
+<div class="product-content">
+<h2>Barbed Wire</h2>
+<p>Heavy galvanized barbed wire supplied in standard agricultural and industrial fencing configurations.</p>
+
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Configuration</th><td>12×14 / 14×14</td></tr>
+<tr><th>Bundle Weight</th><td>25–30 kg (approx)</td></tr>
+<tr><th>Coil Length</th><td>250–300 m</td></tr>
+<tr><th>Standard</th><td>IS 278</td></tr>
+</table>
+</details>
+</div>
+</div>
+
+<!-- EXTRUSION SCREEN -->
+<div class="product">
+<img src="assets/images/extrusion-screen.jpg" alt="Extrusion Screen">
+<div class="product-content">
+<h2>SS Extrusion Screen</h2>
+<p>High precision stainless steel extrusion screens used in polymer, plastic and rubber extrusion processes.</p>
+
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Diameter</th><td>50 – 450 mm</td></tr>
+<tr><th>Mesh</th><td>20 – 300</td></tr>
+<tr><th>Grade</th><td>SS 304 / 316</td></tr>
+<tr><th>Construction</th><td>Spot welded / multi-layer</td></tr>
+</table>
+</details>
+</div>
+</div>
+
+<!-- SPRING STEEL -->
+<div class="product">
+<img src="assets/images/spring-steel.jpg" alt="Spring Steel Wire">
+<div class="product-content">
+<h2>Spring Steel Wire</h2>
+<p>High carbon spring steel wire supplied for industrial springs, fasteners and mechanical applications.</p>
+
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Grade</th><td>EN42 / EN47</td></tr>
+<tr><th>Diameter</th><td>0.8 – 10 mm</td></tr>
+<tr><th>Tensile Strength</th><td>1600 – 2200 MPa</td></tr>
+</table>
+</details>
+</div>
+</div>
+
+<!-- WELD MESH -->
+<div class="product">
+<img src="assets/images/weldmesh.jpg" alt="Welded Wire Mesh">
+<div class="product-content">
+<h2>Welded Wire Mesh</h2>
+<p>High strength welded mesh for construction, fencing and reinforcement applications.</p>
+
+<details>
+<summary>View Technical Specifications</summary>
+<table>
+<tr><th>Wire Dia</th><td>2 – 6 mm</td></tr>
+<tr><th>Opening</th><td>25×25 to 100×100 mm</td></tr>
+<tr><th>Material</th><td>MS / GI</td></tr>
+<tr><th>Sheet Size</th><td>Standard & custom</td></tr>
+</table>
+</details>
+</div>
+</div>
+
 </section>
-
-<!-- PRODUCTS -->
-<h2 class="section-title">Our Products</h2>
-
-<div class="products">
-
-<div class="product">
-<h3>Stainless Steel Wire Mesh</h3>
-<p>
-Precision woven SS mesh manufactured in SS 304, 316, 310 grades for filtration,
-screening and separation applications in chemical, food and pharmaceutical industries.
-</p>
-</div>
-
-<div class="product">
-<h3>Chain Link Fencing</h3>
-<p>
-GI and MS chain link fencing supplied in multiple mesh sizes and wire diameters,
-suitable for industrial perimeters, infrastructure and security fencing.
-</p>
-</div>
-
-<div class="product">
-<h3>Barbed Wire</h3>
-<p>
-Heavy galvanized barbed wire supplied in standard gauges and bundle weights,
-widely used for agricultural fencing, industrial boundaries and restricted zones.
-</p>
-</div>
-
-<div class="product">
-<h3>SS Extrusion Screens</h3>
-<p>
-Multi-layer stainless steel extrusion screens used in polymer and plastic extrusion
-for melt filtration and contaminant separation.
-</p>
-</div>
-
-<div class="product">
-<h3>Spring Steel Wire Mesh</h3>
-<p>
-High tensile spring steel mesh for crushers and vibrating screens,
-manufactured to withstand high impact and abrasion conditions.
-</p>
-</div>
-
-<div class="product">
-<h3>Welded Wire Mesh</h3>
-<p>
-Automated resistance welded mesh panels and rolls for construction reinforcement,
-fencing and structural applications.
-</p>
-</div>
-
-</div>
-</div>
-
-<footer>
-© 2026 National Steel · Manufacturer · Supplier · Stockist · Rajkot, Gujarat, India
-</footer>
 
 </body>
 </html>
