@@ -4,150 +4,106 @@
 <meta charset="UTF-8">
 <title>Products | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Industrial wire mesh products by National Steel – welded mesh, chain link fencing, perforated sheets and woven wire mesh.">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Industrial wire mesh products including SS Wire Mesh, Chain Link, Barbed Wire, Extrusion Screens, Spring Steel & Welded Mesh by National Steel.">
 
 <style>
-:root{
---navy:#0b1f33;
---panel:#ffffff;
---bg:#f4f6f8;
---gold:#c89b3c;
---text:#1f2933;
---muted:#6b7280;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
 body{
-font-family:Inter,Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
+margin:0;
+font-family:Inter, Arial, sans-serif;
+background:#f5f7fa;
+color:#1f2933;
 }
 
-/* HEADER */
 header{
-position:sticky;
-top:0;
-background:var(--navy);
-z-index:1000;
+background:#0b1f33;
+padding:18px 30px;
+color:#fff;
 }
-.nav{
+
+header .logo{
+font-size:22px;
+font-weight:600;
+}
+
+.container{
 max-width:1200px;
 margin:auto;
-padding:16px 24px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.logo{
-color:#fff;
-font-weight:600;
-font-size:22px;
-letter-spacing:.5px;
-}
-.logo span{color:var(--gold)}
-nav a{
-color:#e5e7eb;
-margin-left:24px;
-text-decoration:none;
-font-size:14px;
-}
-
-/* PAGE HEADER */
-.page-head{
-padding:100px 20px 60px;
-background:linear-gradient(135deg,#0b1f33,#142a44);
-color:white;
-text-align:center;
-}
-.page-head h1{
-font-size:42px;
-margin-bottom:12px;
-}
-.page-head p{
-opacity:.85;
-font-size:18px;
-}
-
-/* PRODUCTS */
-.section{
-max-width:1200px;
-margin:80px auto;
-padding:0 20px;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
+padding:40px 20px;
 }
 
 .product{
-background:var(--panel);
+background:#fff;
 border-radius:18px;
+margin-bottom:60px;
 overflow:hidden;
-box-shadow:0 25px 60px rgba(0,0,0,.12);
-transition:.3s ease;
+box-shadow:0 20px 50px rgba(0,0,0,.12);
 }
-.product:hover{transform:translateY(-6px)}
+
+.product-grid{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:30px;
+padding:30px;
+}
 
 .product img{
 width:100%;
-height:220px;
+border-radius:14px;
 object-fit:cover;
-display:block;
 }
 
-.product-body{
-padding:26px;
+.product h2{
+margin-top:0;
+color:#0b1f33;
 }
 
-.product-body h3{
-font-size:20px;
-margin-bottom:10px;
-}
-
-.product-body p{
-color:var(--muted);
-font-size:14px;
-margin-bottom:16px;
+.product p{
+color:#4b5563;
+font-size:15px;
+line-height:1.6;
 }
 
 .specs{
-font-size:13px;
-color:#374151;
-}
-.specs strong{color:#111827}
-
-/* TRUST STRIP */
-.trust{
-margin-top:80px;
-padding:50px 20px;
-background:#ffffff;
-text-align:center;
-border-top:1px solid #e5e7eb;
-}
-.trust h2{
-font-size:26px;
-margin-bottom:10px;
-}
-.trust p{
-color:var(--muted);
-max-width:800px;
-margin:auto;
+margin-top:20px;
+overflow-x:auto;
 }
 
-/* FOOTER */
+table{
+width:100%;
+border-collapse:collapse;
+font-size:14px;
+}
+
+table th, table td{
+border:1px solid #e5e7eb;
+padding:10px 12px;
+text-align:left;
+}
+
+table th{
+background:#0b1f33;
+color:#fff;
+font-weight:500;
+}
+
+.applications{
+margin-top:15px;
+font-size:14px;
+}
+
 footer{
-margin-top:100px;
-background:var(--navy);
-color:#cbd5e1;
 text-align:center;
-padding:30px 20px;
+padding:30px;
+background:#0b1f33;
+color:#cbd5e1;
 font-size:13px;
+margin-top:80px;
+}
+
+@media(max-width:900px){
+.product-grid{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -155,95 +111,191 @@ font-size:13px;
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">National<span>Steel</span></div>
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="industries.html">Industries</a>
-<a href="engineering-tools.html">Engineering Tools</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
+<div class="logo">National Steel</div>
 </header>
 
-<section class="page-head">
-<h1>Our Products</h1>
-<p>Precision engineered wire mesh solutions for industrial & global applications</p>
-</section>
+<div class="container">
 
-<section class="section">
-<div class="products">
-
-<!-- PRODUCT 1 -->
+<!-- SS WIRE MESH -->
 <div class="product">
-<img src="images/welded-wire-mesh.jpg" alt="Welded Wire Mesh">
-<div class="product-body">
-<h3>Welded Wire Mesh</h3>
-<p>High strength welded mesh manufactured for structural, fencing and reinforcement use.</p>
-<div class="specs">
-<strong>Material:</strong> MS / GI / SS<br>
-<strong>Wire Dia:</strong> 1.2 – 6.0 mm<br>
-<strong>Applications:</strong> Construction, Infrastructure, Fencing
-</div>
-</div>
-</div>
+<div class="product-grid">
+<img src="assets/images/ss wire mesh.jpg" alt="Stainless Steel Wire Mesh">
 
-<!-- PRODUCT 2 -->
-<div class="product">
-<img src="images/chainlink.jpg" alt="Chain Link Fencing">
-<div class="product-body">
-<h3>Chain Link Fencing</h3>
-<p>Durable chain link mesh for industrial security, highways and boundary protection.</p>
-<div class="specs">
-<strong>Material:</strong> GI / PVC / MS<br>
-<strong>Mesh Size:</strong> 25 – 75 mm<br>
-<strong>Applications:</strong> Industrial fencing, Airports, Plants
-</div>
-</div>
-</div>
-
-<!-- PRODUCT 3 -->
-<div class="product">
-<img src="images/perforated-sheets.jpg" alt="Perforated Metal Sheets">
-<div class="product-body">
-<h3>Perforated Metal Sheets</h3>
-<p>Precision punched perforated sheets engineered for flow, screening and ventilation.</p>
-<div class="specs">
-<strong>Material:</strong> MS / GI / SS 304, 316<br>
-<strong>Hole Type:</strong> Round / Slot / Square<br>
-<strong>Applications:</strong> Filters, Screens, Acoustic Panels
-</div>
-</div>
-</div>
-
-<!-- PRODUCT 4 -->
-<div class="product">
-<img src="images/spring steel.jpg" alt="Woven Wire Mesh">
-<div class="product-body">
-<h3>Woven Wire Mesh</h3>
-<p>High accuracy woven mesh for filtration, screening and crusher industries.</p>
-<div class="specs">
-<strong>Material:</strong> High Carbon / SS<br>
-<strong>Mesh:</strong> 2 – 400 Mesh<br>
-<strong>Applications:</strong> Mining, Cement, Chemical
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="trust">
-<h2>Trusted by Industrial & International Buyers</h2>
+<div>
+<h2>Stainless Steel Wire Mesh</h2>
 <p>
-National Steel supplies engineered wire mesh solutions to EPC contractors, OEMs,
-infrastructure developers and export clients across India and global markets.
+High-precision woven stainless steel wire mesh manufactured for filtration, screening and separation in critical industrial environments. Widely used in pharmaceutical, chemical, food processing and petrochemical plants.
 </p>
-</section>
+
+<div class="applications">
+<strong>Applications:</strong> Filtration, Sieving, Separation, Chemical Processing, Food & Pharma, Oil & Gas
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Material Grades</td><td>SS 304, SS 304L, SS 316, SS 316L, SS 310</td></tr>
+<tr><td>Wire Diameter</td><td>0.03 mm – 3.00 mm</td></tr>
+<tr><td>Mesh Count</td><td>1 Mesh – 400 Mesh</td></tr>
+<tr><td>Weave Type</td><td>Plain, Twill, Dutch, Reverse Dutch</td></tr>
+<tr><td>Width</td><td>Up to 2000 mm</td></tr>
+<tr><td>Finish</td><td>Bright Annealed / Pickled</td></tr>
+<tr><td>Standards</td><td>ASTM E2016, ISO 9044</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CHAIN LINK -->
+<div class="product">
+<div class="product-grid">
+<img src="assets/images/chainlink.jpg" alt="Chain Link Fencing">
+
+<div>
+<h2>Chain Link Fencing</h2>
+<p>
+Heavy-duty chain link fencing manufactured using high tensile wire for perimeter security, industrial fencing and infrastructure projects.
+</p>
+
+<div class="applications">
+<strong>Applications:</strong> Industrial Fencing, Airports, Highways, Factories, Warehouses
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Material</td><td>GI, PVC Coated, MS</td></tr>
+<tr><td>Wire Diameter</td><td>2.0 – 5.0 mm</td></tr>
+<tr><td>Mesh Opening</td><td>25 mm – 75 mm</td></tr>
+<tr><td>Height</td><td>Up to 4 meters</td></tr>
+<tr><td>Coating</td><td>Hot Dip Galvanized / PVC</td></tr>
+<tr><td>Standards</td><td>IS 2721, ASTM A392</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- BARBED WIRE -->
+<div class="product">
+<div class="product-grid">
+<img src="assets/images/barbed wire.jpg" alt="Barbed Wire">
+
+<div>
+<h2>Barbed Wire</h2>
+<p>
+High-strength barbed wire designed for security fencing with sharp barbs and uniform galvanization for long service life.
+</p>
+
+<div class="applications">
+<strong>Applications:</strong> Border Fencing, Agriculture, Industrial Security
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Material</td><td>GI / HT Wire</td></tr>
+<tr><td>Wire Diameter</td><td>2.0 – 2.5 mm</td></tr>
+<tr><td>Barb Spacing</td><td>75 – 150 mm</td></tr>
+<tr><td>Coating</td><td>Heavy Zinc Coated</td></tr>
+<tr><td>Standard</td><td>IS 278</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- EXTRUSION SCREEN -->
+<div class="product">
+<div class="product-grid">
+<img src="assets/images/extrusion screen.jpg" alt="SS Extrusion Screen">
+
+<div>
+<h2>SS Extrusion Screen</h2>
+<p>
+Precision punched and woven extrusion screens for plastic extrusion and polymer filtration applications ensuring clean melt flow.
+</p>
+
+<div class="applications">
+<strong>Applications:</strong> Plastic Extrusion, Polymer Filtration, Recycling Lines
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Material</td><td>SS 304, SS 316</td></tr>
+<tr><td>Mesh</td><td>20 – 400 Mesh</td></tr>
+<tr><td>Diameter</td><td>25 mm – 380 mm</td></tr>
+<tr><td>Type</td><td>Single Layer / Multi Layer / Spot Welded</td></tr>
+<tr><td>Finish</td><td>Electro Polished</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SPRING STEEL -->
+<div class="product">
+<div class="product-grid">
+<img src="assets/images/spring steel.jpg" alt="Spring Steel Wire Mesh">
+
+<div>
+<h2>Spring Steel Wire Mesh</h2>
+<p>
+High-carbon spring steel wire mesh engineered for heavy impact and abrasion resistance in screening applications.
+</p>
+
+<div class="applications">
+<strong>Applications:</strong> Stone Crushers, Mining, Vibrating Screens
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Grade</td><td>EN-42, EN-45</td></tr>
+<tr><td>Wire Diameter</td><td>2.0 – 12.0 mm</td></tr>
+<tr><td>Opening</td><td>5 mm – 150 mm</td></tr>
+<tr><td>Heat Treatment</td><td>Oil Hardened & Tempered</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- WELDED MESH -->
+<div class="product">
+<div class="product-grid">
+<img src="assets/images/weldmesh.jpg" alt="Welded Wire Mesh">
+
+<div>
+<h2>Welded Wire Mesh</h2>
+<p>
+High strength welded mesh manufactured using automated welding lines ensuring uniform grid and high load capacity.
+</p>
+
+<div class="applications">
+<strong>Applications:</strong> Construction, Fencing, Infrastructure, Reinforcement
+</div>
+
+<div class="specs">
+<table>
+<tr><th>Specification</th><th>Details</th></tr>
+<tr><td>Material</td><td>MS, GI, SS</td></tr>
+<tr><td>Wire Diameter</td><td>1.2 – 6.0 mm</td></tr>
+<tr><td>Mesh Size</td><td>12 mm – 100 mm</td></tr>
+<tr><td>Panel Size</td><td>Up to 2.4 × 6 m</td></tr>
+<tr><td>Standards</td><td>IS 1566</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+</div>
 
 <footer>
-© 2026 National Steel · Rajkot, Gujarat, India · Industrial Wire Mesh Manufacturer
+© 2026 National Steel · Trusted by Leading Industrial & International Buyers
 </footer>
 
 </body>
