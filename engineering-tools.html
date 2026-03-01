@@ -4,96 +4,96 @@
 <meta charset="UTF-8">
 <title>Engineering Tools | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Accurate industrial weight calculators for wire mesh, fencing and steel products">
 
 <style>
 :root{
-  --blue:#0b2540;
-  --light:#f4f6f9;
-  --accent:#1f6fd6;
+--primary:#0b2540;
+--accent:#1f6fd6;
+--light:#f4f6f9;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:var(--light);
-  color:#102030;
+margin:0;
+font-family:Inter,Segoe UI,Arial,sans-serif;
+background:var(--light);
+color:#102030;
 }
 header{
-  background:linear-gradient(135deg,#081c30,#0b2540);
-  color:#fff;
-  padding:48px 20px;
+background:linear-gradient(135deg,#081c30,#0b2540);
+color:#fff;
+padding:60px 20px;
 }
-header h1{margin:0;font-size:34px}
-header p{opacity:.9;max-width:700px}
+header h1{margin:0;font-size:36px}
+header p{opacity:.9;max-width:750px}
 
 nav{
-  position:sticky;
-  top:0;
-  background:#fff;
-  padding:12px;
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  box-shadow:0 2px 6px rgba(0,0,0,.08);
-  z-index:10;
+position:sticky;
+top:0;
+background:#fff;
+display:flex;
+gap:10px;
+padding:12px;
+overflow-x:auto;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+z-index:1000;
 }
 nav button{
-  border:none;
-  padding:10px 16px;
-  border-radius:20px;
-  background:#e9eef4;
-  font-weight:600;
-  cursor:pointer;
+border:none;
+padding:10px 18px;
+border-radius:20px;
+background:#e9eef4;
+font-weight:600;
+cursor:pointer;
 }
 nav button.active{
-  background:var(--blue);
-  color:#fff;
+background:var(--primary);
+color:#fff;
 }
 
 section{
-  display:none;
-  max-width:980px;
-  margin:30px auto;
-  background:#fff;
-  border-radius:16px;
-  padding:28px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+display:none;
+max-width:1000px;
+margin:40px auto;
+background:#fff;
+border-radius:18px;
+padding:30px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 section.active{display:block}
 
-h2{margin-top:0}
+h2{margin-top:0;color:var(--primary)}
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-bottom:20px;
 }
 label{font-weight:600}
 input,select{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ccd3dc;
-  font-size:15px;
+width:100%;
+padding:10px;
+border-radius:8px;
+border:1px solid #ccd3dc;
+font-size:15px;
 }
 button.calc{
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:14px;
-  border-radius:10px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
+background:var(--accent);
+color:#fff;
+border:none;
+padding:14px;
+border-radius:10px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
 }
 .result{
-  margin-top:16px;
-  padding:14px;
-  background:#f1f6ff;
-  border-radius:10px;
-  font-weight:700;
-  color:#0b2540;
+margin-top:16px;
+padding:14px;
+background:#f1f6ff;
+border-radius:10px;
+font-weight:700;
+color:#0b2540;
 }
 small{color:#556}
 </style>
@@ -102,21 +102,21 @@ small{color:#556}
 <body>
 
 <header>
-<h1>Engineering Tools</h1>
-<p>Accurate industrial calculators based on real manufacturing formulas used by fencing, mesh and steel suppliers.</p>
+<h1>Engineering Calculation Tools</h1>
+<p>Industrial-grade weight calculators based on real density formulas used in fencing, mesh and steel manufacturing.</p>
 </header>
 
 <nav>
-<button class="active" onclick="showTool('chain')">Chain Link</button>
-<button onclick="showTool('ssmesh')">SS Wire Mesh</button>
-<button onclick="showTool('perforated')">Perforated Sheet</button>
-<button onclick="showTool('spring')">Spring Steel</button>
-<button onclick="showTool('barbed')">Barbed Wire</button>
+<button class="active" onclick="showTool(event,'chain')">Chain Link</button>
+<button onclick="showTool(event,'ssmesh')">SS Wire Mesh</button>
+<button onclick="showTool(event,'perforated')">Perforated Sheet</button>
+<button onclick="showTool(event,'spring')">Spring Steel</button>
+<button onclick="showTool(event,'barbed')">Barbed Wire</button>
 </nav>
 
 <!-- CHAIN LINK -->
 <section id="chain" class="active">
-<h2>Chain Link Fencing Weight Calculator</h2>
+<h2>Advanced Chain Link Calculator</h2>
 <div class="grid">
 <div><label>Mesh Size (mm)</label><input id="cl_mesh" value="50"></div>
 <div><label>Wire Dia (mm)</label><input id="cl_dia" value="3"></div>
@@ -125,20 +125,21 @@ small{color:#556}
 </div>
 <button class="calc" onclick="calcChain()">Calculate Weight</button>
 <div class="result" id="cl_result"></div>
-<small>Density locked at 7850 kg/m³ | ±1% tolerance</small>
+<small>Steel Density: 7850 kg/m³ | ±1% tolerance</small>
 </section>
 
 <!-- SS MESH -->
 <section id="ssmesh">
-<h2>Stainless Steel Wire Mesh</h2>
+<h2>Stainless Steel Wire Mesh Calculator</h2>
 <div class="grid">
-<div><label>Mesh / Inch</label><input id="ss_mesh" value="10"></div>
+<div><label>Mesh Per Inch</label><input id="ss_mesh" value="10"></div>
 <div><label>Wire Dia (mm)</label><input id="ss_dia" value="0.5"></div>
 <div><label>Width (m)</label><input id="ss_w" value="1"></div>
 <div><label>Length (m)</label><input id="ss_l" value="30"></div>
 </div>
-<button class="calc" onclick="calcSS()">Calculate</button>
+<button class="calc" onclick="calcSS()">Calculate Weight</button>
 <div class="result" id="ss_result"></div>
+<small>SS Density: 8000 kg/m³</small>
 </section>
 
 <!-- PERFORATED -->
@@ -152,11 +153,12 @@ small{color:#556}
 </div>
 <button class="calc" onclick="calcPerf()">Calculate</button>
 <div class="result" id="pf_result"></div>
+<small>Open area & net weight calculated precisely</small>
 </section>
 
 <!-- SPRING -->
 <section id="spring">
-<h2>Spring Steel / High Carbon</h2>
+<h2>Spring Steel / High Carbon Weight</h2>
 <div class="grid">
 <div><label>Thickness (mm)</label><input id="sp_t" value="2"></div>
 <div><label>Width (m)</label><input id="sp_w" value="1"></div>
@@ -164,74 +166,79 @@ small{color:#556}
 </div>
 <button class="calc" onclick="calcSpring()">Calculate</button>
 <div class="result" id="sp_result"></div>
+<small>Density used: 7850 kg/m³</small>
 </section>
 
 <!-- BARBED -->
 <section id="barbed">
-<h2>Barbed Wire</h2>
+<h2>Barbed Wire Bundle Calculator</h2>
 <div class="grid">
-<div><label>Type</label>
+<div>
+<label>Type</label>
 <select id="bw_type">
-<option value="12">12×14</option>
-<option value="14">14×14</option>
+<option value="12">12×14 Gauge</option>
+<option value="14">14×14 Gauge</option>
 </select>
 </div>
 <div><label>Bundle Length (m)</label><input id="bw_len" value="400"></div>
 </div>
 <button class="calc" onclick="calcBarbed()">Calculate</button>
 <div class="result" id="bw_result"></div>
+<small>Standard industrial bundle estimation</small>
 </section>
 
 <script>
-function showTool(id){
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+function showTool(event,id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+event.target.classList.add("active");
 }
 
 /* CHAIN LINK */
 function calcChain(){
-  let m=+cl_mesh.value/1000;
-  let d=+cl_dia.value/1000;
-  let area=+cl_h.value*+cl_l.value;
-  let wireLen=(area/(m*m))*2*m;
-  let weight=wireLen*(Math.PI*d*d/4)*7850;
-  cl_result.innerHTML=Approx Weight: <b>${weight.toFixed(1)} kg</b>;
+let mesh=+cl_mesh.value/1000;
+let dia=+cl_dia.value/1000;
+let area=+cl_h.value*+cl_l.value;
+let wireLength=(area/(mesh*mesh))*2*mesh;
+let weight=wireLength*(Math.PI*dia*dia/4)*7850;
+cl_result.innerHTML="Approx Weight: <b>"+weight.toFixed(2)+" kg</b>";
 }
 
 /* SS MESH */
 function calcSS(){
-  let mesh=+ss_mesh.value;
-  let d=+ss_dia.value/1000;
-  let w=+ss_w.value;
-  let l=+ss_l.value;
-  let count=mesh*39.37;
-  let wire=(w*count+l*count);
-  let weight=wire*(Math.PI*d*d/4)*8000;
-  ss_result.innerHTML=Weight: <b>${weight.toFixed(2)} kg</b>;
+let mesh=+ss_mesh.value;
+let dia=+ss_dia.value/1000;
+let w=+ss_w.value;
+let l=+ss_l.value;
+let wiresPerMeter=mesh*39.37;
+let totalWire=(w*wiresPerMeter + l*wiresPerMeter);
+let weight=totalWire*(Math.PI*dia*dia/4)*8000;
+ss_result.innerHTML="Approx Weight: <b>"+weight.toFixed(2)+" kg</b>";
 }
 
 /* PERFORATED */
 function calcPerf(){
-  let h=+pf_hole.value;
-  let p=+pf_pitch.value;
-  let open=(Math.PI*(h/2)**2)/(p*p)*100;
-  let wt=(+pf_area.value)(+pf_thk.value/1000)*7850(1-open/100);
-  pf_result.innerHTML=Open Area: <b>${open.toFixed(1)}%</b> | Weight: <b>${wt.toFixed(2)} kg</b>;
+let hole=+pf_hole.value;
+let pitch=+pf_pitch.value;
+let thk=+pf_thk.value/1000;
+let area=+pf_area.value;
+let open=(Math.PI*(hole/2)*(hole/2))/(pitch*pitch);
+let netWeight=area*thk*7850*(1-open);
+pf_result.innerHTML="Open Area: <b>"+(open*100).toFixed(2)+"%</b> | Weight: <b>"+netWeight.toFixed(2)+" kg</b>";
 }
 
 /* SPRING */
 function calcSpring(){
-  let wt=(+sp_t.value/1000)(+sp_w.value)(+sp_l.value)*7850;
-  sp_result.innerHTML=Weight: <b>${wt.toFixed(2)} kg</b>;
+let wt=(+sp_t.value/1000)(+sp_w.value)(+sp_l.value)*7850;
+sp_result.innerHTML="Weight: <b>"+wt.toFixed(2)+" kg</b>";
 }
 
 /* BARBED */
 function calcBarbed(){
-  let rate=bw_type.value==12?0.08:0.065;
-  let wt=+bw_len.value*rate;
-  bw_result.innerHTML=Approx Bundle Weight: <b>${wt.toFixed(1)} kg</b>;
+let rate=bw_type.value==12?0.08:0.065;
+let wt=+bw_len.value*rate;
+bw_result.innerHTML="Approx Bundle Weight: <b>"+wt.toFixed(2)+" kg</b>";
 }
 </script>
 
