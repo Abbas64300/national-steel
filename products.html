@@ -5,318 +5,247 @@
 <title>Industrial Products | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --navy:#0b1f33;
-  --blue:#2563eb;
-  --green:#22c55e;
-  --bg:#f3f5f7;
-  --card:#ffffff;
-  --muted:#6b7280;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
   margin:0;
-  font-family:Inter,system-ui,sans-serif;
-  background:var(--bg);
-  color:#0f172a;
-}
-
-/* ================= HERO ================= */
-.hero{
-  background:linear-gradient(135deg,#071a2e,#0b1f33);
-  color:#fff;
-  padding:70px 22px;
-}
-.hero h1{
-  margin:0;
-  font-size:36px;
-  font-weight:800;
-}
-.hero p{
-  margin-top:12px;
-  font-size:17px;
-  max-width:820px;
-  opacity:.92;
-}
-
-/* ================= NAV ================= */
-.product-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
-  padding:14px;
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-}
-.product-nav a{
-  text-decoration:none;
-  font-size:13px;
-  font-weight:600;
-  padding:10px 18px;
-  border-radius:999px;
-  background:#eef2f7;
+  font-family:Inter, Arial, sans-serif;
+  background:#f4f6f8;
   color:#0b1f33;
 }
-.product-nav a:hover{
-  background:#0b1f33;
-  color:#fff;
-}
+h1,h2{margin:0 0 12px}
+p{margin:0 0 14px; line-height:1.6}
 
-/* ================= SECTIONS ================= */
+header{
+  background:linear-gradient(135deg,#071a2f,#0d2c4f);
+  color:#fff;
+  padding:30px 20px;
+}
+header h1{font-size:28px}
+header p{opacity:.9}
+
 .section{
   max-width:1200px;
-  margin:80px auto;
-  padding:0 22px;
-}
-.section h2{
-  font-size:32px;
-  font-weight:800;
-  margin-bottom:16px;
-}
-.section p{
-  max-width:880px;
-  color:var(--muted);
-  font-size:15px;
+  margin:40px auto;
+  padding:0 16px;
 }
 
-/* ================= CATALOGUE ================= */
-.catalogue{
-  background:linear-gradient(135deg,#0b1f33,#102a44);
-  color:#fff;
-  border-radius:28px;
-  padding:60px;
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:40px;
-  align-items:center;
-  box-shadow:0 35px 90px rgba(0,0,0,.35);
-}
-.catalogue h3{
-  font-size:30px;
-  margin:0;
-}
-.catalogue p{
-  margin-top:10px;
-  opacity:.9;
-}
-.catalogue-actions{
-  display:flex;
-  gap:16px;
-}
-.catalogue-actions a{
-  text-decoration:none;
-  font-weight:700;
-  padding:14px 28px;
-  border-radius:999px;
-}
-.view{background:var(--blue);color:#fff}
-.download{background:var(--green);color:#053b1a}
-
-/* ================= PRODUCTS ================= */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:44px;
-  margin-top:50px;
-}
-.card{
-  background:var(--card);
-  border-radius:26px;
+.product{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 12px 32px rgba(0,0,0,.08);
+  margin-bottom:48px;
   overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.08);
-  transition:.35s ease;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
 }
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 40px 90px rgba(0,0,0,.12);
+@media(max-width:900px){
+  .product{grid-template-columns:1fr}
 }
-.card img{
+
+.product img{
   width:100%;
-  height:260px;
+  height:100%;
   object-fit:cover;
+  cursor:zoom-in;
 }
-.card-body{
-  padding:30px;
+
+.product-content{padding:28px}
+
+.specs{
+  margin-top:18px;
+  border-top:1px solid #e4e9ef;
 }
-.card-body h3{
-  margin:0;
-  font-size:22px;
-  font-weight:700;
-}
-.card-body p{
-  margin:12px 0 22px;
+.specs div{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #eef2f6;
   font-size:14px;
-  color:var(--muted);
 }
 
-/* ================= TABLE ================= */
-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:13px;
-}
-td{
-  padding:10px 6px;
-  border-bottom:1px solid #e5e7eb;
-}
-td:first-child{
+.fallback{
+  background:#e9eef3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:600;
-  color:#334155;
+  color:#556;
 }
 
-/* ================= WHATSAPP ================= */
+/* Zoom modal */
+#zoomModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+#zoomModal img{max-width:90%; max-height:90%}
+#zoomModal span{
+  position:absolute;
+  top:20px; right:25px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* WhatsApp */
 .whatsapp{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  width:62px;
-  height:62px;
+  right:18px; bottom:18px;
+  width:58px; height:58px;
   background:#25D366;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 15px 40px rgba(0,0,0,.35);
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
 }
-.whatsapp img{width:34px}
+.whatsapp img{width:30px}
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <h1>Industrial Products</h1>
-  <p>Supplier & stockist of engineered wire mesh, fencing and screening solutions for infrastructure, process industries and OEMs.</p>
-</section>
+<header>
+  <h1>National Steel – Industrial Products</h1>
+  <p>Supplier & stockist of engineered wire mesh, fencing & screening solutions</p>
+</header>
 
-<div class="product-nav">
-  <a href="#ssmesh">SS Wire Mesh</a>
-  <a href="#chainlink">Chain Link</a>
-  <a href="#barbed">Barbed Wire</a>
-  <a href="#extrusion">Extrusion Screen</a>
-  <a href="#spring">Spring Steel</a>
-  <a href="#weldmesh">Welded Mesh</a>
+<div class="section">
+
+<!-- SS WIRE MESH -->
+<div class="product">
+<img src="assets/images/ss-wire-mesh.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('SS Wire Mesh'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Stainless Steel Wire Mesh</h2>
+<p>Precision woven SS mesh for critical filtration, separation and screening applications.</p>
+<div class="specs">
+<div><span>Mesh Range</span><span>10 – 400</span></div>
+<div><span>Wire Diameter</span><span>0.03 – 2.0 mm</span></div>
+<div><span>Opening Size</span><span>0.04 – 2.5 mm</span></div>
+<div><span>Open Area</span><span>25 – 70%</span></div>
+<div><span>Material Grades</span><span>SS 304 / 316 / 310</span></div>
+<div><span>Standards</span><span>ASTM / DIN / IS</span></div>
 </div>
-
-<section class="section">
-  <div class="catalogue">
-    <div>
-      <h3>Company Catalogue</h3>
-      <p>Complete sizes, grades and verified technical specifications for procurement teams.</p>
-    </div>
-    <div class="catalogue-actions">
-      <a class="view" href="national-steel-catalogue.pdf" target="_blank">View Catalogue</a>
-      <a class="download" href="national-steel-catalogue.pdf" download>Download PDF</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-<h2>About National Steel</h2>
-<p>
-National Steel is a trusted supplier and stockist supporting infrastructure, cement,
-chemical, mining and manufacturing industries with ready stock availability,
-consistent quality and accurate specifications.
-</p>
-</section>
-
-<section class="section">
-<h2>Product Portfolio</h2>
-
-<div class="products">
-
-<div class="card" id="ssmesh">
-<img src="assets/images/ss-wire-mesh.jpg">
-<div class="card-body">
-<h3>Stainless Steel Wire Mesh</h3>
-<p>Precision woven SS mesh for filtration, screening and separation.</p>
-<table>
-<tr><td>Grades</td><td>SS 304 / 316 / 310</td></tr>
-<tr><td>Mesh Range</td><td>1 – 400</td></tr>
-<tr><td>Wire Diameter</td><td>0.03 – 2.0 mm</td></tr>
-<tr><td>Open Area</td><td>25% – 65%</td></tr>
-</table>
 </div>
 </div>
 
-<div class="card" id="chainlink">
-<img src="assets/images/chainlink.jpg">
-<div class="card-body">
-<h3>Chain Link Fencing</h3>
-<p>GI & MS fencing for industrial and infrastructure security.</p>
-<table>
-<tr><td>Mesh Size</td><td>25 – 100 mm</td></tr>
-<tr><td>Wire Dia</td><td>2.5 – 4.0 mm</td></tr>
-<tr><td>Finish</td><td>Hot Dip Galvanized</td></tr>
-</table>
+<!-- CHAIN LINK -->
+<div class="product">
+<img src="assets/images/chainlink.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('Chain Link'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Chain Link Fencing</h2>
+<p>Industrial fencing supplied in GI & MS for perimeter and infrastructure security.</p>
+<div class="specs">
+<div><span>Wire Diameter</span><span>2.5 – 4.0 mm</span></div>
+<div><span>Mesh Size</span><span>40 – 75 mm</span></div>
+<div><span>Coating</span><span>GI / PVC</span></div>
+<div><span>Height</span><span>1 – 4 m</span></div>
+<div><span>Standard</span><span>IS 2721</span></div>
 </div>
-</div>
-
-<div class="card" id="barbed">
-<img src="assets/images/barbed-wire.jpg">
-<div class="card-body">
-<h3>Barbed Wire</h3>
-<p>Heavy GI barbed wire for agricultural and industrial fencing.</p>
-<table>
-<tr><td>Type</td><td>12×14 / 14×14</td></tr>
-<tr><td>Bundle Weight</td><td>30 – 35 kg</td></tr>
-<tr><td>Standard</td><td>IS 278</td></tr>
-</table>
 </div>
 </div>
 
-<div class="card" id="extrusion">
-<img src="assets/images/extrusion-screen.jpg">
-<div class="card-body">
-<h3>SS Extrusion Screen</h3>
-<p>High precision screens for polymer & plastic extrusion.</p>
-<table>
-<tr><td>Diameter</td><td>50 – 450 mm</td></tr>
-<tr><td>Mesh</td><td>20 – 400</td></tr>
-<tr><td>Material</td><td>SS 304 / 316</td></tr>
-</table>
+<!-- BARBED WIRE -->
+<div class="product">
+<img src="assets/images/barbed-wire.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('Barbed Wire'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Barbed Wire</h2>
+<p>Heavy galvanized barbed wire for agricultural and industrial boundary fencing.</p>
+<div class="specs">
+<div><span>Type</span><span>12×14 / 14×14</span></div>
+<div><span>Line Wire Dia</span><span>2.5 mm</span></div>
+<div><span>Barb Spacing</span><span>75 – 100 mm</span></div>
+<div><span>Bundle Weight</span><span>30 – 35 kg</span></div>
+<div><span>Standard</span><span>IS 278</span></div>
 </div>
-</div>
-
-<div class="card" id="spring">
-<img src="assets/images/spring-steel.jpg">
-<div class="card-body">
-<h3>Spring Steel Screen</h3>
-<p>High tensile vibrating screens for crushers.</p>
-<table>
-<tr><td>Tensile Strength</td><td>1500 – 1800 MPa</td></tr>
-<tr><td>Thickness</td><td>3 – 12 mm</td></tr>
-</table>
 </div>
 </div>
 
-<div class="card" id="weldmesh">
-<img src="assets/images/weldmesh.jpg">
-<div class="card-body">
-<h3>Welded Wire Mesh</h3>
-<p>Rigid welded mesh for construction reinforcement.</p>
-<table>
-<tr><td>Wire Dia</td><td>1.2 – 6.0 mm</td></tr>
-<tr><td>Aperture</td><td>25×25 – 100×100 mm</td></tr>
-</table>
+<!-- EXTRUSION SCREEN -->
+<div class="product">
+<img src="assets/images/extrusion-screen.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('Extrusion Screen'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Extrusion Screen</h2>
+<p>Precision screens for polymer melt filtration and extrusion lines.</p>
+<div class="specs">
+<div><span>Diameter</span><span>25 – 600 mm</span></div>
+<div><span>Mesh</span><span>20 – 200</span></div>
+<div><span>Thickness</span><span>0.5 – 3 mm</span></div>
+<div><span>Material</span><span>SS 304 / 316</span></div>
+</div>
+</div>
+</div>
+
+<!-- SPRING STEEL -->
+<div class="product">
+<img src="assets/images/spring-steel.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('Spring Steel'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Spring Steel Wire</h2>
+<p>High tensile spring steel wire for mechanical and industrial applications.</p>
+<div class="specs">
+<div><span>Grade</span><span>EN 10270</span></div>
+<div><span>Wire Diameter</span><span>0.5 – 6 mm</span></div>
+<div><span>Tensile Strength</span><span>1400 – 2200 MPa</span></div>
+</div>
+</div>
+</div>
+
+<!-- WELD MESH -->
+<div class="product">
+<img src="assets/images/weldmesh.jpg" loading="lazy"
+onerror="this.replaceWith(fallback('Weld Mesh'))"
+onclick="zoom(this)">
+<div class="product-content">
+<h2>Welded Wire Mesh</h2>
+<p>Rigid welded mesh for construction, fencing and reinforcement applications.</p>
+<div class="specs">
+<div><span>Wire Diameter</span><span>1.2 – 6 mm</span></div>
+<div><span>Aperture</span><span>25 – 100 mm</span></div>
+<div><span>Weight</span><span>1.5 – 7 kg/m²</span></div>
+<div><span>Material</span><span>MS / GI / SS</span></div>
+</div>
 </div>
 </div>
 
 </div>
-</section>
 
+<!-- ZOOM -->
+<div id="zoomModal" onclick="this.style.display='none'">
+<span>&times;</span>
+<img id="zoomImg">
+</div>
+
+<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/917802021053" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
+
+<script>
+function fallback(name){
+  const d=document.createElement('div');
+  d.className='fallback';
+  d.innerText=name;
+  return d;
+}
+function zoom(img){
+  document.getElementById('zoomImg').src=img.src;
+  document.getElementById('zoomModal').style.display='flex';
+}
+</script>
 
 </body>
 </html>
