@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Industrial Products | National Steel</title>
+<title>Industrial Wire Mesh Products | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="National Steel – Manufacturer & stockist of SS wire mesh, chain link fencing, perforated & extrusion screens, spring steel and welded mesh for industrial applications across India.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -17,154 +19,128 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--primary)}
 
-body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:var(--bg);
-  color:var(--primary);
-}
-
-/* HEADER */
 header{
   background:linear-gradient(135deg,#071a2e,#0b3a68);
   color:#fff;
-  padding:55px 20px;
+  padding:60px 20px;
 }
-header h1{
-  margin:0;
-  font-size:38px;
-}
-header p{
-  margin-top:12px;
-  opacity:.9;
-}
+header h1{margin:0;font-size:40px}
+header p{opacity:.9;margin-top:10px}
 
-/* STICKY NAV */
 nav{
-  position:sticky;
-  top:0;
-  background:#fff;
-  z-index:100;
+  position:sticky;top:0;background:#fff;z-index:100;
   border-bottom:1px solid #e5e7eb;
 }
 .nav-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:12px 16px;
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
+  max-width:1200px;margin:auto;padding:14px 18px;
+  display:flex;gap:14px;overflow-x:auto;
 }
 .nav-wrap a{
-  text-decoration:none;
-  font-size:14px;
-  padding:8px 16px;
-  border-radius:30px;
-  background:#eef2f7;
-  color:#0b1f33;
-  font-weight:600;
-  white-space:nowrap;
+  padding:9px 18px;border-radius:40px;
+  background:#eef2f7;color:#0b1f33;
+  text-decoration:none;font-weight:600;font-size:14px;
 }
-.nav-wrap a:hover{
-  background:#0d4ea6;
-  color:#fff;
-}
+.nav-wrap a:hover{background:var(--accent);color:#fff}
 
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:60px 18px;
-}
+.container{max-width:1200px;margin:auto;padding:70px 18px}
 
-/* PRODUCT CARD */
 .product{
-  background:var(--card);
-  border-radius:22px;
-  box-shadow:0 25px 55px rgba(0,0,0,.07);
-  padding:40px;
-  margin-bottom:70px;
+  background:#fff;border-radius:22px;
+  box-shadow:0 30px 65px rgba(0,0,0,.08);
+  padding:44px;margin-bottom:90px;
 }
+
 .product-header{
   display:grid;
-  grid-template-columns:280px 1fr;
-  gap:40px;
-  align-items:center;
+  grid-template-columns:340px 1fr;
+  gap:48px;
 }
+
 .product img{
   width:100%;
   border-radius:18px;
-  background:#e5e7eb;
-}
-.product h2{
-  margin:0 0 10px;
-  font-size:28px;
-}
-.product p{
-  color:var(--muted);
-  font-size:15px;
+  cursor:pointer;
 }
 
-/* CALCULATOR */
+.spec-sheet{
+  margin-top:22px;
+  background:#f8fafc;
+  border-radius:16px;
+  overflow:hidden;
+  font-size:14px;
+}
+.spec-sheet table{width:100%;border-collapse:collapse}
+.spec-sheet td{
+  padding:13px 18px;
+  border-bottom:1px solid #e5e7eb;
+}
+.spec-sheet td:first-child{font-weight:600;width:42%}
+.spec-sheet tr:last-child td{border-bottom:none}
+
+.product h2{margin:0 0 12px;font-size:30px}
+.product p{color:var(--muted);font-size:15px;max-width:700px}
+
 .calc{
-  margin-top:35px;
+  margin-top:45px;
+  padding-top:35px;
   border-top:1px solid #e5e7eb;
-  padding-top:30px;
 }
 .calc-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:18px;
 }
-label{
-  font-size:13px;
-  font-weight:600;
-}
-input,select{
-  width:100%;
-  padding:11px;
-  border-radius:10px;
-  border:1px solid #d1d5db;
+label{font-size:13px;font-weight:600}
+input{
+  width:100%;padding:11px;
+  border-radius:10px;border:1px solid #d1d5db;
 }
 button{
-  margin-top:18px;
-  padding:12px 24px;
-  border-radius:10px;
-  border:none;
-  background:#0d4ea6;
-  color:#fff;
-  font-size:14px;
-  cursor:pointer;
+  margin-top:18px;padding:12px 28px;
+  border-radius:10px;border:none;
+  background:var(--accent);color:#fff;
+  font-size:14px;font-weight:600;cursor:pointer;
 }
 .result{
   margin-top:18px;
   background:#eef2f7;
-  padding:18px;
-  border-radius:14px;
+  padding:18px;border-radius:14px;
   font-weight:600;
 }
 
 @media(max-width:900px){
   .product-header{grid-template-columns:1fr}
 }
+
+/* IMAGE MODAL */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.88);
+  display:none;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.modal img{max-width:92%;max-height:92%;border-radius:16px}
+.modal.active{display:flex}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Industrial Products</h1>
-  <p>Supplier & stockist of engineered wire mesh, fencing & screening solutions</p>
+  <h1>Industrial Wire Mesh Products</h1>
+  <p>Engineered screening, fencing & filtration solutions for infrastructure and process industries</p>
 </header>
 
 <nav>
   <div class="nav-wrap">
     <a href="#ss">SS Wire Mesh</a>
     <a href="#chain">Chain Link</a>
-    <a href="#perforated">Perforated Sheet</a>
+    <a href="#extrusion">Extrusion Screen</a>
     <a href="#spring">Spring Steel</a>
+    <a href="#welded">Welded Mesh</a>
+    <a href="#barbed">Barbed Wire</a>
   </div>
 </nav>
 
@@ -173,101 +149,163 @@ button{
 <!-- SS WIRE MESH -->
 <div id="ss" class="product">
   <div class="product-header">
-    <img src="assets/images/ss-wire-mesh.jpg" loading="lazy"
-         onerror="this.src='assets/images/image-not-available.png'">
+    <div>
+      <img src="ss-wire-mesh.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Material</td><td>SS 304 / 316 / 310</td></tr>
+          <tr><td>Mesh Range</td><td>1 – 400 mesh/inch</td></tr>
+          <tr><td>Wire Diameter</td><td>0.03 – 3.0 mm</td></tr>
+          <tr><td>Weave Type</td><td>Plain, Twill, Dutch</td></tr>
+          <tr><td>Roll Width</td><td>1 – 2 meters</td></tr>
+          <tr><td>Standards</td><td>ASTM E2016 / ISO 9044</td></tr>
+          <tr><td>Applications</td><td>Filtration, Screening, Chemical, Pharma</td></tr>
+        </table>
+      </div>
+    </div>
     <div>
       <h2>Stainless Steel Wire Mesh</h2>
-      <p>Precision woven SS mesh for filtration and screening applications.</p>
+      <p>High precision woven stainless steel mesh engineered for critical filtration and separation applications.</p>
     </div>
-  </div>
-
-  <div class="calc">
-    <div class="calc-grid">
-      <div><label>Mesh / Inch</label><input id="ssMesh" value="30"></div>
-      <div><label>Wire Dia (mm)</label><input id="ssDia" value="0.30"></div>
-      <div><label>Area (m²)</label><input id="ssArea" value="1"></div>
-    </div>
-    <button onclick="calcSS()">Calculate Weight</button>
-    <div id="ssResult" class="result"></div>
   </div>
 </div>
 
 <!-- CHAIN LINK -->
 <div id="chain" class="product">
-  <h2>Chain Link Fencing</h2>
-  <div class="calc">
-    <div class="calc-grid">
-      <div><label>Mesh Size (mm)</label><input id="clMesh" value="50"></div>
-      <div><label>Wire Dia (mm)</label><input id="clDia" value="3"></div>
-      <div><label>Roll Height (m)</label><input id="clH" value="1.5"></div>
-      <div><label>Roll Length (m)</label><input id="clL" value="50"></div>
+  <div class="product-header">
+    <div>
+      <img src="chainlink.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Material</td><td>GI / PVC Coated / MS</td></tr>
+          <tr><td>Mesh Size</td><td>25 – 75 mm</td></tr>
+          <tr><td>Wire Diameter</td><td>2.5 – 5.0 mm</td></tr>
+          <tr><td>Roll Height</td><td>1 – 3 meters</td></tr>
+          <tr><td>Coating</td><td>Hot Dip Galvanized / PVC</td></tr>
+          <tr><td>Standard</td><td>IS 278 / ASTM A392</td></tr>
+        </table>
+      </div>
     </div>
-    <button onclick="calcChain()">Calculate Weight</button>
-    <div id="clResult" class="result"></div>
+    <div>
+      <h2>Chain Link Fencing</h2>
+      <p>Durable fencing solution for perimeter protection, infrastructure and industrial security.</p>
+    </div>
   </div>
 </div>
 
-<!-- PERFORATED -->
-<div id="perforated" class="product">
-  <h2>Perforated Metal Sheet</h2>
-  <div class="calc">
-    <div class="calc-grid">
-      <div><label>Hole Dia (mm)</label><input id="phd" value="6"></div>
-      <div><label>Pitch (mm)</label><input id="pitch" value="10"></div>
-      <div><label>Thickness (mm)</label><input id="pthk" value="1.2"></div>
-      <div><label>Sheet Area (m²)</label><input id="pArea" value="1"></div>
+<!-- EXTRUSION SCREEN -->
+<div id="extrusion" class="product">
+  <div class="product-header">
+    <div>
+      <img src="extrusion-screen.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Material</td><td>SS 304 / 316</td></tr>
+          <tr><td>Opening Diameter</td><td>0.5 – 10 mm</td></tr>
+          <tr><td>Sheet Thickness</td><td>0.5 – 3.0 mm</td></tr>
+          <tr><td>Hole Pattern</td><td>Round / Slot</td></tr>
+          <tr><td>Usage</td><td>Polymer & Plastic Extrusion</td></tr>
+          <tr><td>Finish</td><td>Electro Polished</td></tr>
+        </table>
+      </div>
     </div>
-    <button onclick="calcPerf()">Calculate</button>
-    <div id="pResult" class="result"></div>
+    <div>
+      <h2>Extrusion Screen</h2>
+      <p>Precision perforated screens designed for polymer melt filtration and extrusion lines.</p>
+    </div>
   </div>
 </div>
 
 <!-- SPRING STEEL -->
 <div id="spring" class="product">
-  <h2>Spring Steel Sheet</h2>
-  <div class="calc">
-    <div class="calc-grid">
-      <div><label>Thickness (mm)</label><input id="sth" value="2"></div>
-      <div><label>Width (m)</label><input id="sw" value="1"></div>
-      <div><label>Length (m)</label><input id="sl" value="2"></div>
+  <div class="product-header">
+    <div>
+      <img src="spring-steel.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Grade</td><td>EN42 / EN45 / C67</td></tr>
+          <tr><td>Thickness</td><td>0.3 – 6 mm</td></tr>
+          <tr><td>Width</td><td>Up to 1250 mm</td></tr>
+          <tr><td>Hardness</td><td>45 – 52 HRC</td></tr>
+          <tr><td>Finish</td><td>Cold Rolled</td></tr>
+        </table>
+      </div>
     </div>
-    <button onclick="calcSpring()">Calculate Weight</button>
-    <div id="sResult" class="result"></div>
+    <div>
+      <h2>Spring Steel Sheet</h2>
+      <p>High carbon spring steel for wear resistance and dynamic load applications.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WELDED MESH -->
+<div id="welded" class="product">
+  <div class="product-header">
+    <div>
+      <img src="weldmesh.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Wire Diameter</td><td>2 – 10 mm</td></tr>
+          <tr><td>Mesh Size</td><td>25×25 to 200×200 mm</td></tr>
+          <tr><td>Material</td><td>MS / GI</td></tr>
+          <tr><td>Finish</td><td>Black / Galvanized</td></tr>
+          <tr><td>Applications</td><td>Construction, Fencing</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2>Welded Wire Mesh</h2>
+      <p>Rigid welded mesh panels for structural reinforcement and fencing systems.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BARBED WIRE -->
+<div id="barbed" class="product">
+  <div class="product-header">
+    <div>
+      <img src="barbed-wire.jpg" onclick="zoom(this.src)">
+      <div class="spec-sheet">
+        <table>
+          <tr><td>Material</td><td>GI / PVC Coated</td></tr>
+          <tr><td>Wire Dia</td><td>2 – 2.5 mm</td></tr>
+          <tr><td>Barb Spacing</td><td>75 – 100 mm</td></tr>
+          <tr><td>Standard</td><td>IS 278</td></tr>
+          <tr><td>Use</td><td>Agriculture, Security</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2>Barbed Wire</h2>
+      <p>Economical fencing wire for perimeter protection and agricultural use.</p>
+    </div>
   </div>
 </div>
 
 </div>
 
+<!-- IMAGE MODAL -->
+<div class="modal" id="modal" onclick="this.classList.remove('active')">
+  <img id="modalImg">
+</div>
+
 <script>
-function calcSS(){
-  const mesh=+ssMesh.value, d=+ssDia.value/1000, area=+ssArea.value;
-  const dens=8000;
-  const len=mesh*2;
-  const w=Math.PI*(d*d)/4*dens*len*area;
-  ssResult.innerHTML=Estimated Weight: ${w.toFixed(2)} kg;
+function zoom(src){
+  modalImg.src=src;
+  modal.classList.add('active');
 }
+</script>
 
-function calcChain(){
-  const m=+clMesh.value/1000,d=+clDia.value/1000,h=+clH.value,l=+clL.value;
-  const dens=7850;
-  const wireLen=(h*l)/(m*m)*2*m;
-  const w=wireLen*Math.PI*(d*d)/4*dens;
-  clResult.innerHTML=Estimated Weight: ${w.toFixed(2)} kg (±1%);
-}
-
-function calcPerf(){
-  const d=+phd.value,p=+pitch.value,t=+pthk.value/1000,a=+pArea.value;
-  const dens=7850;
-  const open=(Math.PI*(d*d)/4)/(p*p)*100;
-  const wt=(a*t*dens)*(1-open/100);
-  pResult.innerHTML=Open Area: ${open.toFixed(1)}%<br>Weight: ${wt.toFixed(2)} kg;
-}
-
-function calcSpring(){
-  const t=+sth.value/1000,w=+sw.value,l=+sl.value;
-  const dens=7850;
-  const wt=t*w*l*dens;
-  sResult.innerHTML=Weight: ${wt.toFixed(2)} kg;
+<!-- OPTION 3: PRODUCT SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Product",
+ "name":"Industrial Wire Mesh Products",
+ "brand":{"@type":"Brand","name":"National Steel"},
+ "manufacturer":{"@type":"Organization","name":"National Steel"},
+ "category":"Industrial Wire Mesh",
+ "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
 }
 </script>
 
