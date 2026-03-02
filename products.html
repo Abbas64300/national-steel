@@ -5,124 +5,197 @@
 <title>Industrial Wire Mesh Products | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="National Steel – Manufacturer & stockist of SS wire mesh, chain link fencing, perforated & extrusion screens, spring steel and welded mesh for industrial applications across India.">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --primary:#0b1f33;
+  --navy:#071a2e;
+  --navy2:#0b3a68;
   --accent:#0d4ea6;
   --bg:#f4f7fb;
   --card:#ffffff;
+  --border:#e5e7eb;
   --muted:#6b7280;
 }
 
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter;background:var(--bg);color:var(--primary)}
-
-header{
-  background:linear-gradient(135deg,#071a2e,#0b3a68);
-  color:#fff;
-  padding:60px 20px;
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:#0b1f33;
 }
-header h1{margin:0;font-size:40px}
-header p{opacity:.9;margin-top:10px}
 
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:#fff;
+  padding:70px 22px;
+}
+header h1{
+  font-family:"IBM Plex Sans",sans-serif;
+  font-size:42px;
+  margin:0;
+}
+header p{
+  max-width:820px;
+  margin-top:14px;
+  font-size:17px;
+  opacity:.9;
+}
+
+/* ===== STICKY NAV ===== */
 nav{
-  position:sticky;top:0;background:#fff;z-index:100;
-  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  border-bottom:1px solid var(--border);
 }
 .nav-wrap{
-  max-width:1200px;margin:auto;padding:14px 18px;
-  display:flex;gap:14px;overflow-x:auto;
+  max-width:1250px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
 }
 .nav-wrap a{
-  padding:9px 18px;border-radius:40px;
-  background:#eef2f7;color:#0b1f33;
-  text-decoration:none;font-weight:600;font-size:14px;
+  text-decoration:none;
+  padding:9px 18px;
+  border-radius:999px;
+  background:#eef2f7;
+  color:#0b1f33;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
 }
-.nav-wrap a:hover{background:var(--accent);color:#fff}
+.nav-wrap a:hover{
+  background:var(--accent);
+  color:#fff;
+}
 
-.container{max-width:1200px;margin:auto;padding:70px 18px}
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1250px;
+  margin:auto;
+  padding:70px 18px;
+}
 
+/* ===== PRODUCT CARD ===== */
 .product{
-  background:#fff;border-radius:22px;
-  box-shadow:0 30px 65px rgba(0,0,0,.08);
-  padding:44px;margin-bottom:90px;
+  background:var(--card);
+  border-radius:26px;
+  box-shadow:0 30px 70px rgba(0,0,0,.08);
+  padding:48px;
+  margin-bottom:90px;
 }
 
-.product-header{
+/* ===== PRODUCT HEADER ===== */
+.product-head{
   display:grid;
-  grid-template-columns:340px 1fr;
-  gap:48px;
+  grid-template-columns:420px 1fr;
+  gap:46px;
+  align-items:center;
 }
 
-.product img{
+/* IMAGE */
+.product-img{
   width:100%;
-  border-radius:18px;
+  aspect-ratio:4/3;
+  border-radius:22px;
+  overflow:hidden;
+  background:#eef2f7;
+}
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* CONTENT */
+.product h2{
+  font-family:"IBM Plex Sans",sans-serif;
+  font-size:32px;
+  margin:0 0 12px;
+}
+.product p{
+  font-size:15.5px;
+  color:var(--muted);
+  max-width:680px;
+  line-height:1.7;
+}
+
+/* ===== SPEC TABLE ===== */
+.specs{
+  margin-top:36px;
+  border-top:1px solid var(--border);
+  padding-top:30px;
+}
+.specs h3{
+  font-size:18px;
+  margin-bottom:16px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--border);
+}
+td:first-child{
+  width:38%;
+  font-weight:600;
+  background:#f9fafb;
+}
+
+/* ===== BUTTON ===== */
+button{
+  margin-top:26px;
+  padding:12px 26px;
+  border-radius:12px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+
+/* ===== MODAL ===== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+}
+.modal-content{
+  background:#fff;
+  max-width:900px;
+  width:92%;
+  max-height:85vh;
+  overflow:auto;
+  padding:36px;
+  border-radius:22px;
+}
+.modal h3{margin-top:0}
+.close{
+  float:right;
+  font-size:22px;
   cursor:pointer;
 }
 
-.spec-sheet{
-  margin-top:22px;
-  background:#f8fafc;
-  border-radius:16px;
-  overflow:hidden;
-  font-size:14px;
-}
-.spec-sheet table{width:100%;border-collapse:collapse}
-.spec-sheet td{
-  padding:13px 18px;
-  border-bottom:1px solid #e5e7eb;
-}
-.spec-sheet td:first-child{font-weight:600;width:42%}
-.spec-sheet tr:last-child td{border-bottom:none}
-
-.product h2{margin:0 0 12px;font-size:30px}
-.product p{color:var(--muted);font-size:15px;max-width:700px}
-
-.calc{
-  margin-top:45px;
-  padding-top:35px;
-  border-top:1px solid #e5e7eb;
-}
-.calc-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-label{font-size:13px;font-weight:600}
-input{
-  width:100%;padding:11px;
-  border-radius:10px;border:1px solid #d1d5db;
-}
-button{
-  margin-top:18px;padding:12px 28px;
-  border-radius:10px;border:none;
-  background:var(--accent);color:#fff;
-  font-size:14px;font-weight:600;cursor:pointer;
-}
-.result{
-  margin-top:18px;
-  background:#eef2f7;
-  padding:18px;border-radius:14px;
-  font-weight:600;
-}
-
+/* ===== MOBILE ===== */
 @media(max-width:900px){
-  .product-header{grid-template-columns:1fr}
+  .product-head{grid-template-columns:1fr}
 }
-
-/* IMAGE MODAL */
-.modal{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.88);
-  display:none;align-items:center;justify-content:center;
-  z-index:1000;
-}
-.modal img{max-width:92%;max-height:92%;border-radius:16px}
-.modal.active{display:flex}
 </style>
 </head>
 
@@ -130,7 +203,7 @@ button{
 
 <header>
   <h1>Industrial Wire Mesh Products</h1>
-  <p>Engineered screening, fencing & filtration solutions for infrastructure and process industries</p>
+  <p>Engineered screening, filtration & fencing solutions manufactured to international industrial standards.</p>
 </header>
 
 <nav>
@@ -139,173 +212,141 @@ button{
     <a href="#chain">Chain Link</a>
     <a href="#extrusion">Extrusion Screen</a>
     <a href="#spring">Spring Steel</a>
-    <a href="#welded">Welded Mesh</a>
-    <a href="#barbed">Barbed Wire</a>
   </div>
 </nav>
 
 <div class="container">
 
-<!-- SS WIRE MESH -->
-<div id="ss" class="product">
-  <div class="product-header">
-    <div>
-      <img src="ss-wire-mesh.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Material</td><td>SS 304 / 316 / 310</td></tr>
-          <tr><td>Mesh Range</td><td>1 – 400 mesh/inch</td></tr>
-          <tr><td>Wire Diameter</td><td>0.03 – 3.0 mm</td></tr>
-          <tr><td>Weave Type</td><td>Plain, Twill, Dutch</td></tr>
-          <tr><td>Roll Width</td><td>1 – 2 meters</td></tr>
-          <tr><td>Standards</td><td>ASTM E2016 / ISO 9044</td></tr>
-          <tr><td>Applications</td><td>Filtration, Screening, Chemical, Pharma</td></tr>
-        </table>
-      </div>
+<!-- ================= SS WIRE MESH ================= -->
+<section id="ss" class="product">
+  <div class="product-head">
+    <div class="product-img">
+      <img src="assets/images/ss-wire-mesh.jpg" alt="Stainless Steel Wire Mesh" loading="eager">
     </div>
     <div>
       <h2>Stainless Steel Wire Mesh</h2>
-      <p>High precision woven stainless steel mesh engineered for critical filtration and separation applications.</p>
+      <p>Precision woven stainless steel mesh used for filtration, screening, separation and protection across chemical, pharmaceutical, food processing and mining industries.</p>
+      <button onclick="openModal('ssModal')">View Full Technical Datasheet</button>
     </div>
   </div>
-</div>
 
-<!-- CHAIN LINK -->
-<div id="chain" class="product">
-  <div class="product-header">
-    <div>
-      <img src="chainlink.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Material</td><td>GI / PVC Coated / MS</td></tr>
-          <tr><td>Mesh Size</td><td>25 – 75 mm</td></tr>
-          <tr><td>Wire Diameter</td><td>2.5 – 5.0 mm</td></tr>
-          <tr><td>Roll Height</td><td>1 – 3 meters</td></tr>
-          <tr><td>Coating</td><td>Hot Dip Galvanized / PVC</td></tr>
-          <tr><td>Standard</td><td>IS 278 / ASTM A392</td></tr>
-        </table>
-      </div>
+  <div class="specs">
+    <h3>Technical Specifications</h3>
+    <table>
+      <tr><td>Material Grades</td><td>SS 304 / 316 / 316L / 310</td></tr>
+      <tr><td>Mesh Range</td><td>1 – 400 mesh / inch</td></tr>
+      <tr><td>Wire Diameter</td><td>0.03 – 3.00 mm</td></tr>
+      <tr><td>Weave Types</td><td>Plain / Twill / Dutch</td></tr>
+      <tr><td>Roll Width</td><td>1 – 1.5 meters (custom available)</td></tr>
+      <tr><td>Applications</td><td>Filtration, Sieving, EMI Shielding</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= CHAIN LINK ================= -->
+<section id="chain" class="product">
+  <div class="product-head">
+    <div class="product-img">
+      <img src="assets/images/chainlink.jpg" alt="Chain Link Fencing" loading="eager">
     </div>
     <div>
       <h2>Chain Link Fencing</h2>
-      <p>Durable fencing solution for perimeter protection, infrastructure and industrial security.</p>
+      <p>Industrial-grade chain link fencing manufactured for perimeter security, highways, industrial plants and infrastructure projects.</p>
+      <button onclick="openModal('chainModal')">View Full Technical Datasheet</button>
     </div>
   </div>
-</div>
 
-<!-- EXTRUSION SCREEN -->
-<div id="extrusion" class="product">
-  <div class="product-header">
-    <div>
-      <img src="extrusion-screen.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Material</td><td>SS 304 / 316</td></tr>
-          <tr><td>Opening Diameter</td><td>0.5 – 10 mm</td></tr>
-          <tr><td>Sheet Thickness</td><td>0.5 – 3.0 mm</td></tr>
-          <tr><td>Hole Pattern</td><td>Round / Slot</td></tr>
-          <tr><td>Usage</td><td>Polymer & Plastic Extrusion</td></tr>
-          <tr><td>Finish</td><td>Electro Polished</td></tr>
-        </table>
-      </div>
+  <div class="specs">
+    <table>
+      <tr><td>Material</td><td>GI / PVC Coated / MS</td></tr>
+      <tr><td>Wire Diameter</td><td>2.5 – 4.0 mm</td></tr>
+      <tr><td>Mesh Size</td><td>40 – 75 mm</td></tr>
+      <tr><td>Roll Height</td><td>1 – 4 meters</td></tr>
+      <tr><td>Coating Standard</td><td>IS 4826</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= EXTRUSION SCREEN ================= -->
+<section id="extrusion" class="product">
+  <div class="product-head">
+    <div class="product-img">
+      <img src="assets/images/extrusion-screen.jpg" alt="Extrusion Screen" loading="eager">
     </div>
     <div>
-      <h2>Extrusion Screen</h2>
-      <p>Precision perforated screens designed for polymer melt filtration and extrusion lines.</p>
+      <h2>Extrusion Screen Packs</h2>
+      <p>High-precision extrusion screens used in polymer, plastic and rubber extrusion lines for melt filtration.</p>
+      <button onclick="openModal('extrusionModal')">View Full Technical Datasheet</button>
     </div>
   </div>
-</div>
 
-<!-- SPRING STEEL -->
-<div id="spring" class="product">
-  <div class="product-header">
-    <div>
-      <img src="spring-steel.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Grade</td><td>EN42 / EN45 / C67</td></tr>
-          <tr><td>Thickness</td><td>0.3 – 6 mm</td></tr>
-          <tr><td>Width</td><td>Up to 1250 mm</td></tr>
-          <tr><td>Hardness</td><td>45 – 52 HRC</td></tr>
-          <tr><td>Finish</td><td>Cold Rolled</td></tr>
-        </table>
-      </div>
+  <div class="specs">
+    <table>
+      <tr><td>Mesh Range</td><td>10 – 500 mesh</td></tr>
+      <tr><td>Wire Diameter</td><td>0.025 – 0.50 mm</td></tr>
+      <tr><td>Diameter Range</td><td>25 – 600 mm</td></tr>
+      <tr><td>Thickness</td><td>Single / Multi-layer packs</td></tr>
+      <tr><td>Industries</td><td>Plastic, Polymer, Rubber</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= SPRING STEEL ================= -->
+<section id="spring" class="product">
+  <div class="product-head">
+    <div class="product-img">
+      <img src="assets/images/spring-steel.jpg" alt="Spring Steel Sheet" loading="eager">
     </div>
     <div>
-      <h2>Spring Steel Sheet</h2>
-      <p>High carbon spring steel for wear resistance and dynamic load applications.</p>
+      <h2>Spring Steel Sheets</h2>
+      <p>High-carbon spring steel sheets used for crusher screens, vibrating screens and impact-resistant applications.</p>
+      <button onclick="openModal('springModal')">View Full Technical Datasheet</button>
     </div>
   </div>
-</div>
 
-<!-- WELDED MESH -->
-<div id="welded" class="product">
-  <div class="product-header">
-    <div>
-      <img src="weldmesh.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Wire Diameter</td><td>2 – 10 mm</td></tr>
-          <tr><td>Mesh Size</td><td>25×25 to 200×200 mm</td></tr>
-          <tr><td>Material</td><td>MS / GI</td></tr>
-          <tr><td>Finish</td><td>Black / Galvanized</td></tr>
-          <tr><td>Applications</td><td>Construction, Fencing</td></tr>
-        </table>
-      </div>
-    </div>
-    <div>
-      <h2>Welded Wire Mesh</h2>
-      <p>Rigid welded mesh panels for structural reinforcement and fencing systems.</p>
-    </div>
+  <div class="specs">
+    <table>
+      <tr><td>Grade</td><td>EN42 / EN45 / C67 / C75</td></tr>
+      <tr><td>Thickness</td><td>1 – 10 mm</td></tr>
+      <tr><td>Hardness</td><td>45 – 55 HRC</td></tr>
+      <tr><td>Finish</td><td>Polished / Heat Treated</td></tr>
+      <tr><td>Applications</td><td>Crusher & Vibrating Screens</td></tr>
+    </table>
   </div>
+</section>
+
 </div>
 
-<!-- BARBED WIRE -->
-<div id="barbed" class="product">
-  <div class="product-header">
-    <div>
-      <img src="barbed-wire.jpg" onclick="zoom(this.src)">
-      <div class="spec-sheet">
-        <table>
-          <tr><td>Material</td><td>GI / PVC Coated</td></tr>
-          <tr><td>Wire Dia</td><td>2 – 2.5 mm</td></tr>
-          <tr><td>Barb Spacing</td><td>75 – 100 mm</td></tr>
-          <tr><td>Standard</td><td>IS 278</td></tr>
-          <tr><td>Use</td><td>Agriculture, Security</td></tr>
-        </table>
-      </div>
-    </div>
-    <div>
-      <h2>Barbed Wire</h2>
-      <p>Economical fencing wire for perimeter protection and agricultural use.</p>
-    </div>
+<!-- ===== MODALS (Reusable) ===== -->
+<div id="ssModal" class="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <span class="close" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+    <h3>SS Wire Mesh – Complete Technical Datasheet</h3>
+    <p>Includes weaving tolerances, chemical composition, ASTM/ISO compliance, roll packing standards and inspection parameters.</p>
   </div>
-</div>
-
-</div>
-
-<!-- IMAGE MODAL -->
-<div class="modal" id="modal" onclick="this.classList.remove('active')">
-  <img id="modalImg">
 </div>
 
 <script>
-function zoom(src){
-  modalImg.src=src;
-  modal.classList.add('active');
+function openModal(id){
+  document.getElementById(id).style.display="flex";
+}
+function closeModal(e){
+  if(e.target.classList.contains("modal")){
+    e.target.style.display="none";
+  }
 }
 </script>
 
-<!-- OPTION 3: PRODUCT SCHEMA -->
+<!-- ===== PRODUCT SCHEMA ===== -->
 <script type="application/ld+json">
 {
- "@context":"https://schema.org",
- "@type":"Product",
- "name":"Industrial Wire Mesh Products",
- "brand":{"@type":"Brand","name":"National Steel"},
- "manufacturer":{"@type":"Organization","name":"National Steel"},
- "category":"Industrial Wire Mesh",
- "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"Industrial Wire Mesh Products",
+  "brand":"National Steel",
+  "category":"Industrial Wire Mesh",
+  "manufacturer":"National Steel",
+  "countryOfOrigin":"IN"
 }
 </script>
 
