@@ -67,7 +67,6 @@ nav{
   background:#eef2f7;
   font-weight:700;
   cursor:pointer;
-  white-space:nowrap;
 }
 .nav-wrap button.active{
   background:var(--accent);
@@ -148,151 +147,157 @@ input,select{
 
 <header>
   <h1>Engineering Calculation Tools</h1>
-  <p>Professional-grade industrial calculators used for fencing, wire mesh, screening and steel weight estimation.</p>
+  <p>Industrial-grade calculators based on manufacturing, EPC & OEM engineering practices.</p>
 </header>
 
 <nav>
   <div class="nav-wrap">
-    <button class="active" onclick="showTool(this,'chain')">Chain Link</button>
-    <button onclick="showTool(this,'ss')">SS Wire Mesh</button>
+    <button class="active" onclick="showTool(this,'ss')">SS Wire Mesh</button>
     <button onclick="showTool(this,'perf')">Perforated Sheet</button>
     <button onclick="showTool(this,'spring')">Spring Steel</button>
-    <button onclick="showTool(this,'barbed')">Barbed Wire</button>
+    <button onclick="showTool(this,'welded')">Welded Mesh</button>
   </div>
 </nav>
 
 <div class="container">
 
-<!-- ================= CHAIN LINK ================= -->
-<section id="chain" class="tool active">
-<h2>Chain Link Fencing – Accurate Weight Calculator</h2>
-
+<!-- SS WIRE MESH -->
+<section id="ss" class="tool active">
+<h2>Stainless / GI / MS Wire Mesh</h2>
 <div class="grid">
-<div><label>Mesh Opening (mm)</label><input id="cl_m" value="50"></div>
-<div><label>Wire Diameter (mm)</label><input id="cl_d" value="3"></div>
-<div><label>Height (m)</label><input id="cl_h" value="1.5"></div>
-<div><label>Length (m)</label><input id="cl_l" value="50"></div>
-</div>
+<div><label>Weave Type</label>
+<select id="ss_weave">
+<option value="1">Plain Woven</option>
+<option value="1.08">Crimped</option>
+<option value="1.15">Welded</option>
+</select></div>
 
-<button class="calc" onclick="calcChain()">Calculate</button>
-<div id="cl_r" class="result"></div>
-<div class="note">Density 7850 kg/m³ | Helical geometry | ±1% tolerance</div>
-</section>
+<div><label>Material</label>
+<select id="ss_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+<option value="8000">SS 304</option>
+<option value="8050">SS 310</option>
+<option value="8000">SS 316</option>
+</select></div>
 
-<!-- ================= SS MESH ================= -->
-<section id="ss" class="tool">
-<h2>Stainless Steel Wire Mesh – Industrial Formula</h2>
-
-<div class="grid">
 <div><label>Mesh / Inch</label><input id="ss_m" value="30"></div>
 <div><label>Wire Dia (mm)</label><input id="ss_d" value="0.30"></div>
 <div><label>Width (m)</label><input id="ss_w" value="1"></div>
 <div><label>Length (m)</label><input id="ss_l" value="30"></div>
 </div>
-
 <button class="calc" onclick="calcSS()">Calculate</button>
-<div id="ss_r" class="result"></div>
-<div class="note">Density 8000 kg/m³ | Warp + Weft model | ±1%</div>
+<div class="result" id="ss_r"></div>
+<div class="note">Weave factor & material density applied | ±1%</div>
 </section>
 
-<!-- ================= PERFORATED ================= -->
+<!-- PERFORATED -->
 <section id="perf" class="tool">
-<h2>Perforated Sheet – Open Area & Net Weight</h2>
-
+<h2>Perforated Sheet</h2>
 <div class="grid">
+<div><label>Material</label>
+<select id="pf_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+<option value="8000">SS 304</option>
+<option value="8000">SS 316</option>
+</select></div>
 <div><label>Hole Dia (mm)</label><input id="pf_h" value="6"></div>
 <div><label>Pitch (mm)</label><input id="pf_p" value="10"></div>
 <div><label>Thickness (mm)</label><input id="pf_t" value="1.6"></div>
 <div><label>Area (m²)</label><input id="pf_a" value="1"></div>
 </div>
-
 <button class="calc" onclick="calcPerf()">Calculate</button>
-<div id="pf_r" class="result"></div>
-<div class="note">Triangular/square logic | Industry net-metal method</div>
+<div class="result" id="pf_r"></div>
 </section>
 
-<!-- ================= SPRING ================= -->
+<!-- SPRING -->
 <section id="spring" class="tool">
-<h2>Spring Steel / High Carbon Sheet</h2>
-
+<h2>Spring Steel / Sheet</h2>
 <div class="grid">
+<div><label>Material</label>
+<select id="sp_mat">
+<option value="7850">MS</option>
+<option value="8000">SS 304</option>
+<option value="8050">SS 310</option>
+<option value="8000">SS 316</option>
+</select></div>
 <div><label>Thickness (mm)</label><input id="sp_t" value="2"></div>
 <div><label>Width (m)</label><input id="sp_w" value="1"></div>
 <div><label>Length (m)</label><input id="sp_l" value="2"></div>
 </div>
-
 <button class="calc" onclick="calcSpring()">Calculate</button>
-<div id="sp_r" class="result"></div>
-<div class="note">Volumetric density method | ±1%</div>
+<div class="result" id="sp_r"></div>
 </section>
 
-<!-- ================= BARBED ================= -->
-<section id="barbed" class="tool">
-<h2>Barbed Wire – Bundle Weight</h2>
-
+<!-- WELDED MESH -->
+<section id="welded" class="tool">
+<h2>Welded Wire Mesh Calculator</h2>
 <div class="grid">
-<div>
-<label>Gauge</label>
-<select id="bw_g">
-<option value="12">12 × 14</option>
-<option value="14">14 × 14</option>
-</select>
+<div><label>Material</label>
+<select id="wm_mat">
+<option value="7850">MS</option>
+<option value="7850">GI</option>
+<option value="8000">SS</option>
+</select></div>
+<div><label>Wire Dia (mm)</label><input id="wm_d" value="4"></div>
+<div><label>Hole Size (mm)</label><input id="wm_h" value="50"></div>
+<div><label>Width (m)</label><input id="wm_w" value="1"></div>
+<div><label>Length (m)</label><input id="wm_l" value="2"></div>
 </div>
-<div><label>Length (m)</label><input id="bw_l" value="400"></div>
-</div>
-
-<button class="calc" onclick="calcBarbed()">Calculate</button>
-<div id="bw_r" class="result"></div>
-<div class="note">IS 278 compliant estimation</div>
+<button class="calc" onclick="calcWelded()">Calculate</button>
+<div class="result" id="wm_r"></div>
+<div class="note">Includes weld overlap factor | ±1%</div>
 </section>
 
 </div>
 
 <script>
 function showTool(btn,id){
-  document.querySelectorAll('.tool').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
+document.querySelectorAll('.tool').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+btn.classList.add('active');
 }
 
-/* ===== CALCULATIONS ===== */
-
-function calcChain(){
-  let m=+cl_m.value/1000, d=+cl_d.value/1000;
-  let area=+cl_h.value*+cl_l.value;
-  let wire=(area/(m*m))*2*m;
-  let wt=wire*(Math.PI*d*d/4)*7850;
-  cl_r.innerHTML=Estimated Weight: <b>${wt.toFixed(2)} kg</b>;
-}
-
+/* SS MESH */
 function calcSS(){
-  let mesh=+ss_m.value;
-  let d=+ss_d.value/1000;
-  let w=+ss_w.value, l=+ss_l.value;
-  let wires=mesh*39.37;
-  let total=(w+w+l+l)*wires/2;
-  let wt=total*(Math.PI*d*d/4)*8000;
-  ss_r.innerHTML=Estimated Weight: <b>${wt.toFixed(2)} kg</b>;
+let mesh=+ss_m.value, d=+ss_d.value/1000, w=+ss_w.value, l=+ss_l.value;
+let dens=+ss_mat.value, weave=+ss_weave.value;
+let wires=mesh*39.37;
+let total=(w+l)*wires;
+let wt=total*(Math.PI*d*d/4)*dens*weave;
+ss_r.innerHTML=Estimated Weight: <b>${wt.toFixed(2)} kg</b>;
 }
 
+/* PERFORATED */
 function calcPerf(){
-  let h=+pf_h.value, p=+pf_p.value;
-  let t=+pf_t.value/1000, a=+pf_a.value;
-  let open=(Math.PI*(h/2)*(h/2))/(p*p);
-  let wt=a*t*7850*(1-open);
-  pf_r.innerHTML=Open Area: <b>${(open*100).toFixed(2)}%</b> | Weight: <b>${wt.toFixed(2)} kg</b>;
+let dens=+pf_mat.value, h=+pf_h.value, p=+pf_p.value;
+let t=+pf_t.value/1000, a=+pf_a.value;
+let open=(Math.PI*(h/2)*(h/2))/(p*p);
+let wt=a*t*dens*(1-open);
+pf_r.innerHTML=Open Area: <b>${(open*100).toFixed(2)}%</b> | Weight: <b>${wt.toFixed(2)} kg</b>;
 }
 
+/* SPRING */
 function calcSpring(){
-  let wt=(+sp_t.value/1000)(+sp_w.value)(+sp_l.value)*7850;
-  sp_r.innerHTML=Weight: <b>${wt.toFixed(2)} kg</b>;
+let wt=(+sp_t.value/1000)(+sp_w.value)(+sp_l.value)*(+sp_mat.value);
+sp_r.innerHTML=Weight: <b>${wt.toFixed(2)} kg</b>;
 }
 
-function calcBarbed(){
-  let rate=bw_g.value==12?0.085:0.065;
-  let wt=+bw_l.value*rate;
-  bw_r.innerHTML=Estimated Bundle Weight: <b>${wt.toFixed(2)} kg</b>;
+/* WELDED MESH */
+function calcWelded(){
+let dens=+wm_mat.value;
+let d=+wm_d.value/1000;
+let hole=+wm_h.value/1000;
+let w=+wm_w.value, l=+wm_l.value;
+
+let vert=(w/hole)+1;
+let hor=(l/hole)+1;
+let wireLen=(vert*l)+(hor*w);
+let wt=wireLen*(Math.PI*d*d/4)*dens*1.03;
+
+wm_r.innerHTML=Estimated Weight: <b>${wt.toFixed(2)} kg</b>;
 }
 </script>
 
