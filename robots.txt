@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nationalsteelmesh.com/sitemap.xml
+
+# Block admin or hidden folders if any
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Allow important resources
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+
+Crawl-delay: 2
