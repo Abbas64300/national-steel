@@ -1,38 +1,31 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<title>National Steel | Industrial Wire Mesh Supplier in India</title>
 
-<meta name="description" content="National Steel is a leading industrial wire mesh supplier in India specialising in stainless steel wire mesh, welded mesh, chain link fencing, perforated sheets, barbed wire and extrusion screens.">
-<meta name="keywords" content="wire mesh India, stainless steel wire mesh supplier India, SS 304 wire mesh, SS 316 mesh manufacturer, welded wire mesh supplier, chain link fencing manufacturer India, barbed wire supplier Gujarat, perforated sheet supplier India, industrial mesh Rajkot, GI wire mesh manufacturer India">
-<meta name="author" content="National Steel">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title id="dynamicTitle">National Steel | Industrial Wire Mesh Supplier in India</title>
+
+<meta name="description" id="dynamicDescription" content="National Steel is a leading industrial wire mesh supplier in India specialising in stainless steel wire mesh, welded mesh, chain link fencing, perforated sheets and barbed wire.">
+
+<meta name="keywords" content="wire mesh India, stainless steel wire mesh supplier, welded mesh manufacturer Gujarat, chain link fencing India, perforated sheet supplier, barbed wire supplier, industrial mesh Rajkot">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
 <link rel="canonical" href="https://nationalsteelmesh.com/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-<!-- GEO TARGETING -->
+<!-- GEO -->
 <meta name="geo.region" content="IN-GJ">
 <meta name="geo.placename" content="Rajkot, Gujarat">
 <meta name="geo.position" content="22.3039;70.8022">
 <meta name="ICBM" content="22.3039,70.8022">
 
-<!-- OPEN GRAPH -->
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="National Steel | Industrial Wire Mesh Supplier India">
 <meta property="og:description" content="Trusted industrial wire mesh supplier serving EPC contractors and infrastructure projects across India.">
 <meta property="og:url" content="https://nationalsteelmesh.com/">
 
-<!-- TWITTER -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="National Steel - Wire Mesh India">
-<meta name="twitter:description" content="Industrial stainless steel wire mesh, welded mesh and fencing supplier across India.">
-
-<!-- FONTS -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=IBM+Plex+Sans:wght@600;700&display=swap" rel="stylesheet">
 
 <!-- STRUCTURED DATA -->
@@ -43,77 +36,218 @@
 "name":"National Steel",
 "url":"https://nationalsteelmesh.com",
 "telephone":"+917802021053",
-"priceRange":"₹₹",
 "address":{
 "@type":"PostalAddress",
 "addressLocality":"Rajkot",
 "addressRegion":"Gujarat",
 "addressCountry":"India"
 },
-"geo":{
-"@type":"GeoCoordinates",
-"latitude":22.3039,
-"longitude":70.8022
-},
-"areaServed":"India",
-"sameAs":[
-"https://www.indiamart.com/",
-"https://www.tradeindia.com/"
-]
+"areaServed":"India"
 }
 </script>
 
 <style>
-
-/* ALL YOUR PREVIOUS PREMIUM DESIGN CSS REMAINS UNCHANGED */
+:root{
+--bg-dark:#0a1624;
+--bg-light:#f4f6f8;
+--text-dark:#e6edf5;
+--text-light:#1f2933;
+--accent:#f4b41a;
+}
 
 body{
 margin:0;
 font-family:Inter;
-background:#0a1624;
-color:#e6edf5;
+background:var(--bg-dark);
+color:var(--text-dark);
+transition:.4s;
 }
 
+body.light{
+background:var(--bg-light);
+color:var(--text-light);
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:25px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,22,36,0.95);
+backdrop-filter:blur(10px);
+z-index:1000;
+transition:.3s;
+}
+header.shrink{padding:12px 60px;}
+header h1{margin:0;font-family:"IBM Plex Sans";}
+header span{color:var(--accent);}
+nav{display:flex;gap:40px;}
+nav a{color:#cbd5e1;text-decoration:none;font-size:13px;text-transform:uppercase;}
+nav a:hover{color:white}
+
+/* HERO */
 .hero{
-padding:200px 20px;
+padding:200px 20px 140px;
 text-align:center;
 background:linear-gradient(135deg,#0b1f33,#123456);
 }
+.hero h2{font-family:"IBM Plex Sans";font-size:60px;margin:0;}
+.hero p{font-size:18px;margin-top:20px;}
 
-footer{
-padding:80px 40px;
-background:#081726;
+/* CITY SEO SECTION */
+.city-section{
+padding:120px 20px;
+text-align:center;
+}
+.city-box{
+background:rgba(255,255,255,.05);
+padding:50px;
+border-radius:20px;
+max-width:900px;
+margin:auto;
 }
 
+/* FOOTER */
+footer{
+padding:100px 40px 40px;
+background:#081726;
+text-align:center;
+}
 .contact-card{
 background:rgba(255,255,255,.05);
-padding:30px;
-border-radius:16px;
+padding:40px;
+border-radius:20px;
+max-width:600px;
+margin:auto;
 }
 
-</style>
+/* TOGGLE */
+.toggle{
+position:fixed;
+top:20px;
+right:20px;
+background:var(--accent);
+color:black;
+padding:10px 20px;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+}
 
+/* FLOATING BUTTONS */
+.float{
+position:fixed;
+right:25px;
+bottom:25px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+.float a{
+width:60px;height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-decoration:none;
+font-size:22px;
+}
+.call{background:#0b5ed7;}
+.mail{background:#374151;}
+.whatsapp{background:#25d366;}
+</style>
 </head>
 
 <body>
 
+<div class="toggle" onclick="document.body.classList.toggle('light')">Toggle Mode</div>
+
+<header id="mainHeader">
+<h1>National<span>Steel</span></h1>
+<nav>
+<a href="#">About</a>
+<a href="#">Products</a>
+<a href="#">Engineering Tools</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
 <section class="hero">
-<h1>National Steel</h1>
-<p>Premium Industrial Wire Mesh Supplier Across India</p>
+<h2 id="heroHeading">National Steel</h2>
+<p id="heroSub">Premium Industrial Wire Mesh Supplier Across India</p>
+</section>
+
+<section class="city-section">
+<div class="city-box">
+<h2 id="cityTitle">Industrial Wire Mesh Supplier in India</h2>
+<p id="cityContent">
+National Steel supplies stainless steel wire mesh, welded mesh, chain link fencing,
+perforated sheets and barbed wire solutions across India.
+</p>
+</div>
 </section>
 
 <footer>
 <div class="contact-card">
-<p><strong>Rajkot, Gujarat, India</strong></p>
+<h3>Rajkot, Gujarat, India</h3>
 <p>Abbas Bhai: 782021053</p>
 <p>Mustafa Bhai: 990414986</p>
 <p>Email: business.nationalsteel@gmail.com</p>
 </div>
 
-<p style="margin-top:40px;text-align:center;">
+<p style="margin-top:50px;">
 © 2026 National Steel · Industrial Wire Mesh Supply Across India
 </p>
 </footer>
+
+<div class="float">
+<a href="tel:+917802021053" class="call">📞</a>
+<a href="mailto:business.nationalsteel@gmail.com" class="mail">✉️</a>
+<a href="https://wa.me/917802021053" class="whatsapp">💬</a>
+</div>
+
+<script>
+
+/* Sticky Header */
+window.addEventListener("scroll",function(){
+let header=document.getElementById("mainHeader");
+if(window.scrollY>80){header.classList.add("shrink")}
+else{header.classList.remove("shrink")}
+});
+
+/* SEO Landing System */
+const params=new URLSearchParams(window.location.search);
+const city=params.get("city");
+
+if(city){
+const formattedCity=city.charAt(0).toUpperCase()+city.slice(1);
+
+document.getElementById("dynamicTitle").innerText=
+"Wire Mesh Supplier in "+formattedCity+" | National Steel";
+
+document.getElementById("dynamicDescription").setAttribute("content",
+"National Steel is a trusted stainless steel wire mesh and fencing supplier in "+formattedCity+" serving industrial sectors.");
+
+document.getElementById("heroHeading").innerText=
+"Wire Mesh Supplier in "+formattedCity;
+
+document.getElementById("heroSub").innerText=
+"Premium Stainless Steel & Industrial Wire Mesh Solutions in "+formattedCity;
+
+document.getElementById("cityTitle").innerText=
+"Industrial Wire Mesh Manufacturer & Supplier in "+formattedCity;
+
+document.getElementById("cityContent").innerText=
+"National Steel supplies SS wire mesh, welded mesh, perforated sheets, chain link fencing and barbed wire in "+formattedCity+
+" for infrastructure, EPC contractors and industrial applications.";
+}
+
+</script>
 
 </body>
 </html>
