@@ -17,7 +17,6 @@
   --text:#e8eef6;
   --muted:#a9b4c2;
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -25,8 +24,6 @@ body{
   background:linear-gradient(135deg,var(--navy),#02101f);
   color:var(--text);
 }
-
-/* HEADER */
 header{
   padding:80px 22px;
   background:linear-gradient(135deg,var(--navy),var(--navy2));
@@ -36,16 +33,12 @@ header h1{
   font-family:"IBM Plex Sans",sans-serif;
   font-size:42px;
   margin:0;
-  letter-spacing:.5px;
 }
 header p{
   margin-top:16px;
   font-size:16px;
-  max-width:820px;
   color:var(--muted);
 }
-
-/* NAV */
 nav{
   position:sticky;
   top:0;
@@ -54,32 +47,26 @@ nav{
   border-bottom:1px solid var(--border);
 }
 .nav-wrap{
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
   padding:16px 20px;
   display:flex;
-  gap:14px;
+  gap:12px;
   overflow-x:auto;
 }
 .nav-wrap button{
   border:1px solid var(--border);
-  padding:10px 22px;
+  padding:10px 20px;
   border-radius:999px;
   background:transparent;
   color:var(--text);
   font-weight:600;
   cursor:pointer;
-  transition:.3s;
-}
-.nav-wrap button:hover{
-  background:var(--accent);
 }
 .nav-wrap button.active{
   background:var(--accent);
   border-color:var(--accent);
 }
-
-/* LAYOUT */
 .container{
   max-width:1200px;
   margin:auto;
@@ -95,15 +82,11 @@ nav{
   box-shadow:0 30px 80px rgba(0,0,0,.5);
 }
 .tool.active{display:block}
-
 h2{
   font-family:"IBM Plex Sans",sans-serif;
   font-size:30px;
   margin-top:0;
-  letter-spacing:.3px;
 }
-
-/* FORM GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -122,14 +105,7 @@ input,select{
   border:1px solid var(--border);
   background:rgba(255,255,255,0.04);
   color:var(--text);
-  font-size:14px;
 }
-input:focus,select:focus{
-  outline:none;
-  border-color:var(--accent);
-}
-
-/* BUTTON */
 .calc{
   margin-top:34px;
   padding:14px 32px;
@@ -139,13 +115,7 @@ input:focus,select:focus{
   color:#fff;
   font-weight:700;
   cursor:pointer;
-  transition:.3s;
 }
-.calc:hover{
-  background:#1a65c7;
-}
-
-/* RESULT */
 .result{
   margin-top:28px;
   background:rgba(13,78,166,0.1);
@@ -166,102 +136,54 @@ input:focus,select:focus{
 <body>
 
 <header>
-  <h1>Engineering Calculation Tools</h1>
-  <p>Industrial-grade engineering calculators aligned with EPC, OEM and process industry standards.</p>
+<h1>Engineering Calculation Tools</h1>
+<p>Industrial-grade engineering calculators aligned with EPC, OEM & infrastructure standards.</p>
 </header>
 
 <nav>
-  <div class="nav-wrap">
-    <button class="active" onclick="showTool(this,'ss')">SS Wire Mesh</button>
-    <button onclick="showTool(this,'perf')">Perforated Sheet</button>
-    <button onclick="showTool(this,'spring')">Spring Steel</button>
-    <button onclick="showTool(this,'welded')">Welded Mesh</button>
-  </div>
+<div class="nav-wrap">
+<button class="active" onclick="showTool(this,'chain')">Chainlink</button>
+<button onclick="showTool(this,'barb')">Barbed Wire</button>
+</div>
 </nav>
 
 <div class="container">
 
-<!-- SS MESH -->
-<section id="ss" class="tool active">
-<h2>Stainless / GI / MS Wire Mesh</h2>
-<div class="grid">
-<div><label>Weave Type</label>
-<select id="ss_weave">
-<option value="1">Plain Woven</option>
-<option value="1.08">Crimped</option>
-<option value="1.15">Welded</option>
-</select></div>
-
-<div><label>Material Density (kg/m³)</label>
-<select id="ss_mat">
-<option value="7850">MS / GI - 7850</option>
-<option value="8000">SS 304 / 316 - 8000</option>
-<option value="8050">SS 310 - 8050</option>
-</select></div>
-
-<div><label>Mesh / Inch</label><input id="ss_m" value="30"></div>
-<div><label>Wire Dia (mm)</label><input id="ss_d" value="0.30"></div>
-<div><label>Width (m)</label><input id="ss_w" value="1"></div>
-<div><label>Length (m)</label><input id="ss_l" value="30"></div>
-</div>
-<button class="calc" onclick="calcSS()">Calculate</button>
-<div class="result" id="ss_r"></div>
-<div class="note">Engineering tolerance ±1%</div>
-</section>
-
-<!-- PERFORATED -->
-<section id="perf" class="tool">
-<h2>Perforated Sheet</h2>
+<!-- CHAINLINK -->
+<section id="chain" class="tool active">
+<h2>Chainlink Mesh Calculator</h2>
 <div class="grid">
 <div><label>Material Density (kg/m³)</label>
-<select id="pf_mat">
+<select id="cl_mat">
 <option value="7850">MS / GI - 7850</option>
 <option value="8000">SS - 8000</option>
 </select></div>
-<div><label>Hole Dia (mm)</label><input id="pf_h" value="6"></div>
-<div><label>Pitch (mm)</label><input id="pf_p" value="10"></div>
-<div><label>Thickness (mm)</label><input id="pf_t" value="1.6"></div>
-<div><label>Total Area (m²)</label><input id="pf_a" value="1"></div>
+<div><label>Wire Dia (mm)</label><input id="cl_d" value="3"></div>
+<div><label>Mesh Size (mm)</label><input id="cl_m" value="50"></div>
+<div><label>Width (m)</label><input id="cl_w" value="1"></div>
+<div><label>Length (m)</label><input id="cl_l" value="10"></div>
 </div>
-<button class="calc" onclick="calcPerf()">Calculate</button>
-<div class="result" id="pf_r"></div>
+<button class="calc" onclick="calcChain()">Calculate</button>
+<div class="result" id="cl_r"></div>
+<div class="note">Diamond mesh formula | ±1%</div>
 </section>
 
-<!-- SPRING -->
-<section id="spring" class="tool">
-<h2>Spring Steel / Sheet</h2>
+<!-- BARBED -->
+<section id="barb" class="tool">
+<h2>Barbed Wire Calculator</h2>
 <div class="grid">
 <div><label>Material Density (kg/m³)</label>
-<select id="sp_mat">
-<option value="7850">MS - 7850</option>
-<option value="8000">SS 304/316 - 8000</option>
-<option value="8050">SS 310 - 8050</option>
-</select></div>
-<div><label>Thickness (mm)</label><input id="sp_t" value="2"></div>
-<div><label>Width (m)</label><input id="sp_w" value="1"></div>
-<div><label>Length (m)</label><input id="sp_l" value="2"></div>
-</div>
-<button class="calc" onclick="calcSpring()">Calculate</button>
-<div class="result" id="sp_r"></div>
-</section>
-
-<!-- WELDED -->
-<section id="welded" class="tool">
-<h2>Welded Wire Mesh</h2>
-<div class="grid">
-<div><label>Material Density (kg/m³)</label>
-<select id="wm_mat">
+<select id="bw_mat">
 <option value="7850">MS / GI - 7850</option>
-<option value="8000">SS - 8000</option>
 </select></div>
-<div><label>Wire Dia (mm)</label><input id="wm_d" value="4"></div>
-<div><label>Pitch (mm)</label><input id="wm_h" value="50"></div>
-<div><label>Width (m)</label><input id="wm_w" value="1"></div>
-<div><label>Length (m)</label><input id="wm_l" value="2"></div>
+<div><label>Main Wire Dia (mm)</label><input id="bw_d" value="2.5"></div>
+<div><label>Barb Wire Dia (mm)</label><input id="bw_bd" value="2"></div>
+<div><label>Barb Spacing (mm)</label><input id="bw_s" value="100"></div>
+<div><label>Total Length (m)</label><input id="bw_l" value="100"></div>
 </div>
-<button class="calc" onclick="calcWelded()">Calculate</button>
-<div class="result" id="wm_r"></div>
-<div class="note">Includes weld factor | ±1%</div>
+<button class="calc" onclick="calcBarb()">Calculate</button>
+<div class="result" id="bw_r"></div>
+<div class="note">2-point barb logic | ±1%</div>
 </section>
 
 </div>
@@ -274,83 +196,49 @@ document.getElementById(id).classList.add('active');
 btn.classList.add('active');
 }
 
-/* SS MESH */
-function calcSS(){
-let mesh=+ss_m.value;
-let d=+ss_d.value/1000;
-let w=+ss_w.value;
-let l=+ss_l.value;
-let dens=+ss_mat.value;
-let weave=+ss_weave.value;
+/* CHAINLINK */
+function calcChain(){
+let dens=+cl_mat.value;
+let d=+cl_d.value/1000;
+let mesh=+cl_m.value/1000;
+let w=+cl_w.value;
+let l=+cl_l.value;
 
-let wiresPerMeter=mesh*39.37;
-let totalWireLength=(wiresPerMeter*w*l*2);
+let factor=1.414; // diamond factor
+let wireLength=(w*l/mesh)*factor;
 let cross=(Math.PI*d*d)/4;
-let weight=totalWireLength*cross*dens*weave;
+let weight=wireLength*cross*dens;
 
-ss_r.innerHTML=`
+cl_r.innerHTML=`
 <b>Engineering Summary</b><br>
-Wires per meter: ${wiresPerMeter.toFixed(2)}<br>
-Total wire length: ${totalWireLength.toFixed(2)} m<br>
-Cross section area: ${cross.toExponential(4)} m²<br>
+Total wire length: ${wireLength.toFixed(2)} m<br>
+Cross section: ${cross.toExponential(4)} m²<br>
 Calculated weight: <b>${weight.toFixed(2)} kg</b>
 `;
 }
 
-/* PERFORATED */
-function calcPerf(){
-let dens=+pf_mat.value;
-let h=+pf_h.value;
-let p=+pf_p.value;
-let t=+pf_t.value/1000;
-let area=+pf_a.value;
+/* BARBED */
+function calcBarb(){
+let dens=+bw_mat.value;
+let d=+bw_d.value/1000;
+let bd=+bw_bd.value/1000;
+let spacing=+bw_s.value/1000;
+let length=+bw_l.value;
 
-let open=(Math.PI*h*h/4)/(p*p*0.866);
-let weight=area*t*dens*(1-open);
+let mainLength=length*2; // double twisted
+let barbCount=length/spacing;
+let barbLength=barbCount*0.10; // 100mm per barb approx
 
-pf_r.innerHTML=`
+let mainWeight=mainLength*(Math.PI*d*d/4)*dens;
+let barbWeight=barbLength*(Math.PI*bd*bd/4)*dens;
+
+let total=mainWeight+barbWeight;
+
+bw_r.innerHTML=`
 <b>Engineering Summary</b><br>
-Open area: ${(open*100).toFixed(2)} %<br>
-Net weight: <b>${weight.toFixed(2)} kg</b>
-`;
-}
-
-/* SPRING */
-function calcSpring(){
-let t=+sp_t.value/1000;
-let w=+sp_w.value;
-let l=+sp_l.value;
-let dens=+sp_mat.value;
-
-let weight=t*w*l*dens;
-
-sp_r.innerHTML=`
-<b>Engineering Summary</b><br>
-Volume: ${(t*w*l).toFixed(5)} m³<br>
-Calculated weight: <b>${weight.toFixed(2)} kg</b>
-`;
-}
-
-/* WELDED */
-function calcWelded(){
-let dens=+wm_mat.value;
-let d=+wm_d.value/1000;
-let pitch=+wm_h.value/1000;
-let w=+wm_w.value;
-let l=+wm_l.value;
-
-let vert=(w/pitch)+1;
-let hor=(l/pitch)+1;
-let totalLength=(vert*l)+(hor*w);
-let cross=(Math.PI*d*d)/4;
-let weight=totalLength*cross*dens*1.03;
-
-wm_r.innerHTML=`
-<b>Engineering Summary</b><br>
-Vertical wires: ${vert.toFixed(0)}<br>
-Horizontal wires: ${hor.toFixed(0)}<br>
-Total wire length: ${totalLength.toFixed(2)} m<br>
-Calculated weight: <b>${weight.toFixed(2)} kg</b>
+Main wire weight: ${mainWeight.toFixed(2)} kg<br>
+Barb wire weight: ${barbWeight.toFixed(2)} kg<br>
+Total weight: <b>${total.toFixed(2)} kg</b>
 `;
 }
 </script>
