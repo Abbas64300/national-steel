@@ -17,73 +17,104 @@ html{scroll-behavior:smooth}
 body{
 margin:0;
 font-family:'Inter',sans-serif;
-background:#f4f6f8;
-color:#1f2933;
+background:#0a1624;
+color:#e6edf5;
+overflow-x:hidden;
+}
+
+/* ===== ANIMATED MESH BACKGROUND ===== */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+animation:meshMove 40s linear infinite;
+z-index:-1;
+}
+@keyframes meshMove{
+0%{background-position:0 0;}
+100%{background-position:200px 200px;}
 }
 
 /* HEADER */
 header{
-background:#0b1f33;
-padding:18px 28px;
+background:rgba(10,22,36,0.95);
+backdrop-filter:blur(12px);
+padding:22px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.06);
+position:sticky;
+top:0;
+z-index:1000;
 }
 header h1{
 font-family:'IBM Plex Sans',sans-serif;
-font-size:26px;
-color:#fff;
+font-size:28px;
 margin:0;
+letter-spacing:.6px;
 }
 header span{color:#f4b41a}
 nav a{
 color:#cbd5e1;
-margin-left:20px;
+margin-left:32px;
 text-decoration:none;
 font-size:13px;
 font-weight:600;
-letter-spacing:.4px;
+letter-spacing:1px;
 text-transform:uppercase;
+transition:.3s;
 }
 nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
-padding:90px 20px;
-background:linear-gradient(135deg,#0b1f33,#102a43);
-color:#fff;
+padding:140px 20px;
+background:linear-gradient(135deg,#0b1f33,#123456);
 text-align:center;
+position:relative;
 }
 .hero h2{
 font-family:'IBM Plex Sans',sans-serif;
-font-size:clamp(34px,4vw,52px);
-margin-bottom:14px;
+font-size:clamp(42px,4vw,64px);
+margin-bottom:20px;
+letter-spacing:.6px;
 }
 .hero p{
-max-width:820px;
+max-width:850px;
 margin:auto;
-font-size:16px;
-color:#d1d5db;
-line-height:1.7;
+font-size:18px;
+color:#cbd5e1;
+line-height:1.9;
 }
 
 /* CTA */
 .cta{
-margin-top:30px;
+margin-top:42px;
 display:flex;
-gap:14px;
+gap:20px;
 justify-content:center;
 flex-wrap:wrap;
 }
 .cta a{
 background:#f4b41a;
 color:#0b1f33;
-padding:14px 22px;
-border-radius:30px;
+padding:16px 28px;
+border-radius:50px;
 font-weight:700;
 font-size:14px;
 text-decoration:none;
+transition:.3s;
+box-shadow:0 15px 40px rgba(244,180,26,.3);
 }
+.cta a:hover{transform:translateY(-4px)}
 .cta a.secondary{
 background:transparent;
 border:1px solid #fff;
@@ -92,105 +123,154 @@ color:#fff;
 
 /* ABOUT */
 .about{
-padding:90px 20px;
-background:#fff;
+padding:120px 20px;
+background:#ffffff;
+color:#1f2933;
 }
 .about h2{
 text-align:center;
 font-family:'IBM Plex Sans',sans-serif;
-font-size:34px;
-margin-bottom:30px;
+font-size:38px;
+margin-bottom:40px;
 }
 .about p{
 max-width:900px;
 margin:auto;
-font-size:16px;
-line-height:1.8;
+font-size:17px;
+line-height:1.9;
 color:#374151;
 text-align:center;
 }
 
 /* SPECIALISATION */
 .special{
-padding:80px 20px;
-background:#f4f6f8;
+padding:120px 20px;
+background:#f8fafc;
+color:#111827;
 }
 .special h2{
 text-align:center;
 font-family:'IBM Plex Sans',sans-serif;
-font-size:32px;
-margin-bottom:40px;
+font-size:36px;
+margin-bottom:60px;
 }
 .special-grid{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:24px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
 }
 .special-card{
-background:#fff;
-border-radius:16px;
-padding:26px;
-box-shadow:0 12px 28px rgba(0,0,0,.08);
+background:#ffffff;
+border-radius:24px;
+padding:40px;
+box-shadow:0 30px 70px rgba(0,0,0,.08);
+transition:.3s;
+border:1px solid #e5e7eb;
+}
+.special-card:hover{
+transform:translateY(-8px);
+box-shadow:0 40px 90px rgba(0,0,0,.15);
 }
 .special-card h3{
 margin-top:0;
-font-size:18px;
+font-size:20px;
+margin-bottom:16px;
 }
 .special-card p{
 font-size:15px;
 color:#4b5563;
-line-height:1.6;
+line-height:1.7;
 }
 
 /* STATES */
 .states{
-padding:80px 20px;
-background:#fff;
+padding:120px 20px;
+background:#0f2742;
 }
 .states h2{
 text-align:center;
 font-family:'IBM Plex Sans',sans-serif;
-font-size:32px;
-margin-bottom:40px;
+font-size:36px;
+margin-bottom:60px;
 }
 .states ul{
 max-width:1100px;
 margin:auto;
-columns:3;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
 list-style:none;
 padding:0;
 }
-.states li{margin-bottom:12px}
+.states li{
+background:rgba(255,255,255,0.06);
+padding:20px;
+border-radius:14px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+transition:.3s;
+}
+.states li:hover{
+background:rgba(255,255,255,0.12);
+transform:translateY(-5px);
+}
 .states a{
 text-decoration:none;
-color:#0b1f33;
-font-weight:600;
+color:#f4b41a;
+font-weight:700;
+letter-spacing:.5px;
 }
-.states a:hover{text-decoration:underline}
 
-/* FOOTER */
+/* ===== EXECUTIVE FOOTER ===== */
 footer{
-background:#0b1f33;
-color:#cbd5e1;
-padding:30px;
+background:#081726;
+padding:80px 50px 40px;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+.footer-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:50px;
+}
+.footer-col h4{
+color:#ffffff;
+font-family:'IBM Plex Sans',sans-serif;
+margin-bottom:20px;
+letter-spacing:.5px;
+}
+.footer-col p,
+.footer-col a{
+color:#94a3b8;
+font-size:14px;
+line-height:1.8;
+text-decoration:none;
+}
+.footer-col a:hover{color:#ffffff}
+
+.footer-bottom{
 text-align:center;
+margin-top:60px;
 font-size:13px;
+color:#64748b;
 }
 
 /* FLOATING ICONS */
 .float{
 position:fixed;
-right:20px;
+right:25px;
+bottom:25px;
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:14px;
 z-index:999;
 }
 .float a{
-width:54px;
-height:54px;
+width:60px;
+height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -198,12 +278,13 @@ justify-content:center;
 color:#fff;
 font-size:22px;
 text-decoration:none;
-box-shadow:0 8px 24px rgba(0,0,0,.3);
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+transition:.3s;
 }
+.float a:hover{transform:translateY(-4px)}
 .call{background:#0b5ed7}
 .mail{background:#374151}
 .whatsapp{background:#25d366}
-.float{bottom:20px}
 </style>
 </head>
 
@@ -247,31 +328,26 @@ Our focus is not volume, but reliability, repeat business and long-term partners
 <section id="special" class="special">
 <h2>Our Core Specialisation</h2>
 <div class="special-grid">
-
 <div class="special-card">
 <h3>Stainless Steel Wire Mesh</h3>
 <p>Plain woven, crimped and welded SS mesh in grades 304, 316 and 310 for filtration,
 screening and industrial separation applications.</p>
 </div>
-
 <div class="special-card">
 <h3>Welded Wire Mesh</h3>
 <p>GI, MS and SS welded mesh panels and rolls for structural reinforcement,
 safety fencing and industrial enclosures.</p>
 </div>
-
 <div class="special-card">
 <h3>Chain Link & Barbed Wire</h3>
 <p>Precision-manufactured chain link fencing and IS-standard barbed wire
 for infrastructure, security and perimeter applications.</p>
 </div>
-
 <div class="special-card">
 <h3>Perforated Sheets & Extrusion Screens</h3>
 <p>Round, square and slot perforated sheets along with extrusion screens
 manufactured to controlled open area, thickness and tolerance.</p>
 </div>
-
 </div>
 </section>
 
@@ -286,15 +362,34 @@ manufactured to controlled open area, thickness and tolerance.</p>
 <li><a href="states/punjab.html">Punjab</a></li>
 <li><a href="states/rajasthan.html">Rajasthan</a></li>
 <li><a href="states/uttarpradesh.html">Uttar Pradesh</a></li>
-<li><a href="states/west bengal.html">West Bengal</a></li>
+<li><a href="states/westbengal.html">West Bengal</a></li>
 </ul>
 </section>
 
 <footer>
-© 2026 National Steel · Rajkot, Gujarat · Industrial Wire Mesh Supply Across India
+<div class="footer-grid">
+<div class="footer-col">
+<h4>About National Steel</h4>
+<p>Industrial wire mesh supplier headquartered in Rajkot, Gujarat serving EPC contractors, infrastructure projects and process industries across India.</p>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<a href="products.html">Products</a><br>
+<a href="engineering-tools.html">Engineering Tools</a><br>
+<a href="contact.html">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<p>Rajkot, Gujarat, India<br>
+Phone: +91 78020 21053<br>
+Email: business.nationalsteel@gmail.com</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 National Steel · Industrial Wire Mesh Supply Across India
+</div>
 </footer>
 
-<!-- FLOATING ACTIONS -->
 <div class="float">
 <a href="tel:+917802021053" class="call">📞</a>
 <a href="mailto:business.nationalsteel@gmail.com" class="mail">✉️</a>
