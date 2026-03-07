@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -9,33 +9,22 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
 <style>
-
-:root{
---navy:#051326;
---navy2:#0b2f55;
---accent:#3b82ff;
---border:rgba(255,255,255,0.15);
---text:#e8eef6;
-}
 
 body{
 margin:0;
 font-family:Inter;
-background:linear-gradient(140deg,#02101f,#051a33);
-color:var(--text);
+background:#02101f;
+color:white;
 }
 
 header{
-padding:60px 20px;
-background:linear-gradient(120deg,var(--navy),var(--navy2));
+padding:50px 20px;
+background:#0b2f55;
 }
 
 nav{
 background:#07162f;
-border-bottom:1px solid var(--border);
 }
 
 .nav-wrap{
@@ -46,11 +35,11 @@ overflow-x:auto;
 }
 
 .nav-wrap button{
-padding:10px 18px;
-border-radius:30px;
-border:1px solid var(--border);
+padding:10px 16px;
 background:#0a1a33;
+border:1px solid #1f355f;
 color:white;
+border-radius:20px;
 cursor:pointer;
 }
 
@@ -61,14 +50,14 @@ background:#3b82ff;
 .container{
 max-width:1100px;
 margin:auto;
-padding:30px 16px;
+padding:30px;
 }
 
 .tool{
 display:none;
 background:#0a1a33;
-padding:28px;
-border-radius:16px;
+padding:30px;
+border-radius:12px;
 margin-bottom:20px;
 }
 
@@ -80,12 +69,11 @@ display:block;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:16px;
-margin-top:20px;
 }
 
 input,select{
 padding:10px;
-border-radius:8px;
+border-radius:6px;
 border:1px solid #1f355f;
 background:#08152c;
 color:white;
@@ -94,10 +82,10 @@ width:100%;
 
 .calc{
 margin-top:20px;
-padding:12px 20px;
-border:none;
+padding:12px;
 background:#3b82ff;
-border-radius:10px;
+border:none;
+border-radius:8px;
 color:white;
 cursor:pointer;
 }
@@ -106,14 +94,7 @@ cursor:pointer;
 margin-top:20px;
 background:#08152c;
 padding:15px;
-border-radius:10px;
-}
-
-.viewer{
-height:260px;
-margin-top:20px;
-background:#08152c;
-border-radius:10px;
+border-radius:8px;
 }
 
 </style>
@@ -126,17 +107,19 @@ border-radius:10px;
 </header>
 
 <nav>
+
 <div class="nav-wrap">
 
 <button class="active" data-tool="chain">Chainlink</button>
-<button data-tool="perf">Perforated</button>
 <button data-tool="barb">Barbed</button>
+<button data-tool="perf">Perforated</button>
 <button data-tool="weld">Weld Mesh</button>
 <button data-tool="ss">SS Mesh</button>
 <button data-tool="crimp">Crimp Mesh</button>
 <button data-tool="extruder">Extruder</button>
 
 </div>
+
 </nav>
 
 <div class="container">
@@ -165,7 +148,26 @@ border-radius:10px;
 
 <div id="cl_r" class="result"></div>
 
-<div id="chain3d" class="viewer"></div>
+</section>
+
+<!-- BARBED -->
+
+<section id="barb" class="tool">
+
+<h2>Barbed Wire</h2>
+
+<div class="grid">
+
+<input id="bw_d" placeholder="Main wire mm">
+<input id="bw_bd" placeholder="Barb mm">
+<input id="bw_s" placeholder="Spacing mm">
+<input id="bw_l" placeholder="Length m">
+
+</div>
+
+<button class="calc" onclick="calcBarb()">Calculate</button>
+
+<div id="bw_r" class="result"></div>
 
 </section>
 
@@ -188,7 +190,93 @@ border-radius:10px;
 
 <div id="pf_r" class="result"></div>
 
-<div id="perf3d" class="viewer"></div>
+</section>
+
+<!-- WELD -->
+
+<section id="weld" class="tool">
+
+<h2>Weld Mesh</h2>
+
+<div class="grid">
+
+<input id="wm_d" placeholder="Wire mm">
+<input id="wm_h" placeholder="Hole mm">
+<input id="wm_w" placeholder="Width m">
+<input id="wm_l" placeholder="Length m">
+
+</div>
+
+<button class="calc" onclick="calcWeld()">Calculate</button>
+
+<div id="wm_r" class="result"></div>
+
+</section>
+
+<!-- SS -->
+
+<section id="ss" class="tool">
+
+<h2>SS Wire Mesh</h2>
+
+<div class="grid">
+
+<input id="ss_d" placeholder="Wire mm">
+<input id="ss_h" placeholder="Opening mm">
+<input id="ss_w" placeholder="Width m">
+<input id="ss_l" placeholder="Length m">
+
+</div>
+
+<button class="calc" onclick="calcSS()">Calculate</button>
+
+<div id="ss_r" class="result"></div>
+
+</section>
+
+<!-- CRIMP -->
+
+<section id="crimp" class="tool">
+
+<h2>Crimp Mesh</h2>
+
+<div class="grid">
+
+<input id="cr_d" placeholder="Wire mm">
+<input id="cr_h" placeholder="Opening mm">
+<input id="cr_w" placeholder="Width m">
+<input id="cr_l" placeholder="Length m">
+
+</div>
+
+<button class="calc" onclick="calcCrimp()">Calculate</button>
+
+<div id="cr_r" class="result"></div>
+
+</section>
+
+<!-- EXTRUDER -->
+
+<section id="extruder" class="tool">
+
+<h2>Extruder Screen</h2>
+
+<div class="grid">
+
+<select id="ex_mat">
+<option value="8000">SS304</option>
+<option value="8000">SS310</option>
+</select>
+
+<input id="ex_open" placeholder="Opening mm">
+<input id="ex_wire" placeholder="Wire mm">
+<input id="ex_dia" placeholder="Diameter mm">
+
+</div>
+
+<button class="calc" onclick="calcExtruder()">Calculate</button>
+
+<div id="ex_r" class="result"></div>
 
 </section>
 
@@ -196,7 +284,7 @@ border-radius:10px;
 
 <script>
 
-/* SAFE NAVIGATION */
+/* NAVIGATION */
 
 document.querySelectorAll(".nav-wrap button").forEach(btn=>{
 
@@ -205,8 +293,7 @@ btn.addEventListener("click",()=>{
 document.querySelectorAll(".tool").forEach(t=>t.classList.remove("active"))
 document.querySelectorAll(".nav-wrap button").forEach(b=>b.classList.remove("active"))
 
-let id=btn.dataset.tool
-document.getElementById(id).classList.add("active")
+document.getElementById(btn.dataset.tool).classList.add("active")
 
 btn.classList.add("active")
 
@@ -214,7 +301,7 @@ btn.classList.add("active")
 
 })
 
-/* CHAIN CALCULATION */
+/* CHAIN */
 
 function calcChain(){
 
@@ -234,78 +321,26 @@ let weight=wireLength*cross*dens
 
 cl_r.innerHTML=Weight: ${weight.toFixed(2)} kg
 
-renderChain(mesh,d)
-
 }
 
-/* 3D CHAINLINK */
+/* BARBED */
 
-function renderChain(mesh,wire){
+function calcBarb(){
 
-let container=document.getElementById("chain3d")
-container.innerHTML=""
+let d=+bw_d.value/1000
+let bd=+bw_bd.value/1000
+let spacing=+bw_s.value/1000
+let length=+bw_l.value
+let dens=7850
 
-let scene=new THREE.Scene()
+let mainLength=length*2
+let barbCount=length/spacing
+let barbLength=barbCount*0.1
 
-let camera=new THREE.PerspectiveCamera(
-45,
-container.clientWidth/container.clientHeight,
-0.1,
-1000
-)
+let mainWeight=mainLength*(Math.PI*d*d/4)*dens
+let barbWeight=barbLength*(Math.PI*bd*bd/4)*dens
 
-camera.position.set(0,3,6)
-
-let renderer=new THREE.WebGLRenderer({antialias:true})
-renderer.setSize(container.clientWidth,container.clientHeight)
-
-container.appendChild(renderer.domElement)
-
-let light=new THREE.DirectionalLight(0xffffff,1)
-light.position.set(5,5,5)
-scene.add(light)
-
-let group=new THREE.Group()
-
-let spacing=mesh*20
-
-for(let i=-3;i<=3;i+=mesh*20){
-
-let geo=new THREE.CylinderGeometry(wire*20,wire*20,8)
-let mat=new THREE.MeshStandardMaterial({color:0xd0d0d0})
-
-let line=new THREE.Mesh(geo,mat)
-
-line.rotation.z=Math.PI/4
-line.position.y=i
-
-group.add(line)
-
-}
-
-for(let i=-3;i<=3;i+=mesh*20){
-
-let geo=new THREE.CylinderGeometry(wire*20,wire*20,8)
-let mat=new THREE.MeshStandardMaterial({color:0xd0d0d0})
-
-let line=new THREE.Mesh(geo,mat)
-
-line.rotation.z=-Math.PI/4
-line.position.y=i
-
-group.add(line)
-
-}
-
-scene.add(group)
-
-function animate(){
-requestAnimationFrame(animate)
-group.rotation.y+=0.01
-renderer.render(scene,camera)
-}
-
-animate()
+bw_r.innerHTML=Weight: ${(mainWeight+barbWeight).toFixed(2)} kg
 
 }
 
@@ -326,51 +361,86 @@ let openArea=(holeArea*holes)/sheetArea*100
 
 pf_r.innerHTML=Open Area: ${openArea.toFixed(2)} %
 
-renderPerf(hole,pitch)
+}
+
+/* WELD */
+
+function calcWeld(){
+
+let d=+wm_d.value/1000
+let hole=+wm_h.value/1000
+let w=+wm_w.value
+let l=+wm_l.value
+
+let wiresX=w/hole
+let wiresY=l/hole
+
+let totalWire=(wiresX*l)+(wiresY*w)
+
+let weight=totalWire*(Math.PI*d*d/4)*7850
+
+wm_r.innerHTML=Weight: ${weight.toFixed(2)} kg
 
 }
 
-/* 3D PERFORATED */
+/* SS */
 
-function renderPerf(hole,pitch){
+function calcSS(){
 
-let container=document.getElementById("perf3d")
-container.innerHTML=""
+let d=+ss_d.value/1000
+let hole=+ss_h.value/1000
+let w=+ss_w.value
+let l=+ss_l.value
 
-let scene=new THREE.Scene()
+let wires=(w/hole)+(l/hole)
 
-let camera=new THREE.PerspectiveCamera(
-45,
-container.clientWidth/container.clientHeight,
-0.1,
-1000
-)
+let length=wires*(l+w)/2
 
-camera.position.set(0,3,6)
+let weight=length*(Math.PI*d*d/4)*8000
 
-let renderer=new THREE.WebGLRenderer({antialias:true})
-renderer.setSize(container.clientWidth,container.clientHeight)
+ss_r.innerHTML=Weight: ${weight.toFixed(2)} kg
 
-container.appendChild(renderer.domElement)
-
-let light=new THREE.DirectionalLight(0xffffff,1)
-light.position.set(5,5,5)
-scene.add(light)
-
-let plate=new THREE.Mesh(
-new THREE.BoxGeometry(6,0.2,6),
-new THREE.MeshStandardMaterial({color:0x777777})
-)
-
-scene.add(plate)
-
-function animate(){
-requestAnimationFrame(animate)
-plate.rotation.y+=0.01
-renderer.render(scene,camera)
 }
 
-animate()
+/* CRIMP */
+
+function calcCrimp(){
+
+let d=+cr_d.value/1000
+let hole=+cr_h.value/1000
+let w=+cr_w.value
+let l=+cr_l.value
+
+let wires=(w/hole)+(l/hole)
+
+let length=wires*(l+w)/2
+
+let weight=length*(Math.PI*d*d/4)*7850
+
+cr_r.innerHTML=Weight: ${weight.toFixed(2)} kg
+
+}
+
+/* EXTRUDER */
+
+function calcExtruder(){
+
+let dens=+ex_mat.value
+let open=+ex_open.value
+let wire=+ex_wire.value
+let dia=+ex_dia.value
+
+let mesh=25.4/(open+wire)
+
+let area=Math.PI*(dia/2)*(dia/2)
+
+let wireLength=mesh*mesh*Math.sqrt(area)
+
+let cross=Math.PI*(wire/1000)*(wire/1000)/4
+
+let weight=wireLength*cross*dens
+
+ex_r.innerHTML=Mesh: ${mesh.toFixed(2)}<br>Weight: ${weight.toFixed(2)} kg
 
 }
 
