@@ -5,126 +5,362 @@
 <title>Contact | National Steel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- PREMIUM INDUSTRIAL FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- SCROLL ANIMATION -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6f8;
+
+body{
+margin:0;
+font-family:'Montserrat',sans-serif;
+background:#f4f6f8;
+color:#222;
+line-height:1.6;
 }
-header {
-  background: #0f2a44;
-  color: white;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* HEADER */
+
+header{
+background:#0f2a44;
+color:white;
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
-header h1 { margin: 0; }
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
+
+header h1{
+margin:0;
+font-size:26px;
+letter-spacing:1px;
 }
-section {
-  max-width: 900px;
-  margin: 50px auto;
-  background: white;
-  padding: 30px;
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+transition:.3s;
 }
-h2 { color: #0f2a44; }
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 15px;
+
+nav a:hover{
+opacity:.7;
 }
-button {
-  background: #0f2a44;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
+
+/* HERO */
+
+.hero{
+background:linear-gradient(rgba(15,42,68,0.9), rgba(15,42,68,0.9)),
+url("https://images.unsplash.com/photo-1581093458791-9f3c3250b6ef");
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+padding:90px 20px;
 }
-footer {
-  background: #0f2a44;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+
+.hero h2{
+font-size:42px;
+margin-bottom:10px;
 }
+
+.hero p{
+font-size:18px;
+opacity:.9;
+}
+
+/* MAIN */
+
+section{
+max-width:1200px;
+margin:auto;
+padding:70px 30px;
+}
+
+/* GRID */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 12px 35px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 22px 45px rgba(0,0,0,0.12);
+}
+
+.card h3{
+color:#0f2a44;
+margin-bottom:20px;
+}
+
+/* CONTACT ITEMS */
+
+.contact-item{
+margin-bottom:18px;
+font-size:16px;
+}
+
+.contact-item strong{
+color:#0f2a44;
+}
+
+/* FORM */
+
+form{
+display:flex;
+flex-direction:column;
+}
+
+label{
+font-weight:600;
+margin-top:10px;
+}
+
+input, textarea, select{
+padding:13px;
+margin-top:6px;
+margin-bottom:18px;
+border:1px solid #d0d7de;
+border-radius:6px;
+font-size:15px;
+font-family:'Montserrat',sans-serif;
+}
+
+input:focus, textarea:focus, select:focus{
+outline:none;
+border-color:#0f2a44;
+}
+
+/* BUTTON */
+
+button{
+background:#0f2a44;
+color:white;
+padding:15px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#173f67;
+}
+
+/* MAP */
+
+.map{
+margin-top:70px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
+
+footer{
+background:#0f2a44;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:70px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:16px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+z-index:1000;
+transition:.3s;
+}
+
+.whatsapp:hover{
+background:#1ebe5d;
+transform:scale(1.05);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.hero h2{
+font-size:30px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>National Steel</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Products</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<h1>National Steel</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 
+<div class="hero">
+<h2>Contact National Steel</h2>
+<p>Reliable Supplier of Industrial Wire Mesh & Steel Solutions</p>
+</div>
+
 <section>
-<h2>Contact Us</h2>
 
-<p><strong>National Steel</strong><br>
-Rajkot, Gujarat, India</p>
+<div class="contact-grid">
 
-<p>
-📍 <strong>National Steel</strong><br>
-Rajkot, Gujarat, India<br><br>
+<div class="card" data-aos="fade-right">
 
-📞 <strong>Phone:</strong><br>
+<h3>Company Information</h3>
+
+<div class="contact-item">
+📍 <strong>Location</strong><br>
+Rajkot, Gujarat, India
+</div>
+
+<div class="contact-item">
+📞 <strong>Phone</strong><br>
 <a href="tel:+917802021053">+91 7802021053 (Sales)</a><br>
-<a href="tel:+919904144986">+91 9904144986 (Factory)</a><br><br>
+<a href="tel:+919904144986">+91 9904144986 (Factory)</a>
+</div>
 
-🕒 <strong>Working Hours:</strong><br>
+<div class="contact-item">
+🕒 <strong>Working Hours</strong><br>
 Monday – Saturday: 9:00 AM – 7:00 PM<br>
-Sunday: Closed<br><br>
+Sunday: Closed
+</div>
 
-📧 <strong>Email:</strong>
+<div class="contact-item">
+📧 <strong>Email</strong><br>
 <a href="mailto:nsmesh.sales@gmail.com">nsmesh.sales@gmail.com</a>
-</p>
-</p>
+</div>
 
-<<<form name="contact" method="POST" data-netlify="true">
-  <action="thank-you.html">
+</div>
 
-  <label>Your Name</label>
-  <input type="text" name="name" placeholder="Enter your name" required>
 
-  <label>Your Email</label>
-  <input type="email" name="email" placeholder="Enter your email" required>
+<div class="card" data-aos="fade-left">
 
-  <label>Your Message</label>
-  <textarea name="message" rows="5" placeholder="Enter your requirement" required></textarea>
+<h3>Send Enquiry</h3>
 
-  <button type="submit">Send Enquiry</button>
+<form name="contact" method="POST" data-netlify="true" action="thank-you.html" onsubmit="sendWhatsApp()">
+
+<label>Your Name</label>
+<input type="text" id="name" name="name" required>
+
+<label>Your Email</label>
+<input type="email" id="email" name="email" required>
+
+<label>Product Interested In</label>
+<select id="product" name="product">
+<option>Welded Wire Mesh</option>
+<option>Chainlink Mesh</option>
+<option>Stainless Steel Mesh</option>
+<option>PVC Coated Mesh</option>
+<option>Expanded Metal</option>
+<option>Other</option>
+</select>
+
+<label>Your Message</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+
+<button type="submit">Send Enquiry</button>
+
 </form>
 
+</div>
 
+</div>
+
+
+<div class="map" data-aos="fade-up">
+
+<iframe
+src="https://maps.google.com/maps?q=rajkot%20gujarat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="350"
+style="border:0;">
+</iframe>
+
+</div>
+
+</section>
 
 <footer>
 © 2026 National Steel | All Rights Reserved
 </footer>
+
+
 <a href="https://wa.me/917802021053?text=Hello%20National%20Steel,%20I%20need%20wire%20mesh%20details"
-   style="
-   position:fixed;
-   bottom:20px;
-   right:20px;
-   background:#25D366;
-   color:white;
-   padding:14px 20px;
-   border-radius:50px;
-   text-decoration:none;
-   font-weight:bold;
-   z-index:1000;">
-   WhatsApp
+class="whatsapp">
+WhatsApp
 </a>
+
+<!-- AUTO WHATSAPP SCRIPT -->
+
+<script>
+
+function sendWhatsApp(){
+
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var product=document.getElementById("product").value;
+var message=document.getElementById("message").value;
+
+var text="New Enquiry%0A%0AName: "+name+
+"%0AEmail: "+email+
+"%0AProduct: "+product+
+"%0AMessage: "+message;
+
+window.open("https://wa.me/917802021053?text="+text,"_blank");
+
+}
+
+</script>
+
+<!-- SCROLL ANIMATION -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+duration:900,
+once:true
+});
+</script>
+
 </body>
 </html>
