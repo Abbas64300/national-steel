@@ -1,399 +1,418 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>National Steel | Precision Engineering Suite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand-blue: #0052cc;
-            --bg-dark: #0a0e14;
-            --panel-bg: #161b22;
-            --border-color: #30363d;
-            --text-main: #e6edf3;
-            --accent-green: #238636;
-        }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-        header {
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #0b2f55 0%, #051937 100%);
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-        }
+<title>National Steel | Precision Engineering Suite</title>
 
-        header h1 {
-            margin: 0;
-            font-family: 'IBM Plex Sans', sans-serif;
-            letter-spacing: -0.5px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
-        nav {
-            background: #0d1117;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-        }
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
 
-        .nav-wrap {
-            display: flex;
-            gap: 8px;
-            padding: 12px;
-            overflow-x: auto;
-            max-width: 1100px;
-            margin: auto;
-            scrollbar-width: none;
-        }
+<style>
 
-        .nav-wrap button {
-            padding: 8px 20px;
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: #8b949e;
-            border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: 0.2s;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
+:root{
+--brand-blue:#0052cc;
+--bg-dark:#0a0e14;
+--panel-bg:#161b22;
+--border-color:#30363d;
+--text-main:#e6edf3;
+--accent-green:#238636;
+}
 
-        .nav-wrap button.active {
-            background: var(--brand-blue);
-            color: white;
-            border-color: var(--brand-blue);
-        }
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:var(--bg-dark);
+color:var(--text-main);
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+header{
+padding:40px 20px;
+background:linear-gradient(135deg,#0b2f55 0%,#051937 100%);
+border-bottom:1px solid var(--border-color);
+text-align:center;
+}
 
-        .tool {
-            display: none;
-            background: var(--panel-bg);
-            padding: 35px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+header h1{
+margin:0;
+font-size:1.8rem;
+text-transform:uppercase;
+}
 
-        .tool.active { display: block; }
+nav{
+background:#0d1117;
+position:sticky;
+top:0;
+border-bottom:1px solid var(--border-color);
+}
 
-        h2 {
-            margin-top: 0;
-            font-size: 1.4rem;
-            border-left: 4px solid var(--brand-blue);
-            padding-left: 15px;
-            margin-bottom: 25px;
-        }
+.nav-wrap{
+display:flex;
+gap:8px;
+padding:12px;
+overflow-x:auto;
+max-width:1100px;
+margin:auto;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
+.nav-wrap button{
+padding:8px 20px;
+background:transparent;
+border:1px solid var(--border-color);
+color:#8b949e;
+border-radius:4px;
+cursor:pointer;
+font-weight:600;
+font-size:.85rem;
+}
 
-        .input-group label {
-            display: block;
-            font-size: 0.75rem;
-            color: #8b949e;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
+.nav-wrap button.active{
+background:var(--brand-blue);
+color:white;
+border-color:var(--brand-blue);
+}
 
-        input, select {
-            padding: 12px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            background: #0d1117;
-            color: white;
-            width: 100%;
-            box-sizing: border-box;
-            font-family: 'IBM Plex Mono', monospace;
-        }
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
 
-        input:focus {
-            outline: none;
-            border-color: var(--brand-blue);
-        }
+.tool{
+display:none;
+background:var(--panel-bg);
+padding:35px;
+border-radius:8px;
+border:1px solid var(--border-color);
+}
 
-        .calc {
-            margin-top: 30px;
-            padding: 14px 28px;
-            background: var(--accent-green);
-            border: none;
-            border-radius: 4px;
-            color: white;
-            cursor: pointer;
-            font-weight: 700;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.tool.active{display:block;}
 
-        .result {
-            margin-top: 25px;
-            background: #0d1117;
-            padding: 20px;
-            border-radius: 4px;
-            border-left: 4px solid var(--brand-blue);
-        }
+h2{
+margin-top:0;
+font-size:1.4rem;
+border-left:4px solid var(--brand-blue);
+padding-left:15px;
+margin-bottom:25px;
+}
 
-        .result-val {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.2rem;
-            color: #58a6ff;
-        }
-    </style>
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.input-group label{
+display:block;
+font-size:.75rem;
+color:#8b949e;
+margin-bottom:6px;
+text-transform:uppercase;
+font-weight:600;
+}
+
+input,select{
+padding:12px;
+border-radius:4px;
+border:1px solid var(--border-color);
+background:#0d1117;
+color:white;
+width:100%;
+font-family:'IBM Plex Mono',monospace;
+}
+
+.calc{
+margin-top:30px;
+padding:14px 28px;
+background:var(--accent-green);
+border:none;
+border-radius:4px;
+color:white;
+cursor:pointer;
+font-weight:700;
+width:100%;
+}
+
+.result{
+margin-top:25px;
+background:#0d1117;
+padding:20px;
+border-radius:4px;
+border-left:4px solid var(--brand-blue);
+}
+
+.result-val{
+font-family:'IBM Plex Mono',monospace;
+font-size:1.2rem;
+color:#58a6ff;
+}
+
+.viewer{
+width:100%;
+height:320px;
+margin-top:20px;
+border:1px solid #2b313a;
+border-radius:6px;
+background:black;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>Precision Metal Weight Estimator</h1>
+<h1>Precision Metal Weight Estimator</h1>
 </header>
 
 <nav>
-    <div class="nav-wrap">
-        <button class="active" data-tool="chain">Chainlink</button>
-        <button data-tool="barb">Barbed Wire</button>
-        <button data-tool="perf">Perforated</button>
-        <button data-tool="weld">Weld Mesh</button>
-        <button data-tool="ss">SS Mesh</button>
-        <button data-tool="crimp">Crimp Mesh</button>
-        <button data-tool="extruder">Extruder</button>
-    </div>
+<div class="nav-wrap">
+
+<button class="active" data-tool="chain">Chainlink</button>
+<button data-tool="perf">Perforated</button>
+
+</div>
 </nav>
 
 <div class="container">
-    <section id="chain" class="tool active">
-        <h2>Chainlink Mesh (Interwoven)</h2>
-        <div class="grid">
-            <div class="input-group">
-                <label>Material</label>
-                <select id="cl_mat"><option value="7850">MS / GI (Carbon Steel)</option><option value="8000">Stainless Steel</option></select>
-            </div>
-            <div class="input-group"><label>Wire Dia (mm)</label><input id="cl_d" type="number" step="0.01"></div>
-            <div class="input-group"><label>Mesh Size (mm)</label><input id="cl_m" type="number"></div>
-            <div class="input-group"><label>Width (m)</label><input id="cl_w" type="number"></div>
-            <div class="input-group"><label>Length (m)</label><input id="cl_l" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcChain()">Calculate Nominal Weight</button>
-        <div id="cl_r" class="result">Enter parameters to see results.</div>
-    </section>
 
-    <section id="barb" class="tool">
-        <h2>Barbed Wire (Double Strand)</h2>
-        <div class="grid">
-            <div class="input-group"><label>Main Line Dia (mm)</label><input id="bw_d" type="number" step="0.01"></div>
-            <div class="input-group"><label>Barb Wire Dia (mm)</label><input id="bw_bd" type="number" step="0.01"></div>
-            <div class="input-group"><label>Barb Spacing (mm)</label><input id="bw_s" type="number"></div>
-            <div class="input-group"><label>Total Length (m)</label><input id="bw_l" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcBarb()">Calculate Weight</button>
-        <div id="bw_r" class="result"></div>
-    </section>
+<section id="chain" class="tool active">
 
-    <section id="perf" class="tool">
-        <h2>Perforated Sheet (60° Staggered)</h2>
-        <div class="grid">
-            <div class="input-group"><label>Hole Dia (mm)</label><input id="pf_hole" type="number" step="0.01"></div>
-            <div class="input-group"><label>Pitch (C to C) (mm)</label><input id="pf_pitch" type="number" step="0.01"></div>
-            <div class="input-group"><label>Sheet Length (mm)</label><input id="pf_l" type="number"></div>
-            <div class="input-group"><label>Sheet Width (mm)</label><input id="pf_w" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcPerf()">Calculate Open Area</button>
-        <div id="pf_r" class="result"></div>
-    </section>
+<h2>Chainlink Mesh</h2>
 
-    <section id="weld" class="tool">
-        <h2>Weld Mesh (Rigid)</h2>
-        <div class="grid">
-            <div class="input-group"><label>Wire Dia (mm)</label><input id="wm_d" type="number" step="0.01"></div>
-            <div class="input-group"><label>Hole Size (mm)</label><input id="wm_h" type="number"></div>
-            <div class="input-group"><label>Width (m)</label><input id="wm_w" type="number"></div>
-            <div class="input-group"><label>Length (m)</label><input id="wm_l" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcWeld()">Calculate Weight</button>
-        <div id="wm_r" class="result"></div>
-    </section>
+<div class="grid">
 
-    <section id="ss" class="tool">
-        <h2>SS Wire Mesh (Fine)</h2>
-        <div class="grid">
-            <div class="input-group"><label>Wire Dia (mm)</label><input id="ss_d" type="number" step="0.01"></div>
-            <div class="input-group"><label>Opening (mm)</label><input id="ss_h" type="number" step="0.01"></div>
-            <div class="input-group"><label>Width (m)</label><input id="ss_w" type="number"></div>
-            <div class="input-group"><label>Length (m)</label><input id="ss_l" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcSS()">Calculate Weight</button>
-        <div id="ss_r" class="result"></div>
-    </section>
+<div class="input-group">
+<label>Wire Dia (mm)</label>
+<input id="cl_d">
+</div>
 
-    <section id="crimp" class="tool">
-        <h2>Crimp Mesh (Heavy)</h2>
-        <div class="grid">
-            <div class="input-group"><label>Wire Dia (mm)</label><input id="cr_d" type="number" step="0.01"></div>
-            <div class="input-group"><label>Opening (mm)</label><input id="cr_h" type="number"></div>
-            <div class="input-group"><label>Width (m)</label><input id="cr_w" type="number"></div>
-            <div class="input-group"><label>Length (m)</label><input id="cr_l" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcCrimp()">Calculate Weight</button>
-        <div id="cr_r" class="result"></div>
-    </section>
+<div class="input-group">
+<label>Mesh Size (mm)</label>
+<input id="cl_m">
+</div>
 
-    <section id="extruder" class="tool">
-        <h2>Extruder Screen (Circular)</h2>
-        <div class="grid">
-            <div class="input-group">
-                <label>Material Grade</label>
-                <select id="ex_mat"><option value="8000">SS 304/316</option><option value="8100">SS 310/High Temp</option></select>
-            </div>
-            <div class="input-group"><label>Aperture/Opening (mm)</label><input id="ex_open" type="number" step="0.01"></div>
-            <div class="input-group"><label>Wire Dia (mm)</label><input id="ex_wire" type="number" step="0.01"></div>
-            <div class="input-group"><label>Screen Diameter (mm)</label><input id="ex_dia" type="number"></div>
-        </div>
-        <button class="calc" onclick="calcExtruder()">Calculate Metrics</button>
-        <div id="ex_r" class="result"></div>
-    </section>
+<div class="input-group">
+<label>Width (m)</label>
+<input id="cl_w">
+</div>
+
+<div class="input-group">
+<label>Length (m)</label>
+<input id="cl_l">
+</div>
+
+</div>
+
+<button class="calc" onclick="calcChain()">Calculate Weight</button>
+
+<div id="cl_r" class="result"></div>
+
+<div id="viewer" class="viewer"></div>
+
+</section>
+
+
+<section id="perf" class="tool">
+
+<h2>Perforated Sheet</h2>
+
+<div class="grid">
+
+<div class="input-group">
+<label>Hole Dia (mm)</label>
+<input id="pf_hole">
+</div>
+
+<div class="input-group">
+<label>Pitch (mm)</label>
+<input id="pf_pitch">
+</div>
+
+</div>
+
+<button class="calc" onclick="calcPerf()">Calculate Open Area</button>
+
+<div id="pf_r" class="result"></div>
+
+<div id="viewer" class="viewer"></div>
+
+</section>
+
 </div>
 
 <script>
-    /* NAVIGATION LOGIC */
-    document.querySelectorAll(".nav-wrap button").forEach(btn => {
-        btn.addEventListener("click", () => {
-            document.querySelectorAll(".tool").forEach(t => t.classList.remove("active"));
-            document.querySelectorAll(".nav-wrap button").forEach(b => b.classList.remove("active"));
-            document.getElementById(btn.dataset.tool).classList.add("active");
-            btn.classList.add("active");
-        });
-    });
 
-    /* ACCURATE INDUSTRIAL FORMULAS */
+/* NAVIGATION */
 
-    // Chainlink: Formula: (D*D / (M+D)) * 1.34 * W * L (approx standard)
-    // Precise: Weight = [ (D^2 * Dens * PI/4) * (Width * Length * Factor) ] / Mesh
-    function calcChain() {
-        const d = +document.getElementById('cl_d').value;
-        const m = +document.getElementById('cl_m').value;
-        const w = +document.getElementById('cl_w').value;
-        const l = +document.getElementById('cl_l').value;
-        const dens = +document.getElementById('cl_mat').value;
+document.querySelectorAll(".nav-wrap button").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll(".tool").forEach(t=>t.classList.remove("active"))
+document.querySelectorAll(".nav-wrap button").forEach(b=>b.classList.remove("active"))
 
-        if(!d || !m || !w || !l) return;
+document.getElementById(btn.dataset.tool).classList.add("active")
+btn.classList.add("active")
+}
+})
 
-        // Industrial Standard: Wt/SqM = (d*d * 0.617 / 100) * (2400 / m) -- rough
-        // Real volume: Factor 1.35 accounts for helix interweaving
-        const volume = (Math.PI * Math.pow(d/1000, 2) / 4) * (w * l / (m/1000)) * 1.38;
-        const res = volume * dens;
-        document.getElementById('cl_r').innerHTML = Estimated Total Weight: <span class="result-val">${res.toFixed(3)} kg</span>;
-    }
+/* 3D ENGINE */
 
-    function calcBarb() {
-        const d = +document.getElementById('bw_d').value / 1000;
-        const bd = +document.getElementById('bw_bd').value / 1000;
-        const s = +document.getElementById('bw_s').value / 1000;
-        const l = +document.getElementById('bw_l').value;
-        const dens = 7850;
+let scene,camera,renderer,controls,meshObj
 
-        // Double strand main wire (twist factor 1.05)
-        const mainWeight = (2 * l * 1.05) * (Math.PI * d * d / 4) * dens;
-        // 4-point barb: approx 0.15m wire per barb
-        const barbCount = l / s;
-        const barbWeight = barbCount * 0.15 * (Math.PI * bd * bd / 4) * dens;
+function init3D(){
 
-        document.getElementById('bw_r').innerHTML = Total Weight: <span class="result-val">${(mainWeight + barbWeight).toFixed(3)} kg</span>;
-    }
+const container=document.querySelector(".tool.active .viewer")
 
-    function calcPerf() {
-        const h = +document.getElementById('pf_hole').value;
-        const p = +document.getElementById('pf_pitch').value;
-        if(h >= p) { document.getElementById('pf_r').innerText = "Error: Pitch must be > Hole Dia"; return; }
-        
-        // Standard 60 degree staggered formula
-        const openArea = (Math.pow(h, 2) * 90.69) / Math.pow(p, 2);
-        document.getElementById('pf_r').innerHTML = Open Area Percentage: <span class="result-val">${openArea.toFixed(2)} %</span>;
-    }
+scene=new THREE.Scene()
 
-    function calcWeld() {
-        const d = +document.getElementById('wm_d').value;
-        const h = +document.getElementById('wm_h').value;
-        const w = +document.getElementById('wm_w').value;
-        const l = +document.getElementById('wm_l').value;
+camera=new THREE.PerspectiveCamera(
+45,
+container.clientWidth/container.clientHeight,
+0.1,
+1000
+)
 
-        // Cross sectional density factor (D^2 * 0.00617) for steel
-        const totalWires = (w / (h/1000)) + (l / (h/1000));
-        const wtPerSqm = (Math.pow(d, 2) / (h)) * 12.35; // Industry standard for 7850 density
-        const res = (d * d / (h + d)) * (w * l) * 0.617 * 2; // Precise wire count method
-        
-        const countX = Math.floor(w / (h/1000)) + 1;
-        const countY = Math.floor(l / (h/1000)) + 1;
-        const wireMeters = (countX * l) + (countY * w);
-        const weight = wireMeters * (Math.PI * Math.pow(d/1000, 2)/4) * 7850;
+camera.position.set(3,3,5)
 
-        document.getElementById('wm_r').innerHTML = Total Weight: <span class="result-val">${weight.toFixed(3)} kg</span>;
-    }
+renderer=new THREE.WebGLRenderer({antialias:true})
+renderer.setSize(container.clientWidth,container.clientHeight)
 
-    function calcSS() {
-        const d = +document.getElementById('ss_d').value;
-        const h = +document.getElementById('ss_h').value;
-        const w = +document.getElementById('ss_w').value;
-        const l = +document.getElementById('ss_l').value;
+container.innerHTML=""
+container.appendChild(renderer.domElement)
 
-        // Formula: (D^2 * Mesh Count) / 2.54 (Simplified)
-        // Precise: 
-        const mesh = 25.4 / (d + h);
-        const wtPerSqM = (d * d * mesh) / 50.8; // Result in kg/m2 for SS
-        const res = wtPerSqM * w * l;
+controls=new THREE.OrbitControls(camera,renderer.domElement)
 
-        document.getElementById('ss_r').innerHTML = Weight: <span class="result-val">${res.toFixed(3)} kg</span><br><small>Mesh Count: ${mesh.toFixed(1)}</small>;
-    }
+const light=new THREE.DirectionalLight(0xffffff,1)
+light.position.set(5,10,7)
+scene.add(light)
 
-    function calcCrimp() {
-        const d = +document.getElementById('cr_d').value;
-        const h = +document.getElementById('cr_h').value;
-        const w = +document.getElementById('cr_w').value;
-        const l = +document.getElementById('cr_l').value;
+const amb=new THREE.AmbientLight(0x404040)
+scene.add(amb)
 
-        // Crimp factor 1.12 for heavy wire bends
-        const countX = w / ((h + d)/1000);
-        const countY = l / ((h + d)/1000);
-        const totalL = (countX * l + countY * w) * 1.12;
-        const res = totalL * (Math.PI * Math.pow(d/1000, 2)/4) * 7850;
+animate()
 
-        document.getElementById('cr_r').innerHTML = Weight: <span class="result-val">${res.toFixed(3)} kg</span>;
-    }
+}
 
-    function calcExtruder() {
-        const dens = +document.getElementById('ex_mat').value;
-        const o = +document.getElementById('ex_open').value;
-        const w = +document.getElementById('ex_wire').value;
-        const dia = +document.getElementById('ex_dia').value / 1000;
+function animate(){
+requestAnimationFrame(animate)
+controls.update()
+renderer.render(scene,camera)
+}
 
-        const mesh = 25.4 / (o + w);
-        const area = (Math.PI * dia * dia / 4);
-        const weightSqM = (w * w * mesh) / 50.8;
-        const totalWt = weightSqM * area;
+/* CHAINLINK 3D */
 
-        document.getElementById('ex_r').innerHTML = `
-            Mesh: <span class="result-val">${mesh.toFixed(2)}</span><br>
-            Disc Weight: <span class="result-val">${totalWt.toFixed(5)} kg</span>
-        `;
-    }
+function createChainlink3D(pitch,wire,width,length){
+
+const material=new THREE.MeshStandardMaterial({color:0xb0b0b0})
+
+const group=new THREE.Group()
+
+for(let x=-width;x<width;x+=pitch){
+
+const geo=new THREE.CylinderGeometry(wire/2,wire/2,length,8)
+const m=new THREE.Mesh(geo,material)
+
+m.rotation.z=Math.PI/4
+m.position.x=x
+
+group.add(m)
+
+}
+
+for(let x=-width;x<width;x+=pitch){
+
+const geo=new THREE.CylinderGeometry(wire/2,wire/2,length,8)
+const m=new THREE.Mesh(geo,material)
+
+m.rotation.z=-Math.PI/4
+m.position.x=x
+
+group.add(m)
+
+}
+
+scene.add(group)
+meshObj=group
+
+}
+
+/* PERFORATED 3D */
+
+function createPerforated3D(hole,pitch){
+
+const material=new THREE.MeshStandardMaterial({color:0xcccccc})
+
+const plateGeo=new THREE.BoxGeometry(5,0.1,5)
+
+const plate=new THREE.Mesh(plateGeo,material)
+
+const group=new THREE.Group()
+
+group.add(plate)
+
+const holeGeo=new THREE.CylinderGeometry(hole/2,hole/2,0.2,16)
+
+for(let x=-2.5;x<2.5;x+=pitch){
+
+for(let y=-2.5;y<2.5;y+=pitch){
+
+const holeMesh=new THREE.Mesh(holeGeo,new THREE.MeshBasicMaterial({color:0x000000}))
+holeMesh.rotation.x=Math.PI/2
+holeMesh.position.set(x,0,y)
+
+group.add(holeMesh)
+
+}
+
+}
+
+scene.add(group)
+meshObj=group
+
+}
+
+/* CALCULATORS */
+
+function calcChain(){
+
+const d=cl_d.value/1000
+const m=cl_m.value/1000
+const w=+cl_w.value
+const l=+cl_l.value
+
+if(!d||!m||!w||!l)return
+
+const volume=(Math.PI*(d*d)/4)*(w*l/m)*1.38
+const weight=volume*7850
+
+cl_r.innerHTML="Weight: <span class='result-val'>"+weight.toFixed(3)+" kg</span>"
+
+init3D()
+createChainlink3D(m,d,w,l)
+
+}
+
+function calcPerf(){
+
+const h=+pf_hole.value
+const p=+pf_pitch.value
+
+const open=(h*h*90.69)/(p*p)
+
+pf_r.innerHTML="Open Area: <span class='result-val'>"+open.toFixed(2)+" %</span>"
+
+init3D()
+createPerforated3D(h/1000,p/1000)
+
+}
+
 </script>
 
 </body>
 </html>
+```
